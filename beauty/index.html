@@ -694,16 +694,16 @@
                     font-weight: 700 !important;
                 }
 
-                /* Make awards and trust images black on mobile */
+                /* Remove filters - keep images as original black on mobile */
                 .awards-main,
                 .trust-logo,
                 img[src*="As-seen-on"],
                 img[alt*="As seen on"],
                 img[src*="awards-and-acolades"],
                 .trust-logos img {
-                    filter: invert(1) grayscale(1) !important;
-                    opacity: 0.9 !important;
-                    -webkit-filter: invert(1) grayscale(1) !important;
+                    filter: none !important;
+                    opacity: 1 !important;
+                    -webkit-filter: none !important;
                 }
             }
 
@@ -1162,16 +1162,16 @@
                 display: none !important;
             }
 
-            /* Make awards and trust images black on tablets too */
+            /* Remove filters - keep images as original black on tablets */
             .awards-main,
             .trust-logo,
             img[src*="As-seen-on"],
             img[alt*="As seen on"],
             img[src*="awards-and-acolades"],
             .trust-logos img {
-                filter: invert(1) grayscale(1) !important;
-                opacity: 0.9 !important;
-                -webkit-filter: invert(1) grayscale(1) !important;
+                filter: none !important;
+                opacity: 1 !important;
+                -webkit-filter: none !important;
             }
 
             /* Hero section mobile optimization */
@@ -1845,7 +1845,7 @@
                 </div>
 
                 <p class="hero-subheadline hero-sub-desktop" style="font-size: 1.2rem; line-height: 1.6; color: #ffffff; max-width: 650px; margin: 1.5rem auto; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
-                    <strong style="background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f2937;">Warning:</strong> These aren't theory or "best practices." These are battle-tested frameworks from <strong style="background: rgba(34, 197, 94, 0.2); padding: 0.1rem 0.4rem; border-radius: 4px;">$127K generated in the last 2 weeks alone.</strong>
+                    <strong style="background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f2937;">Warning:</strong> These aren't theory or "best practices." These are battle-tested frameworks from <strong style="background: rgba(34, 197, 94, 0.3); padding: 0.1rem 0.4rem; border-radius: 4px; color: #22c55e; font-weight: 700;">$127K generated in the last 2 weeks alone.</strong>
                 </p>
 
                 
