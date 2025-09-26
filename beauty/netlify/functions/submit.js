@@ -415,10 +415,11 @@ async function sendWelcomeEmail(resend, email, firstName) {
                 <h3>Inside Your Download:</h3>
                 <ul>
                   <li>7 PDF frameworks with step-by-step instructions</li>
-                  <li>ROAS Calculator (Excel/Google Sheets)</li>
+                  <li>Instagram safe zones guide (never get cut off again)</li>
+                  <li>Beauty brand crisis swipe file (handle PR disasters)</li>
                   <li>30-day content calendar template</li>
                   <li>Copy-paste ad templates</li>
-                  <li>Audience targeting guides</li>
+                  <li>7 real ad examples that generated 10x+ ROAS</li>
                 </ul>
               </div>
 
@@ -489,10 +490,11 @@ https://drive.google.com/drive/folders/14mcLU0_x0NRW_LIX61AvyZV_bsvZJzZM?usp=sha
 
 Inside:
 ✓ 7 PDF frameworks with step-by-step instructions
-✓ ROAS Calculator (Excel/Google Sheets)
+✓ Instagram safe zones guide (never get cut off again)
+✓ Beauty brand crisis swipe file (handle PR disasters)
 ✓ 30-day content calendar template
 ✓ Copy-paste ad templates
-✓ Audience targeting guides
+✓ 7 real ad examples that generated 10x+ ROAS
 
 These generated €47M for beauty brands.
 
