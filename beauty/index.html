@@ -510,36 +510,36 @@
                     display: none !important;
                 }
 
-                /* Hero Title Optimization - Bigger for mobile conversion */
+                /* Hero Title Optimization - Much bigger for mobile conversion */
                 .hero-title-mobile {
-                    font-size: 1.7rem !important;
-                    line-height: 1.25 !important;
+                    font-size: 2rem !important;
+                    line-height: 1.2 !important;
                     padding: 0 5px;
                     text-shadow: none !important;
                     color: #000000 !important; /* Black text on mobile */
                 }
 
                 .hero-line-1 {
-                    font-size: 1.5rem !important;
-                    margin-bottom: 1.2rem !important;
+                    font-size: 1.75rem !important;
+                    margin-bottom: 1.3rem !important;
                     font-weight: 800 !important;
-                    line-height: 1.3 !important;
+                    line-height: 1.25 !important;
                     color: #000000 !important;
                     text-shadow: none !important;
                 }
 
                 .hero-line-2 {
-                    font-size: 1.4rem !important;
-                    margin-bottom: 1.2rem !important;
+                    font-size: 1.65rem !important;
+                    margin-bottom: 1.3rem !important;
                     font-weight: 700 !important;
-                    line-height: 1.3 !important;
+                    line-height: 1.25 !important;
                     color: #000000 !important;
                 }
 
                 .hero-line-3 {
-                    font-size: 1.25rem !important;
+                    font-size: 1.5rem !important;
                     font-weight: 600 !important;
-                    line-height: 1.3 !important;
+                    line-height: 1.25 !important;
                     color: rgba(0,0,0,0.95) !important;
                     text-shadow: none !important;
                 }
@@ -698,9 +698,12 @@
                 .awards-main,
                 .trust-logo,
                 img[src*="As-seen-on"],
-                img[src*="awards-and-acolades"] {
-                    filter: invert(1) !important;
-                    opacity: 0.85 !important;
+                img[alt*="As seen on"],
+                img[src*="awards-and-acolades"],
+                .trust-logos img {
+                    filter: invert(1) grayscale(1) !important;
+                    opacity: 0.9 !important;
+                    -webkit-filter: invert(1) grayscale(1) !important;
                 }
             }
 
@@ -1163,9 +1166,12 @@
             .awards-main,
             .trust-logo,
             img[src*="As-seen-on"],
-            img[src*="awards-and-acolades"] {
-                filter: invert(1) !important;
-                opacity: 0.85 !important;
+            img[alt*="As seen on"],
+            img[src*="awards-and-acolades"],
+            .trust-logos img {
+                filter: invert(1) grayscale(1) !important;
+                opacity: 0.9 !important;
+                -webkit-filter: invert(1) grayscale(1) !important;
             }
 
             /* Hero section mobile optimization */
