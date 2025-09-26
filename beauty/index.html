@@ -1700,7 +1700,7 @@
                     </div>
                     
                     <form id="leadForm" class="form-modern">
-                        <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/api/submit">
+                        <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit">
                             <div class="form-group-modern">
                                 <input type="email" id="email" name="email" class="form-input-modern" placeholder=" " required 
                                        autocomplete="email" 
@@ -1746,7 +1746,7 @@
                                                     const btn = form.querySelector('.btn-loader');
                                                     btn.style.display = 'inline-block';
                                                     try {
-                                                        const res = await fetch('/api/submit', {
+                                                        const res = await fetch('/.netlify/functions/submit', {
                                                             method: 'POST',
                                                             headers: { 'Content-Type': 'application/json' },
                                                             body: JSON.stringify(data)
