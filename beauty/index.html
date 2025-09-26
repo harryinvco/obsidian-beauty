@@ -510,6 +510,11 @@
                     display: none !important;
                 }
 
+                /* Add more top padding on smaller screens */
+                .hero {
+                    padding-top: 2.5rem !important;
+                }
+
                 /* Hero Title Optimization - Much bigger for mobile conversion */
                 .hero-title-mobile {
                     font-size: 2rem !important;
@@ -1175,12 +1180,16 @@
             }
 
             /* Hero section mobile optimization */
+            .hero {
+                padding-top: 2rem !important;
+            }
+
             .hero-card {
                 background: rgba(255, 255, 255, 0.98) !important; /* Near white for maximum readability */
                 backdrop-filter: blur(30px) !important;
                 border: 2px solid rgba(0, 0, 0, 0.1) !important;
                 padding: 2rem 1.2rem;
-                margin: 0 10px;
+                margin: 2rem 10px 0 10px;
                 min-height: auto;
                 border-radius: 16px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
