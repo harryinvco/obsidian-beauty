@@ -156,7 +156,7 @@ async function sendWelcomeEmail(resend, email, firstName) {
   const { data, error } = await resend.emails.send({
     from: 'Mike Nikolaou <mnikolaou@theobsidianco.com>',
     to: [email],
-    subject: 'Your 7 beauty ad frameworks are ready (€47M generated)',
+    subject: 'Your 7 beauty ad frameworks are ready ($47M generated)',
     html: `
       <!DOCTYPE html>
       <html>
@@ -424,7 +424,7 @@ async function sendWelcomeEmail(resend, email, firstName) {
               </div>
 
               <p style="font-size: 16px; color: #4a4a4a; margin: 20px 0;">
-                These frameworks generated <strong style="color: #22c55e;">€47M for beauty brands</strong>.
+                These frameworks generated <strong style="color: #22c55e;">$47M for beauty brands</strong>.
               </p>
 
               <p style="font-size: 16px; color: #4a4a4a; margin: 20px 0;">
@@ -449,8 +449,8 @@ async function sendWelcomeEmail(resend, email, firstName) {
                 </ul>
 
                 <div style="text-align: center;">
-                  <span class="price-tag">€197 this week only</span>
-                  <span class="original-price">Regular €997</span>
+                  <span class="price-tag">$197 this week only</span>
+                  <span class="original-price">Regular $997</span>
                 </div>
 
                 <div style="text-align: center; margin-top: 20px;">
@@ -473,7 +473,7 @@ async function sendWelcomeEmail(resend, email, firstName) {
 
             <div class="footer">
               <p class="ps">
-                <strong>P.S.</strong> Check your inbox tomorrow for: "The €47K mistake everyone makes with beauty ads (and how to avoid it)"
+                <strong>P.S.</strong> Check your inbox tomorrow for: "The $47K mistake everyone makes with beauty ads (and how to avoid it)"
               </p>
             </div>
           </div>
@@ -496,7 +496,7 @@ Inside:
 ✓ Copy-paste ad templates
 ✓ 7 real ad examples that generated 10x+ ROAS
 
-These generated €47M for beauty brands.
+These generated $47M for beauty brands.
 
 But here's the truth...
 
@@ -508,7 +508,7 @@ Get frameworks customized for YOUR brand:
 → Complete with copy, creatives, and targeting
 → Delivered in 7 days
 
-€197 this week only (regular €997)
+$197 this week only (regular $997)
 
 Book Your Custom Campaign Call:
 https://calendly.com/mnikolaou-toc/creative-strategy-session
@@ -519,7 +519,7 @@ Best,
 Mike Nikolaou
 COO, The Obsidian Co.
 
-P.S. Check your inbox tomorrow for: "The €47K mistake everyone makes with beauty ads (and how to avoid it)"
+P.S. Check your inbox tomorrow for: "The $47K mistake everyone makes with beauty ads (and how to avoid it)"
     `
   });
 
