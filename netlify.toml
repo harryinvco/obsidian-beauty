@@ -1,27 +1,14 @@
 [build]
-  publish = "."
+  publish = "beauty"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Main redirect from root to /beauty
-[[redirects]]
-  from = "/"
-  to = "/beauty"
-  status = 302
-  force = false
-
-# Thank you page redirect for beauty section
-[[redirects]]
-  from = "/beauty/thank-you"
-  to = "/beauty/thank-you.html"
-  status = 301
-
-# Legacy thank you page redirect
+# Thank you page redirect
 [[redirects]]
   from = "/thank-you"
-  to = "/beauty/thank-you"
-  status = 301
+  to = "/thank-you.html"
+  status = 200
 
 [[headers]]
   for = "/*"
@@ -37,10 +24,6 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
-[[headers]]
-  for = "/beauty/images/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/*.html"
