@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<ht    <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap" rel="stylesheet">
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -38,9 +41,8 @@
     </script>
     <!-- End PostHog Analytics -->
 
-    <!-- Animation Libraries -->lang="en">
-<head>
-    <meta charset="UTF-8">
+    <!-- Animation Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -53,10 +55,7 @@
     
     <!-- Performance optimization -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="preconnect" href="https://font                    if (timerElement) {
-                        timerElement.textContent = "00:00";
-                        timerElement.style.color = 'var(--color-green-accent)';
-                    }ogleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap" rel="stylesheet">
     
@@ -654,7 +653,7 @@
                             font-size: 2.8rem; 
                             font-weight: 400; 
                             margin-bottom: 1rem; 
-                            color: #000000;
+                            color: #ffffff;
                             text-shadow: 0 4px 8px rgba(2, 2, 2, 0.3);
                         ">Custom Creative Strategy Session</h2>
                         
@@ -664,7 +663,7 @@
                             color: var(--color-green-accent); 
                             font-weight: 500; 
                             margin: 0;
-                        ">For the next 20 minutes only:</p>
+                        ">For the next 48 hours only:</p>
                     </div>
                     
                     <!-- Main Offer Card -->
@@ -733,7 +732,7 @@
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 1.5rem;">
                                 <div style="text-decoration: line-through; color: #999999; font-family: var(--font-body); font-size: 1.5rem;">Regular Price: $997</div>
-                                <div style="color: var(--color-blue-primary); font-family: var(--font-heading); font-size: 2.5rem; font-weight: 500;">Next 20 minutes: $197</div>
+                                <div style="color: var(--color-blue-primary); font-family: var(--font-heading); font-size: 2.5rem; font-weight: 500;">Next 48 hours: $197</div>
                             </div>
                             
                             <p style="color: #000000; font-family: var(--font-body); font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Why this price? We charge $5,000/month for digital marketing and creative services.<br>But I want to prove custom beats framework every time.</p>
@@ -752,7 +751,7 @@
                             margin-bottom: 2rem;
                             display: inline-block;
                         ">
-                            <div style="color: var(--color-green-accent); font-size: 3rem; font-weight: 500; font-family: var(--font-heading);" id="offer-timer">19:47</div>
+                            <div style="color: var(--color-green-accent); font-size: 3rem; font-weight: 500; font-family: var(--font-heading);" id="offer-timer">47:59:59</div>
                         </div>
                         
                         <div style="
@@ -854,13 +853,13 @@
             }, 5000);
         });
         
-        // 20-minute countdown timer for the offer
+        // 48-hour countdown timer for the offer (synced with main page)
         function initOfferCountdown() {
-            // Get or set the initial time (20 minutes from now)
-            let endTime = localStorage.getItem('offerEndTime');
-            if (!endTime) {
-                endTime = Date.now() + (20 * 60 * 1000); // 20 minutes in milliseconds
-                localStorage.setItem('offerEndTime', endTime);
+            // Use the same localStorage key as the main beauty page
+            let endTime = localStorage.getItem('campaignEndTime');
+            if (!endTime || Number(endTime) < Date.now()) {
+                endTime = Date.now() + (48 * 60 * 60 * 1000); // 48 hours in milliseconds
+                localStorage.setItem('campaignEndTime', endTime);
             } else {
                 endTime = parseInt(endTime);
             }
@@ -870,11 +869,12 @@
                 const timeLeft = endTime - now;
                 
                 if (timeLeft > 0) {
-                    const minutes = Math.floor(timeLeft / 60000);
+                    const hours = Math.floor(timeLeft / 3600000);
+                    const minutes = Math.floor((timeLeft % 3600000) / 60000);
                     const seconds = Math.floor((timeLeft % 60000) / 1000);
-                    
-                    const timerDisplay = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                    
+
+                    const timerDisplay = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
                     const timerElement = document.getElementById('offer-timer');
                     if (timerElement) {
                         timerElement.textContent = timerDisplay;

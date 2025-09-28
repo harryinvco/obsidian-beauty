@@ -3274,19 +3274,18 @@
             
             // Countdown timer with modern styling
             updateCountdown() {
-                // 48 hours in ms
+                // 2 days in ms
                 const duration = 48 * 60 * 60 * 1000;
                 // Store/retrieve end time in localStorage for persistence
                 let endTime = localStorage.getItem('campaignEndTime');
                 if (!endTime || Number(endTime) < Date.now()) {
-                    // If no end time or expired, reset to 48 hours from now
                     endTime = Date.now() + duration;
                     localStorage.setItem('campaignEndTime', endTime);
                 }
                 const tick = () => {
                     let timeLeft = endTime - Date.now();
                     if (timeLeft <= 0) {
-                        // Restart timer for another 48 hours
+                        // Restart timer for another 2 days
                         endTime = Date.now() + duration;
                         localStorage.setItem('campaignEndTime', endTime);
                         timeLeft = endTime - Date.now();
