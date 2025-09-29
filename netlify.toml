@@ -4,6 +4,17 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Make site accessible at /beauty path too
+[[redirects]]
+  from = "/beauty"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/beauty/thank-you"
+  to = "/thank-you.html"
+  status = 200
+
 # Thank you page redirect
 [[redirects]]
   from = "/thank-you"
