@@ -12,8 +12,8 @@
 
 [[redirects]]
   from = "/beauty/thank-you"
-  to = "/thank-you.html"
-  status = 200
+  to = "/thank-you"
+  status = 301
 
 # Thank you page redirect
 [[redirects]]
