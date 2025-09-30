@@ -581,6 +581,48 @@
             color: var(--secondary);
         }
 
+        /* Disabled Offer Cards */
+        .offer-card.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            position: relative;
+            pointer-events: none;
+        }
+
+        .offer-card.disabled:hover {
+            transform: none;
+            border-color: var(--gray-300);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .offer-card.disabled .offer-arrow {
+            opacity: 0.3;
+        }
+
+        .expired-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .relaunch-note {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            font-style: italic;
+        }
+
         /* Trust Section */
         .trust-section {
             background: linear-gradient(135deg, rgba(108, 170, 51, 0.05), rgba(51, 128, 171, 0.05));
@@ -833,6 +875,45 @@
                     </div>
                     <span class="offer-arrow">→</span>
                 </a>
+
+                <div class="offer-card disabled" data-aos="fade-up" data-aos-delay="300">
+                    <div class="expired-ribbon">Expired</div>
+                    <span class="offer-icon">📊</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">E-commerce Conversion Blueprint</h3>
+                        <p class="offer-description">
+                            7-figure store optimization tactics from 50+ brands
+                            <span class="relaunch-note">Will relaunch Q1 2026</span>
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </div>
+
+                <div class="offer-card disabled" data-aos="fade-up" data-aos-delay="400">
+                    <div class="expired-ribbon">Expired</div>
+                    <span class="offer-icon">📧</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Email Marketing Mastery Pack</h3>
+                        <p class="offer-description">
+                            Complete email sequences that generated €2M+ in sales
+                            <span class="relaunch-note">Will relaunch Q1 2026</span>
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </div>
+
+                <div class="offer-card disabled" data-aos="fade-up" data-aos-delay="500">
+                    <div class="expired-ribbon">Expired</div>
+                    <span class="offer-icon">🎯</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Paid Traffic Playbook</h3>
+                        <p class="offer-description">
+                            €500K+ tested Meta & Google Ads strategies
+                            <span class="relaunch-note">Will relaunch Q1 2026</span>
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </div>
             </div>
         </div>
     </section>
