@@ -8,13 +8,13 @@
 # Serve hub at root
 [[redirects]]
   from = "/"
-  to = "/index.html"
+  to = "/hub.html"
   status = 200
 
 # Serve beauty landing page at /beauty path
 [[redirects]]
   from = "/beauty"
-  to = "/beauty-landing.html"
+  to = "/index.html"
   status = 200
 
 [[redirects]]
