@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#020202">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Thank you for downloading the B2B Demo Funnel! Check your email for the funnel map, ad templates, and scaling strategy.">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache">
+
+    <!-- Performance optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '5277803515582185');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=5277803515582185&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Ce js Ls Te Fs Ds capture Ye calculateEventProperties zs register register_once register_for_session unregister unregister_for_session Ws getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Bs Us createPersonProfile Hs Ms Gs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Ns debug L qs getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_hNPlwqwN7c8dljnB4tC2DXOXchFAkuMUoE6G4AbhbAX', {
+            api_host: 'https://eu.i.posthog.com',
+            person_profiles: 'identified_only',
+            capture_pageview: true,
+            capture_pageleave: true
+        });
+
+        // Track thank you page conversion
+        posthog.capture('conversion_complete', {
+            page: 'thank_you_saas',
+            value: 497,
+            currency: 'EUR'
+        });
+    </script>
+    <!-- End PostHog Analytics -->
+
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/confetti-js@0.0.18/dist/index.min.js"></script>
+
+    <title>Thank You - Your B2B Demo Funnel Is On the Way!</title>
+
+    <style>
+        /* Clean, Working CSS - No Framework Conflicts */
+        :root {
+            /* New Color Scheme */
+            --color-black: #020202;
+            --color-blue-primary: #3380AB;
+            --color-green-accent: #6CAA33;
+            --color-gray-light: #E4E4E4;
+            --color-gray-lighter: #F2F2F2;
+            --color-white: #F9F9F9;
+
+            /* Legacy colors for gradual transition */
+            --color-obsidian-blue: #3380AB;
+            --color-obsidian-blue-dark: #2a6a8a;
+            --color-dark-gray: #020202;
+            --color-light-gray: #F2F2F2;
+            --color-red: #6CAA33;
+            --color-green: #6CAA33;
+
+            /* Typography - Quasimoda with fallbacks */
+            --font-heading: 'Questrial', 'Arial Black', 'Helvetica Bold', sans-serif;
+            --font-subheading: 'Questrial', 'Arial', 'Helvetica', sans-serif;
+            --font-body-heading: 'Questrial', 'Arial', 'Helvetica', sans-serif;
+            --font-body: 'Questrial', 'Arial', 'Helvetica Neue', sans-serif;
+
+            --line-height: 1.6;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(2, 2, 2, 0.1), 0 2px 4px -1px rgba(2, 2, 2, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: var(--line-height);
+            color: var(--color-dark-gray);
+            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 50%, var(--color-blue-primary) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        /* Success Animation */
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: var(--font-heading);
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-green-accent), #5a9829);
+            color: var(--color-white);
+            box-shadow: 0 8px 25px rgba(108, 170, 51, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(108, 170, 51, 0.6);
+        }
+
+        /* Shimmer Animation */
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Blueprint Background Overlay -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; background-image: radial-gradient(circle at 25% 25%, var(--color-green-accent) 2px, transparent 2px), radial-gradient(circle at 75% 75%, var(--color-blue-primary) 1px, transparent 1px); background-size: 60px 60px, 40px 40px; z-index: 1; pointer-events: none;"></div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000;"></canvas>
+
+    <!-- Main Content -->
+    <div style="position: relative; z-index: 2; min-height: 100vh;">
+
+        <!-- Confirmation Section -->
+        <section class="section" style="padding-top: 60px;">
+            <div class="container" style="text-align: center;">
+
+                <!-- Success Animation -->
+                <div style="margin-bottom: 3rem;" data-aos="zoom-in">
+                    <div class="bounce" style="display: inline-block; font-size: 5rem; margin-bottom: 1.5rem; filter: drop-shadow(0 0 25px rgba(108, 170, 51, 0.6));">✅</div>
+                </div>
+
+                <!-- Confirmation Message -->
+                <div data-aos="fade-up" data-aos-delay="200" style="
+                    background: rgba(2, 2, 2, 0.6);
+                    backdrop-filter: blur(10px);
+                    border: 2px solid rgba(108, 170, 51, 0.3);
+                    border-radius: 20px;
+                    padding: 2.5rem;
+                    max-width: 800px;
+                    margin: 0 auto;
+                ">
+                    <h1 id="confirmation-heading" style="
+                        font-family: var(--font-heading);
+                        font-size: 3rem;
+                        font-weight: 500;
+                        margin-bottom: 1.5rem;
+                        color: var(--color-green-accent);
+                        text-shadow: 0 4px 8px rgba(2, 2, 2, 0.5);
+                        line-height: 1.2;
+                    ">Your Funnel Is On the Way!</h1>
+
+                    <p style="
+                        font-family: var(--font-body);
+                        font-size: 1.3rem;
+                        font-weight: 400;
+                        color: #ffffff;
+                        margin-bottom: 0;
+                        max-width: 600px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        line-height: 1.6;
+                        display: block;
+                        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+                    ">Check your inbox in 2–3 minutes — we just sent you:</p>
+
+                    <div style="margin-top: 2rem; text-align: left; display: inline-block;">
+                        <div style="background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem;">
+                            <p style="color: #ffffff; margin: 0.5rem 0; font-size: 1.1rem;">📥 Funnel Map</p>
+                            <p style="color: #ffffff; margin: 0.5rem 0; font-size: 1.1rem;">📥 Ad Templates</p>
+                            <p style="color: #ffffff; margin: 0.5rem 0; font-size: 1.1rem;">📥 Landing Page Layout</p>
+                            <p style="color: #ffffff; margin: 0.5rem 0; font-size: 1.1rem;">📥 Bonus: $50/Day Scale Strategy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upsell Section -->
+        <section class="section">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+
+                    <!-- Offer Header -->
+                    <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up">
+                        <h2 style="
+                            font-family: var(--font-subheading);
+                            font-size: 2.8rem;
+                            font-weight: 400;
+                            margin-bottom: 1rem;
+                            color: #ffffff;
+                            text-shadow: 0 4px 8px rgba(2, 2, 2, 0.3);
+                        ">Want Us To Plug This Funnel Into Your Ads For You?</h2>
+
+                        <p style="
+                            font-family: var(--font-body-heading);
+                            font-size: 1.3rem;
+                            color: var(--color-green-accent);
+                            font-weight: 500;
+                            margin: 0;
+                        ">Limited time offer:</p>
+                    </div>
+
+                    <!-- Main Offer Card -->
+                    <div style="
+                        background: rgba(255, 255, 255, 0.98);
+                        border: 2px solid #3380AB;
+                        border-radius: 25px;
+                        padding: 3rem;
+                        margin-bottom: 3rem;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                        position: relative;
+                        overflow: hidden;
+                    " data-aos="zoom-in" data-aos-delay="200">
+
+                        <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(249, 249, 249, 0.1), transparent); animation: shimmer 4s infinite;"></div>
+
+                        <div style="position: relative; z-index: 2;">
+                            <h3 style="color: #000000; font-family: var(--font-body-heading); font-size: 2rem; font-weight: 600; margin-bottom: 2rem; text-align: center;">Done-For-You B2B Demo Funnel Build</h3>
+
+                            <div style="text-align: center; margin-bottom: 2rem;">
+                                <p style="color: #666666; font-size: 1.1rem; margin-bottom: 1rem;">You get the funnel — but let's be honest:</p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; border-radius: 10px; padding: 1rem;">
+                                        <p style="color: #ef4444; margin: 0; font-size: 0.9rem;">❌ You're too busy to wire this up yourself</p>
+                                    </div>
+                                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; border-radius: 10px; padding: 1rem;">
+                                        <p style="color: #ef4444; margin: 0; font-size: 0.9rem;">❌ You don't know what platform to run it on</p>
+                                    </div>
+                                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; border-radius: 10px; padding: 1rem;">
+                                        <p style="color: #ef4444; margin: 0; font-size: 0.9rem;">❌ You need results yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+
+                                <!-- What We'll Do -->
+                                <div>
+                                    <h4 style="color: var(--color-green-accent); font-family: var(--font-body-heading); font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem;">We'll take the exact funnel you just downloaded and:</h4>
+                                    <ul style="color: #000000; font-family: var(--font-body); font-weight: 400; line-height: 1.8; padding-left: 0; list-style: none;">
+                                        <li style="margin-bottom: 0.5rem;">✓ Funnel mapping & setup</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ Landing page build</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ Ad copy + creative setup</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ Demo page + intake logic</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ All integrated into your stack</li>
+                                    </ul>
+                                </div>
+
+                                <!-- What You'll Get -->
+                                <div>
+                                    <h4 style="color: var(--color-blue-primary); font-family: var(--font-body-heading); font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem;">In 7 days, you'll have:</h4>
+                                    <div style="
+                                        background: rgba(255, 255, 255, 0.98);
+                                        border: 2px solid #22c55e;
+                                        border-radius: 15px;
+                                        padding: 1.5rem;
+                                        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+                                    ">
+                                        <h5 style="color: var(--color-green-accent); font-family: var(--font-body-heading); font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem;">Live, working funnel:</h5>
+                                        <ul style="color: #000000; font-family: var(--font-body); font-weight: 400; line-height: 1.6; padding-left: 0; list-style: none; font-size: 0.95rem;">
+                                            <li style="margin-bottom: 0.5rem;">• Active ad campaign</li>
+                                            <li style="margin-bottom: 0.5rem;">• Optimized landing page</li>
+                                            <li style="margin-bottom: 0.5rem;">• Qualified demo bookings</li>
+                                            <li style="margin-bottom: 0.5rem;">• Integrated with Calendly, HubSpot, etc.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing & CTA -->
+                    <div style="
+                        background: rgba(255, 255, 255, 0.98);
+                        border: 2px solid #22c55e;
+                        border-radius: 20px;
+                        padding: 2.5rem;
+                        margin-bottom: 3rem;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                        text-align: center;
+                    " data-aos="fade-up" data-aos-delay="400">
+
+                        <div style="margin-bottom: 2rem;">
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                                <div style="text-decoration: line-through; color: #999999; font-family: var(--font-body); font-size: 1.5rem;">Normally €2,000</div>
+                                <div style="color: var(--color-blue-primary); font-family: var(--font-heading); font-size: 2.5rem; font-weight: 500;">Today: €497</div>
+                            </div>
+
+                            <p style="color: #000000; font-family: var(--font-body); font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">One-time payment. Includes everything you need to start booking demos immediately.</p>
+
+                            <div style="color: var(--color-green-accent); font-family: var(--font-body-heading); font-size: 1.2rem; font-weight: 500; margin-bottom: 2rem;">
+                                Limited to 50 builds this quarter <span style="background: var(--color-green-accent); color: var(--color-white); padding: 4px 12px; border-radius: 15px; margin-left: 8px;">(23 left)</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="#" class="btn btn-primary" style="
+                            font-size: 1.4rem;
+                            font-family: var(--font-heading);
+                            font-weight: 500;
+                            padding: 1.5rem 3rem;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            box-shadow: 0 12px 35px rgba(108, 170, 51, 0.6);
+                            border: 3px solid rgba(108, 170, 51, 0.3);
+                            background: linear-gradient(135deg, var(--color-green-accent), #5a9829);
+                            position: relative;
+                            overflow: hidden;
+                            color: #000000;
+                            text-decoration: none;
+                            border-radius: 50px;
+                            display: inline-block;
+                            transition: all 0.3s ease;
+                        " onclick="
+                            this.style.transform='scale(0.98)';
+                            setTimeout(() => this.style.transform='scale(1)', 150);
+                            // Track Facebook Pixel Purchase Event
+                            if (typeof fbq !== 'undefined') {
+                                fbq('track', 'InitiateCheckout', {
+                                    content_name: 'Done-For-You B2B Demo Funnel Build',
+                                    content_category: 'Service',
+                                    value: 497,
+                                    currency: 'EUR'
+                                });
+                            }
+                        ">
+                            <span style="position: relative; z-index: 2;">Yes — Build It For Me</span>
+                            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); animation: shimmer 2s infinite;"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternative Offer Section -->
+        <section class="section">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+                    <h2 style="color: #ffffff; margin-bottom: 2rem;">🎯 While you're here...</h2>
+
+                    <div class="content-card">
+                        <h3 style="color: var(--color-blue-primary); margin-bottom: 1rem;">Want us to review your existing funnel for free?</h3>
+                        <p style="margin-bottom: 2rem; color: #666666;">We'll audit your ads + landing page, identify friction points, and show you how to plug in the new framework.</p>
+
+                        <a href="#" class="btn btn-primary" style="background: var(--color-blue-primary);">
+                            Book My Free 20-Min Funnel Audit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Track ViewContent event on thank you page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Thank You Page - SaaS Funnel Offer',
+                    content_category: 'Upsell',
+                    value: 497,
+                    currency: 'EUR'
+                });
+            }
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Confetti Effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('confetti-canvas');
+            const confetti = new ConfettiGenerator({
+                target: canvas,
+                max: 80,
+                size: 1,
+                animate: true,
+                colors: [[251, 191, 36], [34, 197, 94], [139, 92, 246], [255, 107, 107]],
+                clock: 25,
+                rotate: true,
+                width: window.innerWidth,
+                height: window.innerHeight,
+                start_from_edge: false,
+                respawn: true
+            });
+
+            // Start confetti
+            confetti.render();
+
+            // Stop confetti after 5 seconds
+            setTimeout(() => {
+                confetti.clear();
+            }, 5000);
+        });
+
+        // Email personalization
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const leadData = JSON.parse(localStorage.getItem('leadData'));
+                if (leadData && leadData.email) {
+                    const heading = document.getElementById('confirmation-heading');
+                    heading.textContent = heading.textContent.replace('[email]', leadData.email);
+                }
+            } catch (e) {
+                console.warn('Could not personalize email', e);
+            }
+        });
+    </script>
+</body>
+</html>

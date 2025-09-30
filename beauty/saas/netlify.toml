@@ -1,39 +1,23 @@
 [build]
-  publish = "beauty"
-  functions = "beauty/netlify/functions"
+  publish = "."
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Serve beauty content at /beauty path
+# Root path serves the SaaS page at /saas
 [[redirects]]
-  from = "/beauty"
-  to = "/"
+  from = "/saas"
+  to = "/index.html"
   status = 200
 
+# /saas/* paths serve from root
 [[redirects]]
-  from = "/beauty/*"
+  from = "/saas/*"
   to = "/:splat"
   status = 200
 
-# Serve saas content at /saas path
-[[redirects]]
-  from = "/saas"
-  to = "/saas/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/saas/*"
-  to = "/saas/:splat"
-  status = 200
-
-# API endpoint for SaaS form submission
-[[redirects]]
-  from = "/api/submit-saas"
-  to = "/.netlify/functions/submit-saas"
-  status = 200
-
-# Thank you page redirects
+# Thank you page redirect
 [[redirects]]
   from = "/thank-you"
   to = "/thank-you.html"
@@ -41,7 +25,18 @@
 
 [[redirects]]
   from = "/saas/thank-you"
-  to = "/saas/thank-you.html"
+  to = "/thank-you.html"
+  status = 200
+
+# API endpoint for form submission
+[[redirects]]
+  from = "/api/submit-saas"
+  to = "/.netlify/functions/submit-saas"
+  status = 200
+
+[[redirects]]
+  from = "/saas/api/submit-saas"
+  to = "/.netlify/functions/submit-saas"
   status = 200
 
 [[headers]]
@@ -57,7 +52,6 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
-
 
 [[headers]]
   for = "/*.html"
