@@ -424,7 +424,7 @@
         .client-screenshot-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: var(--radius-md);
         }
 
@@ -495,7 +495,8 @@
 
         /* Offers Section */
         .offers-section {
-            background: var(--white);
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+            padding: var(--space-10) 0;
         }
 
         .offers-grid {
@@ -507,8 +508,8 @@
         }
 
         .offer-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: var(--white);
+            border: 3px solid var(--gray-300);
             border-radius: var(--radius-xl);
             padding: var(--space-5);
             transition: all var(--transition-slow);
@@ -519,7 +520,7 @@
             gap: var(--space-3);
             position: relative;
             overflow: hidden;
-            background: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .offer-card::before {
@@ -529,7 +530,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(51, 128, 171, 0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(51, 128, 171, 0.08), transparent);
             transition: left 0.5s ease;
         }
 
@@ -539,12 +540,12 @@
 
         .offer-card:hover {
             border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(51, 128, 171, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(51, 128, 171, 0.25);
         }
 
         .offer-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             flex-shrink: 0;
         }
 
@@ -554,27 +555,30 @@
         }
 
         .offer-title {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.35rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
             color: var(--gray-900);
         }
 
         .offer-description {
-            font-size: 0.875rem;
-            color: var(--gray-600);
+            font-size: 0.95rem;
+            color: var(--gray-700);
             line-height: 1.5;
+            font-weight: 500;
         }
 
         .offer-arrow {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: var(--primary);
             flex-shrink: 0;
             transition: transform var(--transition);
+            font-weight: 800;
         }
 
         .offer-card:hover .offer-arrow {
-            transform: translateX(4px);
+            transform: translateX(6px);
+            color: var(--secondary);
         }
 
         /* Trust Section */
@@ -859,13 +863,13 @@
                     <img src="images/ClientScreen4.png" alt="Client Results 4">
                 </div>
                 <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="400">
-                    <img src="images/Screenshot 2025-09-25 at 3.32.36 PM.png" alt="Client Results 5">
+                    <img src="images/Untitled-1Artboard 4.jpg" alt="Client Results 5">
                 </div>
                 <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="450">
-                    <img src="images/Screenshot 2025-09-25 at 3.33.12 PM.png" alt="Client Results 6">
+                    <img src="images/winner_light.png" alt="Winner Award">
                 </div>
                 <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="500">
-                    <img src="images/Screenshot 2025-09-25 at 3.33.41 PM.png" alt="Client Results 7">
+                    <img src="images/mike-face.jpeg" alt="Mike - COO">
                 </div>
             </div>
 
