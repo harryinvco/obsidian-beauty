@@ -236,11 +236,12 @@
         }
 
         .team-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: var(--radius-xl);
             object-fit: cover;
-            border: 4px solid var(--primary);
+            border: 3px solid var(--primary);
             margin-bottom: var(--space-4);
             box-shadow: 0 8px 24px rgba(51, 128, 171, 0.3);
         }
@@ -291,17 +292,16 @@
         }
 
         .trust-logos img {
-            height: 50px;
+            height: 80px;
             width: auto;
             object-fit: contain;
-            opacity: 0.8;
-            filter: grayscale(0.2);
+            opacity: 0.9;
+            filter: grayscale(0);
             transition: all var(--transition);
         }
 
         .trust-logos img:hover {
             opacity: 1;
-            filter: grayscale(0);
             transform: scale(1.05);
         }
 
@@ -340,6 +340,13 @@
             margin-top: var(--space-2);
         }
 
+        .privacy-note {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-top: var(--space-2);
+            font-style: italic;
+        }
+
         /* Container */
         .container {
             max-width: 1200px;
@@ -351,11 +358,7 @@
             padding: var(--space-10) 0;
         }
 
-        /* Testimonials Section */
-        .testimonials-section {
-            background: var(--gray-50);
-        }
-
+        /* Section Title */
         .section-title {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
@@ -364,82 +367,42 @@
             color: var(--gray-900);
         }
 
-        .testimonials-grid {
+        /* Client Logos Section */
+        .clients-section {
+            background: var(--gray-50);
+        }
+
+        .client-logos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-6);
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-3);
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .testimonial-card {
+        .client-logo-item {
+            aspect-ratio: 1;
             background: var(--white);
             border: 2px solid var(--gray-200);
-            border-radius: var(--radius-xl);
-            padding: var(--space-5);
-            box-shadow: var(--shadow);
-            transition: all var(--transition-slow);
-            position: relative;
+            border-radius: var(--radius-lg);
+            padding: var(--space-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            transition: all var(--transition);
         }
 
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+        .client-logo-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--primary);
         }
 
-        .testimonial-quote {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: var(--gray-700);
-            font-style: italic;
-            margin-bottom: var(--space-4);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-        }
-
-        .testimonial-author strong {
-            display: block;
-            color: var(--gray-900);
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .testimonial-author span {
-            display: block;
-            color: var(--gray-600);
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-        }
-
-        .testimonial-info {
-            flex: 1;
-        }
-
-        .testimonial-metric {
-            display: inline-block;
-            background: linear-gradient(120deg, var(--secondary-dark), var(--secondary));
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            margin-top: var(--space-2);
+        .client-logo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         /* Offers Section */
@@ -448,22 +411,27 @@
         }
 
         .offers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: var(--space-6);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .offer-card {
-            background: var(--white);
-            border: 3px solid var(--gray-200);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-6);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: var(--space-5);
             transition: all var(--transition-slow);
             text-decoration: none;
-            color: inherit;
-            display: block;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
             position: relative;
             overflow: hidden;
+            background: var(--white);
         }
 
         .offer-card::before {
@@ -473,7 +441,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(51, 128, 171, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(51, 128, 171, 0.05), transparent);
             transition: left 0.5s ease;
         }
 
@@ -483,62 +451,42 @@
 
         .offer-card:hover {
             border-color: var(--primary);
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(51, 128, 171, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(51, 128, 171, 0.2);
         }
 
         .offer-icon {
-            font-size: 3.5rem;
-            margin-bottom: var(--space-3);
-            display: block;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .offer-content {
+            flex: 1;
+            text-align: left;
         }
 
         .offer-title {
-            font-size: 1.75rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: var(--space-2);
+            margin-bottom: 0.5rem;
             color: var(--gray-900);
         }
 
         .offer-description {
-            font-size: 1rem;
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin-bottom: var(--space-3);
-        }
-
-        .offer-features {
-            list-style: none;
-            margin: var(--space-3) 0;
-        }
-
-        .offer-features li {
-            padding: 0.5rem 0;
-            color: var(--gray-700);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .offer-features li::before {
-            content: '✓';
-            display: inline-block;
-            color: var(--secondary);
-            font-weight: 800;
-            font-size: 1.25rem;
-        }
-
-        .offer-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-            color: white;
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
             font-size: 0.875rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            box-shadow: 0 4px 12px rgba(108, 170, 51, 0.3);
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        .offer-arrow {
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: transform var(--transition);
+        }
+
+        .offer-card:hover .offer-arrow {
+            transform: translateX(4px);
         }
 
         /* Trust Section */
@@ -670,7 +618,11 @@
             }
 
             .trust-logos img {
-                height: 40px;
+                height: 60px;
+            }
+
+            .client-logos-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -696,6 +648,11 @@
             .trust-icon {
                 font-size: 2rem;
             }
+
+            .client-logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-2);
+            }
         }
     </style>
 </head>
@@ -710,7 +667,7 @@
         </div>
 
         <div class="hero-card">
-            <img src="/images/obsidian-team.webp" alt="The Obsidian Co Team" class="team-photo">
+            <img src="images/obsidian-team.webp" alt="The Obsidian Co Team" class="team-photo">
 
             <h1>The Obsidian Co</h1>
 
@@ -721,8 +678,7 @@
 
             <div class="trust-bar">
                 <div class="trust-logos">
-                    <img src="/images/awards-and-acolades-the-obsidian-co.png" alt="Awards and Accolades">
-                    <img src="/images/As-seen-on-1.png" alt="As Seen On">
+                    <img src="images/As-seen-on-1.png" alt="As Seen On">
                 </div>
 
                 <div class="stats-row">
@@ -741,41 +697,7 @@
                 </div>
 
                 <p class="trust-statement">Trusted by leading brands worldwide since 2019</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section testimonials-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Real Results From Real Clients</h2>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <p class="testimonial-quote">
-                        "The Obsidian Co helped us scale from €50K to €2M in monthly revenue. Their ad frameworks are pure gold."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-info">
-                            <strong>Sarah Chen</strong>
-                            <span>CEO, BeautyLux</span>
-                            <div class="testimonial-metric">€50K → €2M MRR</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <p class="testimonial-quote">
-                        "206 booked demos with zero ad spend. I was skeptical until I saw the results myself. Game-changing strategy."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-info">
-                            <strong>Marcus Rodriguez</strong>
-                            <span>VP Marketing, CloudSync</span>
-                            <div class="testimonial-metric">206 Demos (€0 Spent)</div>
-                        </div>
-                    </div>
-                </div>
+                <p class="privacy-note">🔒 Unsubscribe anytime. No spam, ever.</p>
             </div>
         </div>
     </section>
@@ -788,35 +710,59 @@
             <div class="offers-grid">
                 <a href="/beauty" class="offer-card" data-aos="fade-up" data-aos-delay="100">
                     <span class="offer-icon">💄</span>
-                    <h3 class="offer-title">Beauty Brand Ad Vault</h3>
-                    <p class="offer-description">
-                        The exact 7 ad frameworks that generated €47M+ for beauty brands.
-                        Tested across 238 campaigns with €500K+ in Meta ad spend.
-                    </p>
-                    <ul class="offer-features">
-                        <li>7 proven ad frameworks</li>
-                        <li>Real campaign examples</li>
-                        <li>Copy & paste templates</li>
-                        <li>€500K+ tested frameworks</li>
-                    </ul>
-                    <span class="offer-badge">FREE GUIDE</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Beauty Brand Ad Vault</h3>
+                        <p class="offer-description">
+                            The exact 7 ad frameworks that generated €47M+ for beauty brands
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
                 </a>
 
                 <a href="/saas" class="offer-card" data-aos="fade-up" data-aos-delay="200">
                     <span class="offer-icon">🚀</span>
-                    <h3 class="offer-title">SaaS Lead Generation Blueprint</h3>
-                    <p class="offer-description">
-                        The unconventional strategy we used to book 206 qualified demos with zero ad budget.
-                        Complete case study with screenshots.
-                    </p>
-                    <ul class="offer-features">
-                        <li>206 demo bookings (€0 ad spend)</li>
-                        <li>Full campaign breakdown</li>
-                        <li>Step-by-step system</li>
-                        <li>Replicable framework</li>
-                    </ul>
-                    <span class="offer-badge">FREE CASE STUDY</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">SaaS Lead Generation Blueprint</h3>
+                        <p class="offer-description">
+                            How we booked 206 qualified demos with zero ad budget
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Section -->
+    <section class="section clients-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Real Results From Real Clients</h2>
+
+            <div class="client-logos-grid">
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/ClientScreen1.png" alt="Client 1">
+                </div>
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="images/ClientScreen2.jpg" alt="Client 2">
+                </div>
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/ClientScreen3.jpg" alt="Client 3">
+                </div>
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="images/ClientScreen4.png" alt="Client 4">
+                </div>
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/Screenshot 2025-09-25 at 3.32.36 PM.png" alt="Client 5">
+                </div>
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="images/Screenshot 2025-09-25 at 3.33.12 PM.png" alt="Client 6">
+                </div>
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/Screenshot 2025-09-25 at 3.33.41 PM.png" alt="Client 7">
+                </div>
+                <div class="client-logo-item" data-aos="fade-up" data-aos-delay="450">
+                    <img src="images/Untitled-1Artboard 4.jpg" alt="Client 8">
+                </div>
             </div>
         </div>
     </section>
