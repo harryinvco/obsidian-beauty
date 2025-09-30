@@ -5,15 +5,21 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Serve beauty content at /beauty path
+# Serve hub at root
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Serve beauty landing page at /beauty path
 [[redirects]]
   from = "/beauty"
-  to = "/"
+  to = "/beauty-landing.html"
   status = 200
 
 [[redirects]]
   from = "/beauty/*"
-  to = "/:splat"
+  to = "/beauty/:splat"
   status = 200
 
 # Serve saas content at /saas path
