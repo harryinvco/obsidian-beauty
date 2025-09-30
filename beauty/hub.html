@@ -2,157 +2,314 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#020202">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="robots" content="noindex, nofollow">
     <title>The Obsidian Co - Free Marketing Resources | €47M+ Generated</title>
     <meta name="description" content="Get proven marketing frameworks from a team that has generated €47M+ in revenue. Free beauty ad vault & SaaS lead gen blueprint. Trusted by 50+ brands.">
+
+    <!-- Performance optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/images/obsidian-team.webp" as="image" fetchpriority="high">
+
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <style>
+        /* Modern Design System */
+        :root {
+            /* Color Palette */
+            --primary: #3380AB;
+            --primary-dark: #2a6a8a;
+            --secondary: #6CAA33;
+            --secondary-dark: #5a8f2b;
+
+            /* Neutrals */
+            --gray-900: #111827;
+            --gray-800: #1F2937;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-400: #9CA3AF;
+            --gray-300: #D1D5DB;
+            --gray-200: #E5E7EB;
+            --gray-100: #F3F4F6;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+
+            /* Typography */
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing */
+            --space-1: 0.5rem;
+            --space-2: 1rem;
+            --space-3: 1.5rem;
+            --space-4: 2rem;
+            --space-5: 2.5rem;
+            --space-6: 3rem;
+            --space-8: 4rem;
+            --space-10: 5rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+            /* Transitions */
+            --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Animations */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.05; }
+            50% { opacity: 0.15; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #020202;
-            color: white;
-            min-height: 100vh;
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Hero Section with Team Photo */
+        /* Hero Section */
         .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #020202 0%, #3380AB 100%);
+            color: var(--white);
+            overflow: hidden;
+            padding: var(--space-4);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                );
+            z-index: 0;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(108, 170, 51, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(51, 128, 171, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* Floating Emojis */
+        .floating-emojis {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .emoji:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .emoji:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .emoji:nth-child(3) {
+            bottom: 25%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .emoji:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        /* Hero Card */
+        .hero-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8) var(--space-6);
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 120px rgba(51, 128, 171, 0.2);
             text-align: center;
-            margin-bottom: 40px;
         }
 
         .team-photo {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #3380ab;
-            margin-bottom: 24px;
+            border: 4px solid var(--primary);
+            margin-bottom: var(--space-4);
             box-shadow: 0 8px 24px rgba(51, 128, 171, 0.3);
         }
 
-        .hero h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #3380ab 0%, #6caa33 100%);
+        .hero-card h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--space-3);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.1;
         }
 
         .hero-tagline {
-            font-size: 18px;
-            color: #a0a0a0;
+            font-size: 1.25rem;
+            color: var(--gray-700);
+            margin-bottom: var(--space-4);
             line-height: 1.6;
-            margin-bottom: 16px;
         }
 
-        .hero-cta {
-            font-size: 16px;
-            font-weight: 600;
-            color: #6caa33;
-            margin-top: 8px;
+        .highlight-number {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(108, 170, 51, 0.3);
         }
 
-        /* Social Proof */
-        .social-proof {
-            text-align: center;
-            margin-bottom: 48px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Trust Bar */
+        .trust-bar {
+            margin: var(--space-4) 0;
+            padding: var(--space-3) 0;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
         }
 
-        .social-proof-images {
+        .trust-logos {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: var(--space-4);
             flex-wrap: wrap;
-            margin-bottom: 16px;
+            margin-bottom: var(--space-2);
         }
 
-        .social-proof-images img {
-            height: 60px;
+        .trust-logos img {
+            height: 50px;
             width: auto;
             object-fit: contain;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
+            opacity: 0.8;
+            filter: grayscale(0.2);
+            transition: all var(--transition);
         }
 
-        .social-proof-images img:hover {
+        .trust-logos img:hover {
             opacity: 1;
+            filter: grayscale(0);
+            transform: scale(1.05);
         }
 
-        .social-proof p {
-            font-size: 14px;
-            color: #888;
-            margin-top: 12px;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            margin-bottom: 48px;
-        }
-
-        .testimonial {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 3px solid #6caa33;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateX(4px);
-        }
-
-        .testimonial-content {
-            margin-bottom: 16px;
-        }
-
-        .testimonial-content p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #e0e0e0;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .testimonial-author strong {
-            color: #fff;
-            font-size: 14px;
-        }
-
-        .testimonial-author span {
-            color: #888;
-            font-size: 13px;
-        }
-
-        .stats {
+        .stats-row {
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-top: 16px;
+            gap: var(--space-6);
+            margin-top: var(--space-3);
             flex-wrap: wrap;
         }
 
@@ -161,324 +318,561 @@
         }
 
         .stat-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #6caa33;
             display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+            margin-bottom: 0.25rem;
         }
 
         .stat-label {
-            font-size: 12px;
-            color: #888;
+            font-size: 0.875rem;
+            color: var(--gray-600);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
-        /* Linktree Style Buttons */
-        .offers-section {
-            margin-bottom: 40px;
+        .trust-statement {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: var(--space-2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        .section {
+            padding: var(--space-10) 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--gray-50);
         }
 
         .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #fff;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
             text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
         }
 
-        .offer-button {
-            display: block;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 16px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-6);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-5);
+            box-shadow: var(--shadow);
+            transition: all var(--transition-slow);
             position: relative;
             overflow: hidden;
         }
 
-        .offer-button::before {
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .testimonial-quote {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            font-style: italic;
+            margin-bottom: var(--space-4);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .testimonial-author strong {
+            display: block;
+            color: var(--gray-900);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-author span {
+            display: block;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-metric {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--secondary-dark), var(--secondary));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-top: var(--space-2);
+        }
+
+        /* Offers Section */
+        .offers-section {
+            background: var(--white);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .offer-card {
+            background: var(--white);
+            border: 3px solid var(--gray-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-6);
+            transition: all var(--transition-slow);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(51, 128, 171, 0.1), transparent);
             transition: left 0.5s ease;
         }
 
-        .offer-button:hover::before {
+        .offer-card:hover::before {
             left: 100%;
         }
 
-        .offer-button:hover {
-            border-color: #3380ab;
-            background: rgba(51, 128, 171, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(51, 128, 171, 0.2);
+        .offer-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(51, 128, 171, 0.2);
         }
 
         .offer-icon {
-            font-size: 32px;
-            margin-bottom: 12px;
+            font-size: 3.5rem;
+            margin-bottom: var(--space-3);
             display: block;
         }
 
         .offer-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            color: var(--gray-900);
         }
 
         .offer-description {
-            font-size: 14px;
-            color: #a0a0a0;
-            line-height: 1.5;
-            margin-bottom: 12px;
-            display: block;
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: var(--space-3);
+        }
+
+        .offer-features {
+            list-style: none;
+            margin: var(--space-3) 0;
+        }
+
+        .offer-features li {
+            padding: 0.5rem 0;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .offer-features li::before {
+            content: '✓';
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 800;
+            font-size: 1.25rem;
         }
 
         .offer-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #6caa33 0%, #3380ab 100%);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .offer-description strong {
-            color: #6caa33;
-            font-weight: 500;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(108, 170, 51, 0.3);
         }
 
         /* Trust Section */
         .trust-section {
-            background: rgba(108, 170, 51, 0.05);
-            border: 1px solid rgba(108, 170, 51, 0.2);
-            border-radius: 12px;
-            padding: 32px 24px;
-            margin-bottom: 48px;
-            text-align: center;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.05), rgba(51, 128, 171, 0.05));
+            border-top: 2px solid var(--gray-200);
+            border-bottom: 2px solid var(--gray-200);
         }
 
-        .trust-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 24px;
-        }
-
-        .trust-badges {
+        .trust-badges-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-6);
         }
 
         .trust-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
+            text-align: center;
+            padding: var(--space-4);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
         }
 
         .trust-icon {
-            font-size: 32px;
+            font-size: 2.5rem;
+            margin-bottom: var(--space-2);
+            display: block;
         }
 
         .trust-text {
-            font-size: 13px;
+            font-size: 1rem;
             font-weight: 600;
-            color: #e0e0e0;
-            text-align: center;
+            color: var(--gray-800);
         }
 
         /* Footer */
         .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: var(--space-8) 0 var(--space-6);
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #666;
-            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-security {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-2);
+            font-size: 1rem;
+        }
+
+        .footer-privacy {
+            font-size: 0.875rem;
+            margin-bottom: var(--space-4);
         }
 
         .footer-links {
-            margin-top: 16px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: #888;
+            color: var(--gray-400);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color var(--transition);
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
-            color: #3380ab;
+            color: var(--primary);
         }
 
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--gray-800);
+            margin-top: var(--space-4);
+        }
+
+        /* Mobile Optimization */
         @media (max-width: 768px) {
-            .container {
-                padding: 30px 16px;
+            .hero-card {
+                padding: var(--space-6) var(--space-4);
             }
 
-            .hero h1 {
-                font-size: 28px;
+            .hero-card h1 {
+                font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 16px;
+            .hero-tagline {
+                font-size: 1rem;
             }
 
-            .offer-button {
-                padding: 20px;
+            .stats-row {
+                gap: var(--space-4);
             }
 
-            .stats {
-                gap: 20px;
+            .stat-number {
+                font-size: 1.5rem;
             }
 
-            .trust-badges {
+            .testimonials-grid,
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .floating-emojis {
+                display: none;
+            }
+
+            .trust-logos img {
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: var(--space-6) 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: var(--space-4);
+            }
+
+            .offer-card,
+            .testimonial-card {
+                padding: var(--space-4);
+            }
+
+            .trust-badge {
+                padding: var(--space-3);
+            }
+
+            .trust-icon {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-emojis">
+            <span class="emoji">💄</span>
+            <span class="emoji">🚀</span>
+            <span class="emoji">📈</span>
+            <span class="emoji">💰</span>
+        </div>
+
+        <div class="hero-card">
             <img src="/images/obsidian-team.webp" alt="The Obsidian Co Team" class="team-photo">
+
             <h1>The Obsidian Co</h1>
-            <p class="hero-tagline">Premium marketing solutions for ambitious brands</p>
-            <p class="hero-cta">⬇️ Choose your free resource below</p>
-        </div>
 
-        <!-- Social Proof -->
-        <div class="social-proof">
-            <div class="social-proof-images">
-                <img src="/images/awards-and-acolades-the-obsidian-co.png" alt="Awards and Accolades">
-                <img src="/images/As-seen-on-1.png" alt="As Seen On">
-            </div>
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-number">€47M+</span>
-                    <span class="stat-label">Revenue Generated</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">238+</span>
-                    <span class="stat-label">Campaigns Launched</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Brands Scaled</span>
-                </div>
-            </div>
-            <p>Trusted by leading brands worldwide since 2019</p>
-        </div>
+            <p class="hero-tagline">
+                We've generated <span class="highlight-number">€47M+</span> in revenue for brands.
+                <br>Now get our best frameworks — completely free.
+            </p>
 
-        <!-- Testimonials -->
-        <div class="testimonials">
-            <div class="testimonial">
-                <div class="testimonial-content">
-                    <p>"The Obsidian Co helped us scale from €50K to €2M in monthly revenue. Their ad frameworks are pure gold."</p>
+            <div class="trust-bar">
+                <div class="trust-logos">
+                    <img src="/images/awards-and-acolades-the-obsidian-co.png" alt="Awards and Accolades">
+                    <img src="/images/As-seen-on-1.png" alt="As Seen On">
                 </div>
-                <div class="testimonial-author">
-                    <strong>Sarah Chen</strong>
-                    <span>CEO, BeautyLux</span>
+
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="stat-number">€47M+</span>
+                        <span class="stat-label">Revenue Generated</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">238+</span>
+                        <span class="stat-label">Campaigns Launched</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Brands Scaled</span>
+                    </div>
                 </div>
-            </div>
-            <div class="testimonial">
-                <div class="testimonial-content">
-                    <p>"206 booked demos with zero ad spend. I was skeptical until I saw the results myself. Game-changing strategy."</p>
-                </div>
-                <div class="testimonial-author">
-                    <strong>Marcus Rodriguez</strong>
-                    <span>VP Marketing, CloudSync</span>
-                </div>
+
+                <p class="trust-statement">Trusted by leading brands worldwide since 2019</p>
             </div>
         </div>
+    </section>
 
-        <!-- Offers Section -->
-        <div class="offers-section">
-            <h2 class="section-title">📚 Claim Your Free Marketing Resources</h2>
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Real Results From Real Clients</h2>
 
-            <a href="/beauty" class="offer-button">
-                <span class="offer-icon">💄</span>
-                <span class="offer-title">Beauty Brand Ad Vault</span>
-                <span class="offer-description">
-                    The exact 7 ad frameworks that generated €47M+ for beauty brands.
-                    Tested across 238 campaigns with €500K+ in Meta ad spend.
-                    <br><br>
-                    <strong>✓</strong> 7 proven ad frameworks
-                    <br>
-                    <strong>✓</strong> Real campaign examples
-                    <br>
-                    <strong>✓</strong> Copy & paste templates
-                </span>
-                <span class="offer-badge">💎 Premium Free Guide</span>
-            </a>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="testimonial-quote">
+                        "The Obsidian Co helped us scale from €50K to €2M in monthly revenue. Their ad frameworks are pure gold."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-info">
+                            <strong>Sarah Chen</strong>
+                            <span>CEO, BeautyLux</span>
+                            <div class="testimonial-metric">€50K → €2M MRR</div>
+                        </div>
+                    </div>
+                </div>
 
-            <a href="/saas" class="offer-button">
-                <span class="offer-icon">🚀</span>
-                <span class="offer-title">SaaS Lead Generation Blueprint</span>
-                <span class="offer-description">
-                    The unconventional strategy we used to book 206 qualified demos with zero ad budget.
-                    Complete case study with screenshots and step-by-step breakdown.
-                    <br><br>
-                    <strong>✓</strong> 206 demo bookings (0€ ad spend)
-                    <br>
-                    <strong>✓</strong> Full campaign breakdown
-                    <br>
-                    <strong>✓</strong> Replicable system
-                </span>
-                <span class="offer-badge">🔥 Proven Case Study</span>
-            </a>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-quote">
+                        "206 booked demos with zero ad spend. I was skeptical until I saw the results myself. Game-changing strategy."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-info">
+                            <strong>Marcus Rodriguez</strong>
+                            <span>VP Marketing, CloudSync</span>
+                            <div class="testimonial-metric">206 Demos (€0 Spent)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Trust Badges -->
-        <div class="trust-section">
-            <p class="trust-title">Why 50+ Brands Choose Us</p>
-            <div class="trust-badges">
-                <div class="trust-badge">
+    <!-- Offers Section -->
+    <section class="section offers-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Choose Your Free Resource</h2>
+
+            <div class="offers-grid">
+                <a href="/beauty" class="offer-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="offer-icon">💄</span>
+                    <h3 class="offer-title">Beauty Brand Ad Vault</h3>
+                    <p class="offer-description">
+                        The exact 7 ad frameworks that generated €47M+ for beauty brands.
+                        Tested across 238 campaigns with €500K+ in Meta ad spend.
+                    </p>
+                    <ul class="offer-features">
+                        <li>7 proven ad frameworks</li>
+                        <li>Real campaign examples</li>
+                        <li>Copy & paste templates</li>
+                        <li>€500K+ tested frameworks</li>
+                    </ul>
+                    <span class="offer-badge">FREE GUIDE</span>
+                </a>
+
+                <a href="/saas" class="offer-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="offer-icon">🚀</span>
+                    <h3 class="offer-title">SaaS Lead Generation Blueprint</h3>
+                    <p class="offer-description">
+                        The unconventional strategy we used to book 206 qualified demos with zero ad budget.
+                        Complete case study with screenshots.
+                    </p>
+                    <ul class="offer-features">
+                        <li>206 demo bookings (€0 ad spend)</li>
+                        <li>Full campaign breakdown</li>
+                        <li>Step-by-step system</li>
+                        <li>Replicable framework</li>
+                    </ul>
+                    <span class="offer-badge">FREE CASE STUDY</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section trust-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why 50+ Brands Choose Us</h2>
+
+            <div class="trust-badges-grid">
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="100">
                     <span class="trust-icon">🎯</span>
-                    <span class="trust-text">Data-Driven Strategy</span>
+                    <p class="trust-text">Data-Driven Strategy</p>
                 </div>
-                <div class="trust-badge">
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="200">
                     <span class="trust-icon">💰</span>
-                    <span class="trust-text">ROI Focused</span>
+                    <p class="trust-text">ROI Focused</p>
                 </div>
-                <div class="trust-badge">
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="300">
                     <span class="trust-icon">⚡</span>
-                    <span class="trust-text">Battle-Tested</span>
+                    <p class="trust-text">Battle-Tested</p>
                 </div>
-                <div class="trust-badge">
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="400">
                     <span class="trust-icon">🏆</span>
-                    <span class="trust-text">Award Winning</span>
+                    <p class="trust-text">Award Winning</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p style="margin-bottom: 8px; font-weight: 600;">🔒 Your information is 100% secure</p>
-            <p style="margin-bottom: 20px; font-size: 13px;">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
-            <p>© 2025 The Obsidian Co. - All Rights Reserved</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-security">🔒 Your information is 100% secure</p>
+            <p class="footer-privacy">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+
             <div class="footer-links">
                 <a href="https://theobsidianco.com" target="_blank">Website</a>
                 <a href="https://www.linkedin.com/company/the-obsidian-co" target="_blank">LinkedIn</a>
                 <a href="mailto:hello@theobsidianco.com">Contact</a>
             </div>
+
+            <p class="footer-copyright">© 2025 The Obsidian Co. All Rights Reserved</p>
         </div>
-    </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
