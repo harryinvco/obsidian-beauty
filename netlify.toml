@@ -14,7 +14,7 @@
 # Serve beauty landing page at /beauty path
 [[redirects]]
   from = "/beauty"
-  to = "/index.html"
+  to = "/beauty-main.html"
   status = 200
 
 [[redirects]]
