@@ -39,6 +39,17 @@
   to = "/.netlify/functions/submit-saas"
   status = 200
 
+# Serve ecom-checklist at /ecom-checklist path
+[[redirects]]
+  from = "/ecom-checklist"
+  to = "/ecom-checklist/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ecom-checklist/*"
+  to = "/ecom-checklist/:splat"
+  status = 200
+
 # Thank you page redirects
 [[redirects]]
   from = "/thank-you"
@@ -48,6 +59,11 @@
 [[redirects]]
   from = "/saas/thank-you"
   to = "/saas/thank-you.html"
+  status = 200
+
+[[redirects]]
+  from = "/ecom-checklist/thank-you"
+  to = "/ecom-checklist/thank-you.html"
   status = 200
 
 [[headers]]
