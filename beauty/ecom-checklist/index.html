@@ -174,9 +174,10 @@
             max-width: 1200px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 0.8fr 1fr;
-            gap: var(--space-6);
-            align-items: center;
+            grid-template-columns: 1fr 0.9fr 1fr;
+            gap: var(--space-8);
+            align-items: start;
+            padding-top: var(--space-4);
         }
 
         .hero-text {
@@ -197,10 +198,11 @@
             backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: var(--radius-2xl);
-            padding: var(--space-4);
+            padding: var(--space-3);
             transition: all var(--transition);
-            max-width: 320px;
+            max-width: 380px;
             width: 100%;
+            margin-top: var(--space-6);
         }
 
         .checklist-preview-card:hover {
@@ -1013,11 +1015,13 @@
         @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr 1fr 1fr;
-                gap: var(--space-4);
+                gap: var(--space-5);
+                align-items: center;
             }
 
             .checklist-preview-card {
-                max-width: 260px;
+                max-width: 280px;
+                margin-top: var(--space-3);
             }
 
             .preview-badge {
@@ -1030,16 +1034,19 @@
         @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: var(--space-6);
+                gap: var(--space-4);
+                align-items: center;
+                padding-top: 0;
             }
 
             .hero-preview {
                 order: -1;
-                margin-bottom: var(--space-4);
+                margin-bottom: var(--space-6);
             }
 
             .checklist-preview-card {
-                max-width: 280px;
+                max-width: 320px;
+                margin-top: 0;
             }
 
             .hero-text {
@@ -1373,168 +1380,6 @@
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             // Handle form submission logic here
-            window.location.href = '/thank-you';
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-                        <li class="problem-item">
-                            <span class="problem-icon">🚨</span>
-                            <span class="problem-text">
-                                <strong>Cart abandonment rate above 70%?</strong> You're losing thousands in preventable sales every week.
-                            </span>
-                        </li>
-                        <li class="problem-item">
-                            <span class="problem-icon">⚠️</span>
-                            <span class="problem-text">
-                                <strong>High traffic, low conversions?</strong> Your funnel has critical leaks you can't see without a systematic audit.
-                            </span>
-                        </li>
-                        <li class="problem-item">
-                            <span class="problem-icon">💸</span>
-                            <span class="problem-text">
-                                <strong>Ad spend increasing, ROAS dropping?</strong> The problem isn't your traffic—it's what happens after the click.
-                            </span>
-                        </li>
-                        <li class="problem-item">
-                            <span class="problem-icon">📉</span>
-                            <span class="problem-text">
-                                <strong>Stagnant revenue despite efforts?</strong> Small leaks compound into massive losses over time.
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div data-aos="fade-left">
-                    <div class="solution-highlight">
-                        <h3 class="solution-title">The Average Store Finds €12,400 in Hidden Revenue</h3>
-                        <p class="solution-description">
-                            Our checklist helped store owners identify and fix profit-killing issues they didn't even know existed. Most find their first major leak in under 20 minutes.
-                        </p>
-                        <div class="solution-stats">
-                            <div class="solution-stat">
-                                <span class="solution-stat-number">37%</span>
-                                <span class="solution-stat-label">Avg. Conversion Lift</span>
-                            </div>
-                            <div class="solution-stat">
-                                <span class="solution-stat-number">€12.4K</span>
-                                <span class="solution-stat-label">Avg. Revenue Found</span>
-                            </div>
-                            <div class="solution-stat">
-                                <span class="solution-stat-number">20 min</span>
-                                <span class="solution-stat-label">Time to First Insight</span>
-                            </div>
-                            <div class="solution-stat">
-                                <span class="solution-stat-number">4.8/5</span>
-                                <span class="solution-stat-label">User Rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof Section -->
-    <section class="social-proof-section">
-        <div class="container">
-            <div class="social-stats">
-                <div class="social-stat" data-aos="fade-up">
-                    <span class="social-stat-number">€47M+</span>
-                    <p class="social-stat-label">Revenue Generated by Our Team</p>
-                </div>
-                <div class="social-stat" data-aos="fade-up" data-aos-delay="100">
-                    <span class="social-stat-number">200+</span>
-                    <p class="social-stat-label">Stores Using This Checklist</p>
-                </div>
-                <div class="social-stat" data-aos="fade-up" data-aos-delay="200">
-                    <span class="social-stat-number">4.8/5</span>
-                    <p class="social-stat-label">Average User Rating</p>
-                </div>
-                <div class="social-stat" data-aos="fade-up" data-aos-delay="300">
-                    <span class="social-stat-number">100%</span>
-                    <p class="social-stat-label">Free - No Catches</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title" data-aos="fade-up">
-                Ready to Find Your Hidden Revenue?
-            </h2>
-            <p class="cta-subtitle" data-aos="fade-up" data-aos-delay="100">
-                Download the checklist now and start plugging the leaks costing you thousands every month.
-            </p>
-            <a href="#" class="cta-button" onclick="scrollToForm(); return false;" data-aos="fade-up" data-aos-delay="200">
-                Get Free Checklist Now
-            </a>
-            <p class="cta-note" data-aos="fade-up" data-aos-delay="300">
-                No credit card required • Instant download • 100% free
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="https://theobsidianco.com" target="_blank">Website</a>
-            <a href="https://www.linkedin.com/company/the-obsidian-co" target="_blank">LinkedIn</a>
-            <a href="mailto:hello@theobsidianco.com">Contact</a>
-            <a href="/">Free Resources</a>
-        </div>
-        <p class="footer-copyright">© 2025 The Obsidian Co. All Rights Reserved</p>
-    </footer>
-
-    <!-- Initialize AOS -->
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-
-        // Scroll to form function
-        function scrollToForm() {
-            document.querySelector('.hero-form-card').scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-            document.getElementById('name').focus();
-        }
-
-        // Form submission handler (integrate with your backend)
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                store: document.getElementById('store').value,
-                source: 'ecom-checklist',
-                timestamp: new Date().toISOString()
-            };
-
-            console.log('Form submitted:', formData);
-
-            // Add your form submission logic here (e.g., send to API, email service, etc.)
-            // For now, redirect to thank you page
             window.location.href = '/thank-you';
         });
 
