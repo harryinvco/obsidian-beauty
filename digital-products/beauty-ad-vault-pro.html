@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Beauty Ad Vault Pro | The Obsidian Co - 238+ High-Performing Beauty Ads</title>
+    <meta name="description" content="Get access to 238+ high-performing beauty brand ads with complete breakdown analysis, targeting strategies, and creative frameworks. Used to generate €47M+ in revenue.">
+
+    <!-- Performance optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Gumroad-inspired Design System */
+        :root {
+            --pink: #FF90E8;
+            --pink-dark: #FF6FD8;
+            --black: #000000;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-300: #D1D5DB;
+            --gray-100: #F3F4F6;
+            --white: #FFFFFF;
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header/Nav */
+        .header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--gray-100);
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: var(--black);
+        }
+
+        /* Main Layout - Two Column */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            padding: 3rem 2rem;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Left Column - Content */
+        .content-column {
+            max-width: 740px;
+        }
+
+        .product-header {
+            margin-bottom: 3rem;
+        }
+
+        .product-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .product-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Product Image Placeholder */
+        .product-cover {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #FFB7E8 0%, #FF90E8 100%);
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .content-section p {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .content-section ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .content-section ul li {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .content-section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* Right Column - Sticky Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .purchase-card {
+            background: var(--white);
+            border: 2px solid var(--gray-100);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-preview {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #FFB7E8 0%, #FF90E8 100%);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .price-section {
+            margin-bottom: 2rem;
+        }
+
+        .price-current {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+            display: block;
+            line-height: 1;
+        }
+
+        .price-original {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            text-decoration: line-through;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: var(--pink);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+
+        .cta-button {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            padding: 1.25rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .guarantee-text {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .sidebar-features {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .sidebar-features h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-features ul {
+            list-style: none;
+        }
+
+        .sidebar-features ul li {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+
+        .sidebar-features ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--gray-100);
+            border-radius: 12px;
+        }
+
+        .testimonial {
+            margin-bottom: 2rem;
+        }
+
+        .testimonial:last-child {
+            margin-bottom: 0;
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+
+        .faq-question {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--gray-100);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--black);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+
+            .product-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .main-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .header {
+                padding: 1rem 1.5rem;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .price-current {
+                font-size: 2.5rem;
+            }
+
+            .purchase-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/digital-products" class="logo">The Obsidian Co</a>
+            <a href="/digital-products" class="back-link">← All Products</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Column - Product Details -->
+        <div class="content-column">
+            <div class="product-header">
+                <h1 class="product-title">💄 Beauty Ad Vault Pro</h1>
+                <p class="product-subtitle">
+                    238+ high-performing beauty brand ads with complete breakdown analysis, targeting strategies, and creative frameworks
+                </p>
+            </div>
+
+            <div class="product-cover">
+                📊
+            </div>
+
+            <div class="content-section">
+                <h2>What You'll Get</h2>
+                <p>
+                    This is the complete collection of 238+ beauty brand ads that generated €47M+ in revenue. Every single ad includes full performance data, targeting strategies, and detailed breakdowns of why it worked.
+                </p>
+                <p>
+                    Stop guessing what works. Use proven frameworks that have already generated millions in revenue for beauty brands just like yours.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Inside the Vault</h2>
+                <ul>
+                    <li><strong>238+ tested ad creatives</strong> with performance data, spend amounts, and ROAS metrics from real campaigns</li>
+                    <li><strong>7 proven ad frameworks</strong> that consistently deliver 4x+ ROAS for beauty brands</li>
+                    <li><strong>Swipe file templates</strong> in Canva and Figma - ready to customize and launch</li>
+                    <li><strong>Complete targeting strategies</strong> with detailed audience blueprints for Meta and Google Ads</li>
+                    <li><strong>Ad copy formulas</strong> and hooks library with 100+ tested variations</li>
+                    <li><strong>Campaign structure blueprints</strong> showing exactly how to organize your ad account</li>
+                    <li><strong>Monthly updates</strong> with fresh winning ads added every month</li>
+                    <li><strong>Lifetime access</strong> to all current and future updates</li>
+                    <li><strong>Private community access</strong> to connect with other beauty brand owners</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Who This Is For</h2>
+                <p>
+                    This vault is perfect for beauty brand owners, marketing managers, and agency teams who want to:
+                </p>
+                <ul>
+                    <li>Scale their ad campaigns profitably without wasting budget on testing</li>
+                    <li>Get inspired by what's actually working right now in the beauty industry</li>
+                    <li>Save hundreds of hours of creative testing and research</li>
+                    <li>Learn the exact frameworks used by 7-figure beauty brands</li>
+                </ul>
+            </div>
+
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "We launched 3 campaigns using frameworks from the vault and saw a 312% increase in ROAS within the first month. The targeting strategies alone are worth 10x the price."
+                    </p>
+                    <p class="testimonial-author">— Sarah K., Founder @ LuxeGlow Beauty</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Finally, ad inspiration that comes with actual data and strategy. This saved our team weeks of testing and thousands in wasted ad spend."
+                    </p>
+                    <p class="testimonial-author">— Michael T., Marketing Director @ Radiance Skincare</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What format are the ads in?</h3>
+                    <p class="faq-answer">
+                        All ads are provided as high-resolution images/videos with detailed PDF breakdowns. Templates are available in Canva and Figma formats for easy customization.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How often is the vault updated?</h3>
+                    <p class="faq-answer">
+                        We add 20-30 new winning ads every month based on our latest campaigns and client results. You get lifetime access to all updates.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I use these ads for my brand?</h3>
+                    <p class="faq-answer">
+                        Yes! These are frameworks and templates designed to be customized for your brand. We provide the structure, you add your products and branding.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What's the refund policy?</h3>
+                    <p class="faq-answer">
+                        30-day money-back guarantee. If you're not satisfied for any reason, just email us and we'll refund you in full.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Sticky Purchase Card -->
+        <aside class="sidebar">
+            <div class="purchase-card">
+                <div class="sidebar-preview">
+                    💄
+                </div>
+
+                <div class="price-section">
+                    <span class="price-current">€197</span>
+                    <span class="price-original">€497</span>
+                    <span class="discount-badge">60% OFF - Limited Time</span>
+                </div>
+
+                <a href="#" class="cta-button">I want this!</a>
+
+                <p class="guarantee-text">
+                    🔒 Secure checkout<br>
+                    30-day money-back guarantee
+                </p>
+
+                <div class="sidebar-features">
+                    <h3>What's Included</h3>
+                    <ul>
+                        <li>238+ tested ad creatives</li>
+                        <li>7 proven frameworks (PDF + Video)</li>
+                        <li>Canva & Figma templates</li>
+                        <li>Targeting strategies</li>
+                        <li>Ad copy formulas library</li>
+                        <li>Monthly updates</li>
+                        <li>Lifetime access</li>
+                        <li>Private community</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/digital-products">All Products</a>
+            <a href="https://theobsidianco.com" target="_blank">Website</a>
+            <a href="https://www.linkedin.com/company/the-obsidian-co" target="_blank">LinkedIn</a>
+            <a href="mailto:hello@theobsidianco.com">Contact</a>
+        </div>
+        <p class="footer-copyright">© 2025 The Obsidian Co. All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // CTA Button Handler
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Beauty Ad Vault Pro - Purchase initiated');
+                alert('Payment integration coming soon!');
+            });
+        });
+    </script>
+</body>
+</html>

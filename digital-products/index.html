@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#020202">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="robots" content="index, follow">
+    <title>Digital Products | The Obsidian Co - Marketing Resources & Tools</title>
+    <meta name="description" content="Premium marketing resources and tools from The Obsidian Co. Battle-tested frameworks, templates, and courses used to generate €47M+ in revenue.">
+
+    <!-- Performance optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/images/obsidian-team.webp" as="image" fetchpriority="high">
+
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        /* Modern Design System */
+        :root {
+            /* Color Palette */
+            --primary: #3380AB;
+            --primary-dark: #2a6a8a;
+            --secondary: #6CAA33;
+            --secondary-dark: #5a8f2b;
+
+            /* Neutrals */
+            --gray-900: #111827;
+            --gray-800: #1F2937;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-400: #9CA3AF;
+            --gray-300: #D1D5DB;
+            --gray-200: #E5E7EB;
+            --gray-100: #F3F4F6;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+
+            /* Typography */
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing */
+            --space-1: 0.5rem;
+            --space-2: 1rem;
+            --space-3: 1.5rem;
+            --space-4: 2rem;
+            --space-5: 2.5rem;
+            --space-6: 3rem;
+            --space-8: 4rem;
+            --space-10: 5rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+            /* Transitions */
+            --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Animations */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.05; }
+            50% { opacity: 0.15; }
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #020202 0%, #3380AB 100%);
+            color: var(--white);
+            overflow: hidden;
+            padding: var(--space-4);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                );
+            z-index: 0;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(108, 170, 51, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(51, 128, 171, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* Floating Icons */
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .icon:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .icon:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .icon:nth-child(3) {
+            bottom: 25%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .icon:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        /* Hero Card */
+        .hero-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: var(--space-6) var(--space-4);
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 120px rgba(51, 128, 171, 0.2);
+            text-align: center;
+        }
+
+        .hero-card h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--space-3);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--gray-700);
+            margin-bottom: var(--space-4);
+            line-height: 1.6;
+        }
+
+        .highlight-number {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(108, 170, 51, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        .section {
+            padding: var(--space-10) 0;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: var(--space-8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+            padding: var(--space-10) 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-6);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 3px solid var(--gray-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-6);
+            transition: all var(--transition-slow);
+            text-decoration: none;
+            color: var(--gray-900);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(51, 128, 171, 0.08), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(51, 128, 171, 0.25);
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-3);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: var(--space-3);
+            right: var(--space-3);
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(108, 170, 51, 0.3);
+        }
+
+        .product-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: var(--space-2);
+            color: var(--gray-900);
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+            flex-grow: 1;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: var(--space-4);
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+
+        .price-current {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .price-original {
+            font-size: 1.5rem;
+            color: var(--gray-400);
+            text-decoration: line-through;
+        }
+
+        .product-cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-align: center;
+            transition: all var(--transition);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .product-cta:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(51, 128, 171, 0.4);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.05), rgba(51, 128, 171, 0.05));
+            border-top: 2px solid var(--gray-200);
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .trust-badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+
+        .trust-badge {
+            text-align: center;
+            padding: var(--space-4);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .trust-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-2);
+            display: block;
+        }
+
+        .trust-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: var(--space-8) 0 var(--space-6);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-security {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-2);
+            font-size: 1rem;
+        }
+
+        .footer-privacy {
+            font-size: 0.875rem;
+            margin-bottom: var(--space-4);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--gray-800);
+            margin-top: var(--space-4);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .hero-card {
+                padding: var(--space-6) var(--space-4);
+            }
+
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .floating-icons {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: var(--space-6) 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: var(--space-4);
+            }
+
+            .product-card {
+                padding: var(--space-4);
+            }
+
+            .trust-badge {
+                padding: var(--space-3);
+            }
+
+            .trust-icon {
+                font-size: 2rem;
+            }
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon-badge {
+            background: linear-gradient(135deg, var(--gray-400), var(--gray-500));
+        }
+
+        .product-card.coming-soon {
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .product-card.coming-soon .product-cta {
+            background: linear-gradient(135deg, var(--gray-400), var(--gray-500));
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-icons">
+            <span class="icon">📚</span>
+            <span class="icon">🎯</span>
+            <span class="icon">🚀</span>
+            <span class="icon">💎</span>
+        </div>
+
+        <div class="hero-card">
+            <h1>Digital Products</h1>
+
+            <p class="hero-tagline">
+                Premium marketing resources from a team that's generated <span class="highlight-number">€47M+</span> in revenue.
+                <br>Battle-tested frameworks, tools, and courses that actually work.
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Premium Products</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Everything you need to scale your marketing from €0 to €1M+. Proven systems used by 50+ brands.
+            </p>
+
+            <div class="products-grid">
+                <!-- Product 1: Beauty Ad Vault Pro -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="product-badge">Bestseller</span>
+                    <div class="product-icon">💄</div>
+                    <h3 class="product-title">Beauty Ad Vault Pro</h3>
+                    <p class="product-description">
+                        The complete collection of 238+ high-performing beauty brand ads with full breakdown analysis, targeting strategies, and creative frameworks.
+                    </p>
+                    <ul class="product-features">
+                        <li>238+ tested ad creatives with performance data</li>
+                        <li>7 proven ad frameworks that scale</li>
+                        <li>Swipe file templates (Canva + Figma)</li>
+                        <li>Complete targeting & audience strategies</li>
+                        <li>Monthly updates with fresh winners</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-current">€197</span>
+                        <span class="price-original">€497</span>
+                    </div>
+                    <button class="product-cta">
+                        Get Instant Access →
+                    </button>
+                </div>
+
+                <!-- Product 2: SaaS Lead Gen Masterclass -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="product-badge">New</span>
+                    <div class="product-icon">🚀</div>
+                    <h3 class="product-title">SaaS Lead Gen Masterclass</h3>
+                    <p class="product-description">
+                        Step-by-step video course showing the exact system that booked 206 qualified demos in 31 days with just $50/day budget.
+                    </p>
+                    <ul class="product-features">
+                        <li>6-hour video course + workbooks</li>
+                        <li>Complete funnel templates (ClickFunnels & Unbounce)</li>
+                        <li>Email sequences that convert cold to demo</li>
+                        <li>Ad copy & creative templates</li>
+                        <li>Live Q&A sessions (2x per month)</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-current">€297</span>
+                        <span class="price-original">€697</span>
+                    </div>
+                    <button class="product-cta">
+                        Enroll Now →
+                    </button>
+                </div>
+
+                <!-- Product 3: Complete Growth Bundle -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="product-badge" style="background: linear-gradient(135deg, #DC2626, #991B1B);">Best Value</span>
+                    <div class="product-icon">📦</div>
+                    <h3 class="product-title">Complete Growth Bundle</h3>
+                    <p class="product-description">
+                        Everything we use to generate €47M+ in revenue. Get all our products, frameworks, and templates in one comprehensive package.
+                    </p>
+                    <ul class="product-features">
+                        <li>Beauty Ad Vault Pro + SaaS Masterclass</li>
+                        <li>E-commerce conversion playbook (50+ tactics)</li>
+                        <li>Email marketing mastery pack</li>
+                        <li>Paid traffic playbook (Meta + Google)</li>
+                        <li>1-on-1 strategy session (60 min)</li>
+                        <li>Private Slack community access</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-current">€697</span>
+                        <span class="price-original">€1,997</span>
+                    </div>
+                    <button class="product-cta">
+                        Get Everything →
+                    </button>
+                </div>
+
+                <!-- Product 4: Marketing Templates Library (Coming Soon) -->
+                <div class="product-card coming-soon" data-aos="fade-up" data-aos-delay="400">
+                    <span class="product-badge coming-soon-badge">Coming Q1 2026</span>
+                    <div class="product-icon">🎨</div>
+                    <h3 class="product-title">Marketing Templates Library</h3>
+                    <p class="product-description">
+                        500+ ready-to-use templates for ads, emails, landing pages, and social media. Canva, Figma, and Photoshop formats included.
+                    </p>
+                    <ul class="product-features">
+                        <li>500+ professional templates</li>
+                        <li>Multiple format options</li>
+                        <li>Industry-specific collections</li>
+                        <li>Regular template additions</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-current">€147</span>
+                    </div>
+                    <button class="product-cta">
+                        Notify Me
+                    </button>
+                </div>
+
+                <!-- Product 5: 1-on-1 Consulting -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+                    <span class="product-badge" style="background: linear-gradient(135deg, #7C3AED, #5B21B6);">Premium</span>
+                    <div class="product-icon">🎯</div>
+                    <h3 class="product-title">1-on-1 Growth Consulting</h3>
+                    <p class="product-description">
+                        Direct access to our team for personalized strategy, campaign reviews, and hands-on implementation support.
+                    </p>
+                    <ul class="product-features">
+                        <li>4 hours of 1-on-1 consulting per month</li>
+                        <li>Campaign audits & optimization</li>
+                        <li>Custom strategy development</li>
+                        <li>Email & Slack support</li>
+                        <li>Performance tracking & reporting</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-current">€2,497/mo</span>
+                    </div>
+                    <button class="product-cta">
+                        Apply Now →
+                    </button>
+                </div>
+
+                <!-- Product 6: Agency in a Box (Coming Soon) -->
+                <div class="product-card coming-soon" data-aos="fade-up" data-aos-delay="600">
+                    <span class="product-badge coming-soon-badge">Coming Q2 2026</span>
+                    <div class="product-icon">💼</div>
+                    <h3 class="product-title">Agency in a Box</h3>
+                    <p class="product-description">
+                        Everything you need to start and scale your own marketing agency. SOPs, contracts, client processes, and sales systems.
+                    </p>
+                    <ul class="product-features">
+                        <li>Complete agency SOPs & workflows</li>
+                        <li>Legal contracts & agreements</li>
+                        <li>Client onboarding systems</li>
+                        <li>Sales scripts & proposals</li>
+                        <li>Pricing & packaging strategies</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-current">€497</span>
+                    </div>
+                    <button class="product-cta">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section trust-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why 50+ Brands Choose Us</h2>
+
+            <div class="trust-badges-grid">
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="100">
+                    <span class="trust-icon">🎯</span>
+                    <p class="trust-text">Battle-Tested Systems</p>
+                </div>
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="200">
+                    <span class="trust-icon">💰</span>
+                    <p class="trust-text">€47M+ Generated</p>
+                </div>
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="300">
+                    <span class="trust-icon">⚡</span>
+                    <p class="trust-text">Instant Access</p>
+                </div>
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="400">
+                    <span class="trust-icon">🏆</span>
+                    <p class="trust-text">Award Winning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-security">🔒 Secure Checkout • 30-Day Money-Back Guarantee</p>
+            <p class="footer-privacy">All purchases are protected and backed by our satisfaction guarantee.</p>
+
+            <div class="footer-links">
+                <a href="https://theobsidianco.com" target="_blank">Website</a>
+                <a href="https://www.linkedin.com/company/the-obsidian-co" target="_blank">LinkedIn</a>
+                <a href="mailto:hello@theobsidianco.com">Contact</a>
+                <a href="/">Free Resources</a>
+            </div>
+
+            <p class="footer-copyright">© 2025 The Obsidian Co. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add click handlers for CTAs (placeholder - integrate with your payment system)
+        document.querySelectorAll('.product-cta').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                console.log('Product CTA clicked:', productTitle);
+                // Add your Stripe/payment integration here
+                alert('Payment integration coming soon for: ' + productTitle);
+            });
+        });
+    </script>
+</body>
+</html>

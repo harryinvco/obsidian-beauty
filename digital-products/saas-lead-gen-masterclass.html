@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>SaaS Lead Gen Masterclass | The Obsidian Co - 206 Demos in 31 Days</title>
+    <meta name="description" content="Step-by-step video course showing the exact system that booked 206 qualified demos in 31 days with just $50/day budget. Complete funnel templates included.">
+
+    <!-- Performance optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Gumroad-inspired Design System */
+        :root {
+            --pink: #FF90E8;
+            --pink-dark: #FF6FD8;
+            --purple: #9B7EDE;
+            --purple-dark: #8B6EDE;
+            --black: #000000;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-300: #D1D5DB;
+            --gray-100: #F3F4F6;
+            --white: #FFFFFF;
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header/Nav */
+        .header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--gray-100);
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: var(--black);
+        }
+
+        /* Main Layout - Two Column */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            padding: 3rem 2rem;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Left Column - Content */
+        .content-column {
+            max-width: 740px;
+        }
+
+        .product-header {
+            margin-bottom: 3rem;
+        }
+
+        .product-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .product-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Product Image Placeholder */
+        .product-cover {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #B8ACFF 0%, #9B7EDE 100%);
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .content-section p {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .content-section ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .content-section ul li {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .content-section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--purple);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* Curriculum Module */
+        .module-list {
+            margin-top: 2rem;
+        }
+
+        .module {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-number {
+            background: var(--purple);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+            flex-shrink: 0;
+        }
+
+        .module-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .module-description {
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .module-lessons {
+            list-style: none;
+        }
+
+        .module-lessons li {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .module-lessons li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--purple-dark);
+            font-size: 0.7rem;
+        }
+
+        /* Right Column - Sticky Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .purchase-card {
+            background: var(--white);
+            border: 2px solid var(--gray-100);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-preview {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #B8ACFF 0%, #9B7EDE 100%);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .price-section {
+            margin-bottom: 2rem;
+        }
+
+        .price-current {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+            display: block;
+            line-height: 1;
+        }
+
+        .price-original {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            text-decoration: line-through;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: var(--purple);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+
+        .cta-button {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            padding: 1.25rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .guarantee-text {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .sidebar-features {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .sidebar-features h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-features ul {
+            list-style: none;
+        }
+
+        .sidebar-features ul li {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+
+        .sidebar-features ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--purple);
+            font-weight: 700;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--gray-100);
+            border-radius: 12px;
+        }
+
+        .testimonial {
+            margin-bottom: 2rem;
+        }
+
+        .testimonial:last-child {
+            margin-bottom: 0;
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        /* Bonus Section */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .bonus-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .bonus-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .bonus-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .bonus-description {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--gray-100);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--black);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+
+            .product-title {
+                font-size: 2.5rem;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .main-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .header {
+                padding: 1rem 1.5rem;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .price-current {
+                font-size: 2.5rem;
+            }
+
+            .purchase-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/digital-products" class="logo">The Obsidian Co</a>
+            <a href="/digital-products" class="back-link">← All Products</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Column - Product Details -->
+        <div class="content-column">
+            <div class="product-header">
+                <h1 class="product-title">🚀 SaaS Lead Gen Masterclass</h1>
+                <p class="product-subtitle">
+                    The exact $50/day system that booked 206 qualified demos in 31 days - complete video course with funnel templates and live support
+                </p>
+            </div>
+
+            <div class="product-cover">
+                🎓
+            </div>
+
+            <div class="content-section">
+                <h2>Stop wasting budget on ads that don't convert</h2>
+                <p>
+                    You're spending money on ads, but your demo calendar is empty. You've tried different platforms, tweaked your copy, adjusted your targeting... but nothing seems to work consistently.
+                </p>
+                <p>
+                    This masterclass shows you the exact system we used to book 206 qualified demos in just 31 days with a $50/day budget. No fluff, no theory - just proven strategies with real results.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Complete Course Curriculum</h2>
+                <div class="module-list">
+                    <div class="module">
+                        <div class="module-header">
+                            <div class="module-number">1</div>
+                            <div>
+                                <h3 class="module-title">Foundation & Strategy</h3>
+                            </div>
+                        </div>
+                        <p class="module-description">
+                            Build the strategic foundation for your lead generation system.
+                        </p>
+                        <ul class="module-lessons">
+                            <li>The $50/day lead gen framework overview</li>
+                            <li>Ideal customer profile workshop</li>
+                            <li>Offer positioning & messaging that converts</li>
+                            <li>Funnel architecture & mapping</li>
+                        </ul>
+                    </div>
+
+                    <div class="module">
+                        <div class="module-header">
+                            <div class="module-number">2</div>
+                            <div>
+                                <h3 class="module-title">Landing Pages That Convert</h3>
+                            </div>
+                        </div>
+                        <p class="module-description">
+                            Create high-converting landing pages using proven templates.
+                        </p>
+                        <ul class="module-lessons">
+                            <li>Landing page psychology & conversion principles</li>
+                            <li>Copy frameworks specifically for SaaS demos</li>
+                            <li>ClickFunnels & Unbounce setup walkthrough</li>
+                            <li>A/B testing strategy that actually works</li>
+                        </ul>
+                    </div>
+
+                    <div class="module">
+                        <div class="module-header">
+                            <div class="module-number">3</div>
+                            <div>
+                                <h3 class="module-title">Paid Traffic Mastery</h3>
+                            </div>
+                        </div>
+                        <p class="module-description">
+                            Launch profitable ad campaigns on Meta and Google Ads.
+                        </p>
+                        <ul class="module-lessons">
+                            <li>Campaign structure for B2B SaaS</li>
+                            <li>Audience targeting strategies</li>
+                            <li>Ad creative templates & hooks that stop the scroll</li>
+                            <li>Scaling from $50 to $500/day profitably</li>
+                        </ul>
+                    </div>
+
+                    <div class="module">
+                        <div class="module-header">
+                            <div class="module-number">4</div>
+                            <div>
+                                <h3 class="module-title">Email Automation</h3>
+                            </div>
+                        </div>
+                        <p class="module-description">
+                            Automated email sequences that nurture cold leads into booked demos.
+                        </p>
+                        <ul class="module-lessons">
+                            <li>Welcome sequence setup</li>
+                            <li>Demo nurture sequences</li>
+                            <li>Re-engagement campaigns</li>
+                            <li>Email copywriting frameworks</li>
+                        </ul>
+                    </div>
+
+                    <div class="module">
+                        <div class="module-header">
+                            <div class="module-number">5</div>
+                            <div>
+                                <h3 class="module-title">Optimization & Scaling</h3>
+                            </div>
+                        </div>
+                        <p class="module-description">
+                            Track, analyze, and scale your campaigns for maximum ROI.
+                        </p>
+                        <ul class="module-lessons">
+                            <li>Conversion tracking & attribution setup</li>
+                            <li>KPI dashboard you can actually use</li>
+                            <li>Scaling strategies & budget planning</li>
+                            <li>Troubleshooting common campaign issues</li>
+                        </ul>
+                    </div>
+
+                    <div class="module">
+                        <div class="module-header">
+                            <div class="module-number">6</div>
+                            <div>
+                                <h3 class="module-title">Advanced Tactics</h3>
+                            </div>
+                        </div>
+                        <p class="module-description">
+                            Pro-level strategies to outperform your competition.
+                        </p>
+                        <ul class="module-lessons">
+                            <li>LinkedIn lead gen integration</li>
+                            <li>Retargeting campaigns that convert</li>
+                            <li>Multi-channel attribution</li>
+                            <li>Real campaign breakdowns & case studies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Exclusive Bonuses Included</h2>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <span class="bonus-icon">📄</span>
+                        <h3 class="bonus-title">Funnel Templates</h3>
+                        <p class="bonus-description">
+                            Ready-to-use ClickFunnels and Unbounce templates. Just customize and launch.
+                        </p>
+                    </div>
+
+                    <div class="bonus-card">
+                        <span class="bonus-icon">✉️</span>
+                        <h3 class="bonus-title">Email Sequences</h3>
+                        <p class="bonus-description">
+                            Complete email sequences that convert cold leads into booked demos.
+                        </p>
+                    </div>
+
+                    <div class="bonus-card">
+                        <span class="bonus-icon">🎨</span>
+                        <h3 class="bonus-title">Ad Templates</h3>
+                        <p class="bonus-description">
+                            Proven ad copy frameworks and creative templates for Meta & Google.
+                        </p>
+                    </div>
+
+                    <div class="bonus-card">
+                        <span class="bonus-icon">💬</span>
+                        <h3 class="bonus-title">Live Q&A Sessions</h3>
+                        <p class="bonus-description">
+                            Join 2 live Q&A sessions per month with our team for personalized support.
+                        </p>
+                    </div>
+
+                    <div class="bonus-card">
+                        <span class="bonus-icon">👥</span>
+                        <h3 class="bonus-title">Private Community</h3>
+                        <p class="bonus-description">
+                            Access to our private Slack community of SaaS founders & marketers.
+                        </p>
+                    </div>
+
+                    <div class="bonus-card">
+                        <span class="bonus-icon">🔄</span>
+                        <h3 class="bonus-title">Lifetime Updates</h3>
+                        <p class="bonus-description">
+                            Get all future course updates and new modules at no extra cost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Implemented the exact funnel templates and booked 14 qualified demos in the first week. This course paid for itself 10x over."
+                    </p>
+                    <p class="testimonial-author">— James R., Founder @ CloudSync</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Finally, a course that's not just theory. Real strategies, real templates, real results. Our demo booking rate went from 2% to 11%."
+                    </p>
+                    <p class="testimonial-author">— Lisa M., Head of Growth @ DataFlow</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Who this is for</h2>
+                <ul>
+                    <li>SaaS founders who need a predictable lead generation system</li>
+                    <li>Marketing managers struggling to book qualified demos</li>
+                    <li>Agencies who want proven templates for B2B clients</li>
+                    <li>Teams ready to scale beyond referrals and cold outreach</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Column - Sticky Purchase Card -->
+        <aside class="sidebar">
+            <div class="purchase-card">
+                <div class="sidebar-preview">
+                    🚀
+                </div>
+
+                <div class="price-section">
+                    <span class="price-current">€297</span>
+                    <span class="price-original">€697</span>
+                    <span class="discount-badge">57% OFF - Launch Offer</span>
+                </div>
+
+                <a href="#" class="cta-button">I want this!</a>
+
+                <p class="guarantee-text">
+                    🔒 Secure checkout<br>
+                    30-day money-back guarantee
+                </p>
+
+                <div class="sidebar-features">
+                    <h3>What's Included</h3>
+                    <ul>
+                        <li>6-hour video course + workbooks</li>
+                        <li>Funnel templates (ClickFunnels + Unbounce)</li>
+                        <li>Email sequences library</li>
+                        <li>Ad copy & creative templates</li>
+                        <li>Live Q&A sessions (2x/month)</li>
+                        <li>Private Slack community</li>
+                        <li>Lifetime updates</li>
+                        <li>Certificate of completion</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/digital-products">All Products</a>
+            <a href="https://theobsidianco.com" target="_blank">Website</a>
+            <a href="https://www.linkedin.com/company/the-obsidian-co" target="_blank">LinkedIn</a>
+            <a href="mailto:hello@theobsidianco.com">Contact</a>
+        </div>
+        <p class="footer-copyright">© 2025 The Obsidian Co. All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('SaaS Lead Gen Masterclass - Purchase initiated');
+                alert('Payment integration coming soon!');
+            });
+        });
+    </script>
+</body>
+</html>
