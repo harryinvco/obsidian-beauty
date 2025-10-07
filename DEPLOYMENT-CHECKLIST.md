@@ -22,6 +22,19 @@ RESEND_API_KEY=your_resend_api_key (optional)
 ```
 
 ### 3. Database Setup
+
+#### 🚨 CRITICAL FIX REQUIRED FIRST 🚨
+If you're getting the error "Could not find the table 'public.beauty_leads'" with a hint about 'public.bauty_leads', you have a typo in your database table name.
+
+**Run this IMMEDIATELY in your Supabase SQL Editor:**
+```sql
+-- Fix the table name typo
+ALTER TABLE public.bauty_leads RENAME TO beauty_leads;
+```
+
+Or run the complete fix script from `fix-table-name-typo.sql`
+
+#### Standard Database Setup
 Run the SQL commands in `supabase-setup.sql` in your Supabase SQL editor to create the required tables:
 - `beauty_leads` (active)
 - `saas_leads` (ready, disabled)

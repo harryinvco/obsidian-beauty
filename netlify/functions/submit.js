@@ -133,6 +133,25 @@ exports.handler = async function(event, context) {
     console.error('Error code:', error.code);
     console.error('Error message:', error.message);
     console.error('Error details:', error.details);
+    console.error('Error hint:', error.hint);
+
+    // Handle table not found error (PGRST205) - likely a typo in table name
+    if (error.code === 'PGRST205') {
+      console.error('!!! TABLE NOT FOUND ERROR !!!');
+      console.error('The beauty_leads table does not exist in the database.');
+      console.error('Check if there is a typo in the table name.');
+      console.error('Hint from Supabase:', error.hint);
+      console.error('See FIX-TABLE-NAME-TYPO.md for resolution steps.');
+      
+      return {
+        statusCode: 500,
+        headers: corsHeaders,
+        body: JSON.stringify({ 
+          error: 'Database configuration error. Please contact support.',
+          debug: 'Table not found - see server logs'
+        })
+      };
+    }
 
     // Handle duplicate email error - still send email if they already registered
     if (error.code === '23505') {

@@ -42,9 +42,9 @@ All Netlify functions are now in `/netlify/functions/`
 - `submit-saas.js` → Handles SaaS submissions (DISABLED, returns success message)
 - `submit-ecom.js` → Handles ecom-checklist submissions (DISABLED, returns success message)
 
-### Database Tables
+## Database Tables
 Each sales page uses its own Supabase table:
-- Beauty: `beauty_leads`
+- Beauty: `beauty_leads` ⚠️ **If form fails, see [FIX-TABLE-NAME-TYPO.md](FIX-TABLE-NAME-TYPO.md)**
 - SaaS: `saas_leads` (ready, not active)
 - Ecom: `ecom_leads` (ready, not active)
 
