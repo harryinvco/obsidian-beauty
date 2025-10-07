@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WT9CMBJV');</script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- Reddit Pixel -->
-    <script>
-    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_hrc9q3mpxf14', {
-    optOut: false,
-    useDecimalCurrencyValues: true
-    });
-    rdt('track', 'PageVisit');
-    </script>
-    <!-- End Reddit Pixel -->
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -880,63 +862,6 @@
             z-index: 0;
         }
 
-        /* Subtle CTA Buttons */
-        .subtle-cta {
-            display: flex;
-            justify-content: center;
-            margin: var(--space-5) 0;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, rgba(108, 170, 51, 0.08), rgba(51, 128, 171, 0.08));
-            border: 1px solid rgba(108, 170, 51, 0.2);
-            border-radius: 12px;
-            color: var(--gray-700);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(108, 170, 51, 0.1), rgba(51, 128, 171, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            border-color: rgba(108, 170, 51, 0.4);
-            box-shadow: 0 8px 25px rgba(108, 170, 51, 0.15);
-            color: var(--gray-800);
-        }
-
-        .cta-button:hover::before {
-            opacity: 1;
-        }
-
-        .cta-button span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-icon {
-            font-size: 1rem;
-            color: var(--primary);
-        }
-
         /* Conversion Proof Section */
         .conversion-proof {
             margin: var(--space-6) 0;
@@ -1399,15 +1324,6 @@
                 gap: var(--space-3);
             }
 
-            .cta-button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
-            }
-
-            .cta-icon {
-                font-size: 0.9rem;
-            }
-
             .client-testimonial {
                 margin-top: var(--space-4);
                 padding: var(--space-4);
@@ -1483,18 +1399,14 @@
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT9CMBJV"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <span class="hero-eyebrow">⚠️ WARNING: Your Store Is Bleeding Money</span>
-                <h1 class="hero-title">Every eCom Founder Should Run Their Store Through This Checklist</h1>
+                <h1 class="hero-title">Is Your eCommerce Store Losing €12,000+ Every Month?</h1>
                 <p class="hero-subtitle">
-                    <strong>Every ecommerce entrepreneur needs this:</strong> The exact 23-point audit checklist we use to find and plug revenue leaks that cost stores thousands monthly. <em>Used by 56+ successful store owners.</em>
+                    <strong>Every ecommerce entrepreneur needs this:</strong> The exact 47-point audit checklist we use to find and plug revenue leaks that cost stores thousands monthly. <em>Used by 200+ successful store owners.</em>
                 </p>
 
                 <div class="hero-stats">
@@ -1604,17 +1516,17 @@
 
                 <div class="team-content" data-aos="fade-up" data-aos-delay="200">
                     <span class="section-eyebrow">⚡ PROOF: This System Works</span>
-                    <h2 class="section-title">The Team That's Helped 56+ eCommerce Entrepreneurs Add €47M+ in Revenue</h2>
+                    <h2 class="section-title">The Team That's Helped 200+ eCommerce Entrepreneurs Add €47M+ in Revenue</h2>
 
                     <div class="as-seen-on">
                         <img src="/saas/images/As-seen-on-1.png" alt="As Seen On Leading Platforms" class="as-seen-on-image">
                     </div>
 
                     <p class="team-intro">
-                        <strong>If you're an ecommerce entrepreneur leaving money on the table, this is for you.</strong> The Obsidian Co has generated over €47M+ in revenue for 56+ brands, and we've seen the same costly mistakes in 90% of stores we audit.
+                        <strong>If you're an ecommerce entrepreneur leaving money on the table, this is for you.</strong> The Obsidian Co has generated over €47M+ in revenue for 200+ brands, and we've seen the same costly mistakes in 90% of stores we audit.
                     </p>
                     <p class="team-intro">
-                        <strong>Here's what every store owner needs to know:</strong> The average ecommerce business loses €12,000+ monthly to easily fixable "revenue leaks." This checklist contains the exact 23-point framework we use to find and plug these leaks in under 20 minutes.
+                        <strong>Here's what every store owner needs to know:</strong> The average ecommerce business loses €12,000+ monthly to easily fixable "revenue leaks." This checklist contains the exact 47-point framework we use to find and plug these leaks in under 20 minutes.
                     </p>
                     <div class="expertise-highlight">
                         <p class="team-intro">
@@ -1628,7 +1540,7 @@
                             <span class="trust-metric-label">Revenue Recovered for Entrepreneurs</span>
                         </div>
                         <div class="trust-metric" data-aos="fade-up" data-aos-delay="200">
-                            <span class="trust-metric-number">56+</span>
+                            <span class="trust-metric-number">200+</span>
                             <span class="trust-metric-label">Store Owners Helped</span>
                         </div>
                         <div class="trust-metric" data-aos="fade-up" data-aos-delay="300">
@@ -1637,19 +1549,26 @@
                         </div>
                     </div>
 
-                    <div class="subtle-cta" data-aos="fade-up" data-aos-delay="400">
-                        <a href="https://calendly.com/mnikolaou-toc/lets-talk-15min" class="cta-button" target="_blank">
-                            <span class="cta-icon">📞</span>
-                            <span>Get a Free 15-Min Call with Mike</span>
-                        </a>
+                    <div class="mike-section" data-aos="fade-up" data-aos-delay="400">
+                                <div class="proof-icon">�</div>
+                                <div class="proof-content">
+
+                                </div>
+                            </div>
+
+                            <div class="proof-item">
+                                <div class="proof-icon">�</div>
+                                <div class="proof-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
 
                     <div class="mike-section" data-aos="fade-up" data-aos-delay="400">
                         <div class="mike-intro">
                             <p class="mike-text">
-                                <strong>"After auditing 56+ ecommerce stores, I've seen the same costly mistakes over and over. This checklist contains everything I wish every entrepreneur knew before they lose another €12K+ to preventable revenue leaks."</strong>
+                                <strong>"After auditing 200+ ecommerce stores, I've seen the same costly mistakes over and over. This checklist contains everything I wish every entrepreneur knew before they lose another €12K+ to preventable revenue leaks."</strong>
                             </p>
                         </div>
                         
@@ -1660,13 +1579,6 @@
                                 <span class="founder-title">COO & Revenue Optimization Expert</span>
                                 <span class="founder-subtitle">The Obsidian Co</span>
                             </div>
-                        </div>
-
-                        <div class="subtle-cta" data-aos="fade-up" data-aos-delay="500">
-                            <a href="https://calendly.com/mnikolaou-toc/lets-talk-15min" class="cta-button" target="_blank">
-                                <span class="cta-icon">💬</span>
-                                <span>Book Your Free Strategy Call</span>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1715,17 +1627,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-
-                // Parse response safely
-                let responseData;
-                try {
-                    const text = await res.text();
-                    responseData = text ? JSON.parse(text) : {};
-                } catch (parseErr) {
-                    console.error('JSON parse error:', parseErr);
-                    responseData = { error: 'Invalid server response' };
-                }
-
+                
                 if (res.ok) {
                     // Persist data for thank-you page
                     try {
@@ -1733,18 +1635,15 @@
                     } catch (e) {
                         console.warn('Could not persist lead data', e);
                     }
-
+                    
                     // Redirect to thank you page
                     window.location.href = '/ecom-checklist/thank-you';
                 } else {
-                    // Show the actual error message from the server
-                    const errorMsg = responseData.error || 'Submission failed. Please try again.';
-                    console.error('Server error:', responseData);
-                    alert(errorMsg);
+                    alert('Submission failed. Please try again.');
                 }
             } catch (err) {
                 console.error('Form submission error:', err);
-                alert('Network error. Please check your internet connection and try again.');
+                alert('Submission failed. Please try again.');
             }
         });
 
