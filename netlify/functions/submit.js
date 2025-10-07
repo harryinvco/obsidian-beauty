@@ -2,34 +2,34 @@ const { createClient } = require('@supabase/supabase-js');
 const { Resend } = require('resend');
 
 exports.handler = async function(event, context) {
-  console.log('Beauty form submission started:', {
-    httpMethod: event.httpMethod,
-    headers: event.headers,
-    body: event.body ? 'Body present' : 'No body'
-  });
+  console.log('=== Beauty Form Submission Debug ===');
+  console.log('HTTP Method:', event.httpMethod);
+  console.log('Headers:', JSON.stringify(event.headers, null, 2));
+  console.log('Raw Body:', event.body);
+  
+  // CORS headers for all responses
+  const corsHeaders = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS'
+  };
 
-  // Handle CORS preflight requests
+  // Handle preflight OPTIONS request
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      },
+      headers: corsHeaders,
       body: ''
     };
   }
 
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
-    console.log('Method not allowed:', event.httpMethod);
+    console.error('Method not allowed:', event.httpMethod);
     return {
       statusCode: 405,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers: corsHeaders,
       body: JSON.stringify({ error: 'Method Not Allowed' })
     };
   }
@@ -39,23 +39,18 @@ exports.handler = async function(event, context) {
   const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-  console.log('Environment check:', {
-    hasSupabaseUrl: !!SUPABASE_URL,
-    hasSupabaseKey: !!SUPABASE_SERVICE_ROLE_KEY,
-    hasResendKey: !!RESEND_API_KEY
-  });
+  console.log('Environment check:');
+  console.log('SUPABASE_URL exists:', !!SUPABASE_URL);
+  console.log('SUPABASE_SERVICE_ROLE_KEY exists:', !!SUPABASE_SERVICE_ROLE_KEY);
+  console.log('RESEND_API_KEY exists:', !!RESEND_API_KEY);
 
   if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
-    console.error('Missing Supabase environment variables:', {
-      SUPABASE_URL: SUPABASE_URL ? 'Present' : 'Missing',
-      SUPABASE_SERVICE_ROLE_KEY: SUPABASE_SERVICE_ROLE_KEY ? 'Present' : 'Missing'
-    });
+    console.error('Missing Supabase environment variables');
+    console.error('SUPABASE_URL:', SUPABASE_URL ? 'Present' : 'Missing');
+    console.error('SUPABASE_SERVICE_ROLE_KEY:', SUPABASE_SERVICE_ROLE_KEY ? 'Present' : 'Missing');
     return {
       statusCode: 500,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers: corsHeaders,
       body: JSON.stringify({ error: 'Server configuration error - missing environment variables' })
     };
   }
@@ -69,18 +64,16 @@ exports.handler = async function(event, context) {
   // Parse request body
   let data;
   try {
-    console.log('Parsing request body:', event.body);
+    console.log('Parsing request body...');
     data = JSON.parse(event.body);
-    console.log('Parsed data:', data);
+    console.log('Parsed data:', JSON.stringify(data, null, 2));
   } catch (e) {
-    console.error('JSON parse error:', e.message, 'Body:', event.body);
+    console.error('JSON parsing error:', e.message);
+    console.error('Raw body was:', event.body);
     return {
       statusCode: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({ error: 'Invalid JSON: ' + e.message })
+      headers: corsHeaders,
+      body: JSON.stringify({ error: 'Invalid JSON format in request body' })
     };
   }
 
@@ -97,21 +90,24 @@ exports.handler = async function(event, context) {
   } = data;
 
   // Validate required fields
-  console.log('Validating fields:', { email, firstName });
+  console.log('Validating fields:');
+  console.log('Email:', email);
+  console.log('First Name:', firstName);
+  
   if (!email || !firstName) {
-    console.log('Validation failed - missing required fields');
+    console.error('Validation failed - missing required fields');
     return {
       statusCode: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({ error: 'Email and first name are required' })
+      headers: corsHeaders,
+      body: JSON.stringify({ 
+        error: 'Email and first name are required',
+        received: { email: !!email, firstName: !!firstName }
+      })
     };
   }
 
   // Insert into Supabase beauty_leads table
-  console.log('Attempting to insert into beauty_leads table...');
+  console.log('Attempting to insert into Supabase...');
   const insertData = {
     email: email.toLowerCase().trim(),
     first_name: firstName.trim(),
@@ -123,27 +119,29 @@ exports.handler = async function(event, context) {
     landing_path: landing_path || null,
     created_at: new Date().toISOString()
   };
-  console.log('Insert data:', insertData);
-
-  const { error } = await supabase
+  
+  console.log('Insert data:', JSON.stringify(insertData, null, 2));
+  
+  const { data: insertResult, error } = await supabase
     .from('beauty_leads')
-    .insert([insertData]);
+    .insert([insertData])
+    .select();
 
   if (error) {
-    console.error('Supabase insert error:', {
-      message: error.message,
-      details: error.details,
-      hint: error.hint,
-      code: error.code
-    });
+    console.error('=== SUPABASE ERROR ===');
+    console.error('Full error object:', JSON.stringify(error, null, 2));
+    console.error('Error code:', error.code);
+    console.error('Error message:', error.message);
+    console.error('Error details:', error.details);
 
     // Handle duplicate email error - still send email if they already registered
     if (error.code === '23505') {
-      console.log('Duplicate email detected, still sending response');
+      console.log('Duplicate email detected, attempting to send email anyway...');
       // If email already exists, still try to send the email
       if (resend) {
         try {
           await sendWelcomeEmail(resend, email, firstName);
+          console.log('Email sent successfully to existing user');
         } catch (emailError) {
           console.error('Email send error for existing user:', emailError);
         }
@@ -151,10 +149,7 @@ exports.handler = async function(event, context) {
 
       return {
         statusCode: 409,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
+        headers: corsHeaders,
         body: JSON.stringify({
           error: 'This email is already registered. Please check your inbox for the frameworks.'
         })
@@ -163,12 +158,16 @@ exports.handler = async function(event, context) {
 
     return {
       statusCode: 500,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ error: 'Failed to save your information. Please try again.' })
+      headers: corsHeaders,
+      body: JSON.stringify({ 
+        error: 'Failed to save your information. Please try again.',
+        debug: error.message
+      })
     };
   }
+
+  console.log('=== SUCCESS ===');
+  console.log('Insert result:', JSON.stringify(insertResult, null, 2));
 
   // Send welcome email with frameworks
   if (resend) {
@@ -186,14 +185,10 @@ exports.handler = async function(event, context) {
   // Log success for debugging
   console.log('Lead successfully saved:', email);
 
-  console.log('Success! Lead saved and email sent to:', email);
-
+  console.log('Returning success response...');
   return {
     statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
+    headers: corsHeaders,
     body: JSON.stringify({
       success: true,
       message: 'Thank you! Check your email for the frameworks.'
