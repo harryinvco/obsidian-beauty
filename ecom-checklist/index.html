@@ -1710,14 +1710,22 @@
             };
             
             try {
-                const res = await fetch('/.netlify/functions/submit-ecom-debug', {
+                const res = await fetch('/.netlify/functions/submit-ecom', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-                
-                const responseData = await res.json();
-                
+
+                // Parse response safely
+                let responseData;
+                try {
+                    const text = await res.text();
+                    responseData = text ? JSON.parse(text) : {};
+                } catch (parseErr) {
+                    console.error('JSON parse error:', parseErr);
+                    responseData = { error: 'Invalid server response' };
+                }
+
                 if (res.ok) {
                     // Persist data for thank-you page
                     try {
@@ -1725,19 +1733,18 @@
                     } catch (e) {
                         console.warn('Could not persist lead data', e);
                     }
-                    
+
                     // Redirect to thank you page
                     window.location.href = '/ecom-checklist/thank-you';
                 } else {
                     // Show the actual error message from the server
                     const errorMsg = responseData.error || 'Submission failed. Please try again.';
-                    const debugInfo = responseData.debug ? `\n\nDebug: ${JSON.stringify(responseData.debug)}` : '';
-                    alert(errorMsg + debugInfo);
                     console.error('Server error:', responseData);
+                    alert(errorMsg);
                 }
             } catch (err) {
                 console.error('Form submission error:', err);
-                alert('Network error: ' + err.message + '\n\nPlease check your internet connection and try again.');
+                alert('Network error. Please check your internet connection and try again.');
             }
         });
 
