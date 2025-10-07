@@ -1,0 +1,12 @@
+{
+  "name": "obsidian-netlify-functions",
+  "version": "1.0.0",
+  "description": "Centralized Netlify functions for all Obsidian sales pages",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "resend": "^2.0.0"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^2.0.0"
+  }
+}

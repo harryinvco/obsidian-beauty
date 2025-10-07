@@ -72,9 +72,9 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // Insert into Supabase leads table
+  // Insert into Supabase beauty_leads table
   const { error } = await supabase
-    .from('leads')
+    .from('beauty_leads')
     .insert([
       {
         email: email.toLowerCase().trim(),
