@@ -2,12 +2,33 @@ const { createClient } = require('@supabase/supabase-js');
 const { Resend } = require('resend');
 
 exports.handler = async function(event, context) {
+  console.log('Beauty form submission started:', {
+    httpMethod: event.httpMethod,
+    headers: event.headers,
+    body: event.body ? 'Body present' : 'No body'
+  });
+
+  // Handle CORS preflight requests
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      },
+      body: ''
+    };
+  }
+
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
+    console.log('Method not allowed:', event.httpMethod);
     return {
       statusCode: 405,
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({ error: 'Method Not Allowed' })
     };
@@ -18,14 +39,24 @@ exports.handler = async function(event, context) {
   const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
+  console.log('Environment check:', {
+    hasSupabaseUrl: !!SUPABASE_URL,
+    hasSupabaseKey: !!SUPABASE_SERVICE_ROLE_KEY,
+    hasResendKey: !!RESEND_API_KEY
+  });
+
   if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
-    console.error('Missing Supabase environment variables');
+    console.error('Missing Supabase environment variables:', {
+      SUPABASE_URL: SUPABASE_URL ? 'Present' : 'Missing',
+      SUPABASE_SERVICE_ROLE_KEY: SUPABASE_SERVICE_ROLE_KEY ? 'Present' : 'Missing'
+    });
     return {
       statusCode: 500,
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ error: 'Server configuration error' })
+      body: JSON.stringify({ error: 'Server configuration error - missing environment variables' })
     };
   }
 
@@ -38,14 +69,18 @@ exports.handler = async function(event, context) {
   // Parse request body
   let data;
   try {
+    console.log('Parsing request body:', event.body);
     data = JSON.parse(event.body);
+    console.log('Parsed data:', data);
   } catch (e) {
+    console.error('JSON parse error:', e.message, 'Body:', event.body);
     return {
       statusCode: 400,
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ error: 'Invalid JSON' })
+      body: JSON.stringify({ error: 'Invalid JSON: ' + e.message })
     };
   }
 
@@ -62,38 +97,49 @@ exports.handler = async function(event, context) {
   } = data;
 
   // Validate required fields
+  console.log('Validating fields:', { email, firstName });
   if (!email || !firstName) {
+    console.log('Validation failed - missing required fields');
     return {
       statusCode: 400,
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({ error: 'Email and first name are required' })
     };
   }
 
   // Insert into Supabase beauty_leads table
+  console.log('Attempting to insert into beauty_leads table...');
+  const insertData = {
+    email: email.toLowerCase().trim(),
+    first_name: firstName.trim(),
+    utm_source: utm_source || null,
+    utm_medium: utm_medium || null,
+    utm_campaign: utm_campaign || null,
+    utm_term: utm_term || null,
+    utm_content: utm_content || null,
+    landing_path: landing_path || null,
+    created_at: new Date().toISOString()
+  };
+  console.log('Insert data:', insertData);
+
   const { error } = await supabase
     .from('beauty_leads')
-    .insert([
-      {
-        email: email.toLowerCase().trim(),
-        first_name: firstName.trim(),
-        utm_source: utm_source || null,
-        utm_medium: utm_medium || null,
-        utm_campaign: utm_campaign || null,
-        utm_term: utm_term || null,
-        utm_content: utm_content || null,
-        landing_path: landing_path || null,
-        created_at: new Date().toISOString()
-      }
-    ]);
+    .insert([insertData]);
 
   if (error) {
-    console.error('Supabase insert error:', error);
+    console.error('Supabase insert error:', {
+      message: error.message,
+      details: error.details,
+      hint: error.hint,
+      code: error.code
+    });
 
     // Handle duplicate email error - still send email if they already registered
     if (error.code === '23505') {
+      console.log('Duplicate email detected, still sending response');
       // If email already exists, still try to send the email
       if (resend) {
         try {
@@ -106,6 +152,7 @@ exports.handler = async function(event, context) {
       return {
         statusCode: 409,
         headers: {
+          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -139,10 +186,13 @@ exports.handler = async function(event, context) {
   // Log success for debugging
   console.log('Lead successfully saved:', email);
 
+  console.log('Success! Lead saved and email sent to:', email);
+
   return {
     statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({
       success: true,
