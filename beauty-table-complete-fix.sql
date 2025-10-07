@@ -22,14 +22,20 @@ CREATE TABLE beauty_leads (
 CREATE INDEX idx_beauty_leads_email ON beauty_leads(email);
 CREATE INDEX idx_beauty_leads_created_at ON beauty_leads(created_at);
 
--- 4. Grant permissions to service_role (this will work with any sequence name)
+-- 4. Grant permissions ONLY to service_role (secure)
 GRANT ALL PRIVILEGES ON TABLE beauty_leads TO service_role;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO service_role;
+GRANT USAGE, SELECT ON SEQUENCE beauty_leads_id_seq TO service_role;
 
--- 5. Since RLS is enabled, create the policy
+-- Revoke any public access
+REVOKE ALL ON beauty_leads FROM PUBLIC;
+REVOKE ALL ON beauty_leads FROM anon;
+REVOKE ALL ON beauty_leads FROM authenticated;
+
+-- 5. Since RLS is enabled, create SECURE policy (service_role only)
 DROP POLICY IF EXISTS "service_role_beauty_leads_policy" ON beauty_leads;
+DROP POLICY IF EXISTS "beauty_leads_service_role_only" ON beauty_leads;
 
-CREATE POLICY "service_role_beauty_leads_policy" 
+CREATE POLICY "beauty_leads_service_role_only" 
 ON beauty_leads 
 FOR ALL 
 TO service_role 
