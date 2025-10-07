@@ -1822,13 +1822,13 @@
             <div class="hero-card" data-aos="fade-up" data-aos-duration="1000">
                 <h1 id="typed-headline" class="interactive-hero hero-title-mobile hero-title-desktop" style="min-height: auto; font-size: 2.8rem; line-height: 1.3; text-align:center; font-weight: 700; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
                     <span class="hero-line-1" style="display:block; margin-bottom: 0.8rem;">
-                        After burning <span class="highlight-red" style="background: linear-gradient(120deg, #ef4444 0%, #dc2626 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: white; font-weight: 800;">$50K</span> on 138 beauty ads that flopped...
+                        After burning <span class="highlight-red" style="background: linear-gradient(120deg, #ef4444 0%, #dc2626 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: white; font-weight: 800;">$500K</span> on 238 beauty ads that flopped...
                     </span>
                     <span class="hero-line-2" style="display:block; font-size: 2.2rem; font-weight: 500; margin-bottom: 0.8rem;">
-                        We discovered <span class="highlight-yellow" style="background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f2937; font-weight: 700;">7 frameworks</span> that generated <span class="highlight-green" style="background: linear-gradient(120deg, #22c55e 0%, #16a34a 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: white; font-weight: 700;">$2.7M in 18 months</span>
+                        We discovered <span class="highlight-yellow" style="background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f2937; font-weight: 700;">7 frameworks</span> that generated <span class="highlight-green" style="background: linear-gradient(120deg, #22c55e 0%, #16a34a 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: white; font-weight: 700;">$47M in 18 months</span>
                     </span>
                     <span class="hero-line-3" style="display:block; font-size: 1.8rem; font-weight: 400; color: rgba(255,255,255,0.9);">
-                        (And now beauty brands pay us <span class="highlight-blue" style="background: linear-gradient(120deg, #3b82f6 0%, #2563eb 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: white; font-weight: 600;">$5K/month</span> just to access them)
+                        (And now beauty brands pay us <span class="highlight-blue" style="background: linear-gradient(120deg, #3b82f6 0%, #2563eb 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: white; font-weight: 600;">$15K/month</span> just to access them)
                     </span>
                 </h1>
 
@@ -1848,7 +1848,7 @@
                 </div>
 
                 <p class="hero-subheadline hero-sub-desktop" style="font-size: 1.2rem; line-height: 1.6; color: #ffffff; max-width: 650px; margin: 1.5rem auto; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
-                    <strong style="background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f2937;">Warning:</strong> These aren't theory or "best practices." These are battle-tested frameworks from <strong style="background: rgba(34, 197, 94, 0.3); padding: 0.1rem 0.4rem; border-radius: 4px; color: #22c55e; font-weight: 700;">$27K generated in the last 2 weeks alone.</strong>
+                    <strong style="background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f2937;">Warning:</strong> These aren't theory or "best practices." These are battle-tested frameworks from <strong style="background: rgba(34, 197, 94, 0.3); padding: 0.1rem 0.4rem; border-radius: 4px; color: #22c55e; font-weight: 700;">$127K generated in the last 2 weeks alone.</strong>
                 </p>
 
                 
@@ -1873,77 +1873,35 @@
                         <p style="margin: 5px 0; font-size: 14px; color: var(--color-green-accent); font-weight: 500;"><strong style="background: none; color: var(--color-green-accent); font-weight: 700; padding: 0; box-shadow: none;">🔥 Only <span style="background: var(--color-green-accent); color: var(--color-white); padding: 2px 8px; border-radius: 12px;">23/100</span> spots remaining!</strong></p>
                     </div>
                     
-                    <form id="leadForm" class="form-modern">
-                        <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit">
-                            <div class="form-group-modern">
-                                <input type="email" id="email" name="email" class="form-input-modern" placeholder=" " required 
-                                       autocomplete="email" 
-                                       inputmode="email"
-                                       autocapitalize="none"
-                                       spellcheck="false">
-                                <label for="email" class="form-label-modern">Enter your email address</label>
+                    <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit">
+                        <div class="form-group-modern">
+                            <input type="email" id="email" name="email" class="form-input-modern" placeholder=" " required 
+                                   autocomplete="email" 
+                                   inputmode="email"
+                                   autocapitalize="none"
+                                   spellcheck="false">
+                            <label for="email" class="form-label-modern">Enter your email address</label>
+                        </div>
+                        <div class="form-group-modern">
+                            <input type="text" id="firstName" name="firstName" class="form-input-modern" placeholder=" " required
+                                   autocomplete="given-name"
+                                   autocapitalize="words"
+                                   spellcheck="false">
+                            <label for="firstName" class="form-label-modern">First name</label>
+                        </div>
+                        <input type="hidden" id="utm_source" name="utm_source">
+                        <input type="hidden" id="utm_medium" name="utm_medium">
+                        <input type="hidden" id="utm_campaign" name="utm_campaign">
+                        <input type="hidden" id="utm_term" name="utm_term">
+                        <input type="hidden" id="utm_content" name="utm_content">
+                        <input type="hidden" id="landing_path" name="landing_path">
+                        <button type="submit" class="btn-modern btn-large" style="width: 100%;">
+                            <span class="btn-text">Claim Your Frameworks Now</span>
+                            <div class="btn-loader" style="display: none;">
+                                <div style="width: 20px; height: 20px; border: 2px solid #fff; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
                             </div>
-                            <div class="form-group-modern">
-                                <input type="text" id="firstName" name="firstName" class="form-input-modern" placeholder=" " required
-                                       autocomplete="given-name"
-                                       autocapitalize="words"
-                                       spellcheck="false">
-                                <label for="firstName" class="form-label-modern">First name</label>
-                            </div>
-                            <input type="hidden" id="utm_source" name="utm_source">
-                            <input type="hidden" id="utm_medium" name="utm_medium">
-                            <input type="hidden" id="utm_campaign" name="utm_campaign">
-                            <input type="hidden" id="utm_term" name="utm_term">
-                            <input type="hidden" id="utm_content" name="utm_content">
-                            <input type="hidden" id="landing_path" name="landing_path">
-                            <button type="submit" class="btn-modern btn-large" style="width: 100%;">
-                                <span class="btn-text">Claim Your Frameworks Now</span>
-                                <div class="btn-loader" style="display: none;">
-                                    <div style="width: 20px; height: 20px; border: 2px solid #fff; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                                </div>
-                            </button>
-                        </form>
-                                                <script>
-                                                document.getElementById('leadForm').addEventListener('submit', async function(e) {
-                                                    e.preventDefault();
-                                                    const form = e.target;
-                                                    const data = {
-                                                        email: form.email.value,
-                                                        firstName: form.firstName.value,
-                                                        utm_source: form.utm_source.value,
-                                                        utm_medium: form.utm_medium.value,
-                                                        utm_campaign: form.utm_campaign.value,
-                                                        utm_term: form.utm_term.value,
-                                                        utm_content: form.utm_content.value,
-                                                        landing_path: form.landing_path.value
-                                                    };
-                                                    const btn = form.querySelector('.btn-loader');
-                                                    btn.style.display = 'inline-block';
-                                                    try {
-                                                        const res = await fetch('/.netlify/functions/submit', {
-                                                            method: 'POST',
-                                                            headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify(data)
-                                                        });
-                                                        btn.style.display = 'none';
-                                                        if (res.ok) {
-                                                            // Persist lead data so thank-you page can read and display the email
-                                                            try {
-                                                                localStorage.setItem('leadData', JSON.stringify(data));
-                                                            } catch (e) {
-                                                                console.warn('Could not persist lead data', e);
-                                                            }
-                                                            // Redirect to thank-you page
-                                                            window.location.href = 'thank-you.html';
-                                                        } else {
-                                                            alert('Submission failed. Please try again.');
-                                                        }
-                                                    } catch (err) {
-                                                        btn.style.display = 'none';
-                                                        alert('Submission failed. Please try again.');
-                                                    }
-                                                });
-                                                </script>
+                        </button>
+                    </form>
                     <p style="font-size: 14px; color: var(--color-dark-gray); opacity: 0.7; text-align: center; margin-top: 15px; font-family: var(--font-body); font-weight: 300;">
                         🔒 No spam. Unsubscribe anytime.
                     </p>
@@ -2734,8 +2692,8 @@
                             padding: 1.5rem;
                             backdrop-filter: blur(10px);
                         ">
-                            <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #ff6b6b;">11</div>
-                            <p style="color: white; font-weight: 600; margin: 0;">Spots left today at this price</p>
+                            <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #ff6b6b;">23</div>
+                            <p style="color: white; font-weight: 600; margin: 0;">Spots left before this goes to $497</p>
                         </div>
                     </div>
                 </div>
@@ -3189,24 +3147,42 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    const result = await res.json();
-                    success = result.success;
+                    
+                    if (res.ok) {
+                        const result = await res.json();
+                        success = result.success || res.ok;
+                        
+                        if (success) {
+                            // Track conversion before redirect
+                            this.trackConversion(email, firstName);
+
+                            // Persist lead payload in localStorage so thank-you page can display the email
+                            try {
+                                localStorage.setItem('leadData', JSON.stringify(payload));
+                            } catch (e) {
+                                console.warn('Could not persist lead data to localStorage', e);
+                            }
+
+                            // Redirect to thank you page
+                            window.location.href = 'thank-you.html';
+                            return;
+                        }
+                    }
+                    
+                    // If we get here, submission failed
+                    throw new Error('Submission failed');
+                    
                 } catch (err) {
-                    success = false;
+                    console.error('Form submission error:', err);
+                    
+                    // Reset button state
+                    btnText.style.display = 'block';
+                    loader.style.display = 'none';
+                    button.disabled = false;
+                    
+                    // Show error message
+                    alert('Submission failed. Please try again.');
                 }
-
-                // Track conversion before redirect
-                this.trackConversion(email, firstName);
-
-                // Persist lead payload in localStorage so thank-you page can display the email
-                try {
-                    localStorage.setItem('leadData', JSON.stringify(payload));
-                } catch (e) {
-                    console.warn('Could not persist lead data to localStorage', e);
-                }
-
-                // Redirect to thank you page
-                window.location.href = 'thank-you.html';
             }
             
             validateField(input) {
