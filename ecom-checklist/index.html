@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WT9CMBJV');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Reddit Pixel -->
+    <script>
+    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_hrc9q3mpxf14', {
+    optOut: false,
+    useDecimalCurrencyValues: true,
+    email: '<email_address>',
+    externalId: '<external_id>'
+    });
+    rdt('track', 'PageVisit');
+    </script>
+    <!-- End Reddit Pixel -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -174,9 +194,9 @@
             max-width: 1200px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 0.9fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: var(--space-8);
-            align-items: start;
+            align-items: center;
             padding-top: var(--space-4);
         }
 
@@ -184,56 +204,7 @@
             animation: slideUp 0.8s ease-out;
         }
 
-        /* Hero Preview Section */
-        .hero-preview {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: slideUp 0.8s ease-out 0.2s both;
-        }
 
-        .checklist-preview-card {
-            position: relative;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-3);
-            transition: all var(--transition);
-            max-width: 380px;
-            width: 100%;
-            margin-top: var(--space-6);
-        }
-
-        .checklist-preview-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(108, 170, 51, 0.4);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 20px 60px rgba(108, 170, 51, 0.15);
-        }
-
-        .checklist-preview-image {
-            width: 100%;
-            height: auto;
-            border-radius: var(--radius-xl);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            display: block;
-        }
-
-        .preview-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--secondary), rgba(108, 170, 51, 0.8));
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            font-size: 0.875rem;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(108, 170, 51, 0.3);
-            white-space: nowrap;
-        }
 
         .hero-eyebrow {
             display: inline-block;
@@ -457,10 +428,12 @@
             font-size: 0.875rem;
         }
 
-        /* Team/Social Proof Section */
+
+
+        /* Modern Team/Social Proof Section */
         .team-section {
             padding: var(--space-10) var(--space-4);
-            background: linear-gradient(135deg, #020202 0%, #1a4d6b 100%);
+            background: linear-gradient(135deg, var(--white) 0%, #f8fafc 50%, var(--white) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -475,17 +448,17 @@
             background-image:
                 repeating-linear-gradient(
                     0deg,
-                    rgba(255, 255, 255, 0.02) 0px,
+                    rgba(51, 128, 171, 0.03) 0px,
                     transparent 1px,
-                    transparent 50px,
-                    rgba(255, 255, 255, 0.02) 51px
+                    transparent 60px,
+                    rgba(51, 128, 171, 0.03) 61px
                 ),
                 repeating-linear-gradient(
                     90deg,
-                    rgba(255, 255, 255, 0.02) 0px,
+                    rgba(108, 170, 51, 0.03) 0px,
                     transparent 1px,
-                    transparent 50px,
-                    rgba(255, 255, 255, 0.02) 51px
+                    transparent 60px,
+                    rgba(108, 170, 51, 0.03) 61px
                 );
             z-index: 0;
         }
@@ -498,8 +471,8 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(circle at 15% 20%, rgba(108, 170, 51, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(51, 128, 171, 0.12) 0%, transparent 40%);
+                radial-gradient(circle at 20% 30%, rgba(108, 170, 51, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(51, 128, 171, 0.08) 0%, transparent 50%);
             z-index: 0;
         }
 
@@ -511,41 +484,64 @@
         }
 
         .team-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-8);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
             align-items: center;
+            margin-bottom: var(--space-6);
+            text-align: center;
         }
 
         .team-image-wrapper {
             position: relative;
             animation: slideUp 0.8s ease-out;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto var(--space-6);
         }
 
         .team-image-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-4);
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 24px;
+            padding: var(--space-3);
             position: relative;
-            transition: all var(--transition);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .team-image-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.02), rgba(51, 128, 171, 0.02));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 24px;
         }
 
         .team-image-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(108, 170, 51, 0.4);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 30px 80px rgba(108, 170, 51, 0.15);
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(108, 170, 51, 0.2);
+            box-shadow: 0 20px 60px rgba(108, 170, 51, 0.1), 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-image-card:hover::before {
+            opacity: 1;
         }
 
         .team-image {
             width: 100%;
             height: auto;
-            border-radius: var(--radius-xl);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
             display: block;
+            position: relative;
+            z-index: 1;
         }
 
         .awards-badge {
@@ -560,41 +556,37 @@
         }
 
         .team-content {
-            color: var(--white);
+            color: var(--gray-900);
             animation: slideUp 0.8s ease-out 0.2s both;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .section-eyebrow {
             display: inline-block;
-            background: rgba(108, 170, 51, 0.2);
-            color: var(--secondary);
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            font-weight: 700;
+            background: linear-gradient(135deg, var(--secondary), rgba(108, 170, 51, 0.8));
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            font-weight: 800;
             text-transform: uppercase;
             font-size: 0.875rem;
-            letter-spacing: 0.05em;
-            margin-bottom: var(--space-3);
-            border: 1px solid rgba(108, 170, 51, 0.3);
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-4);
+            box-shadow: 0 4px 16px rgba(108, 170, 51, 0.3);
             transition: all var(--transition);
-            animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { 
-                box-shadow: 0 0 0 0 rgba(108, 170, 51, 0.4);
-            }
-            50% { 
-                box-shadow: 0 0 0 8px rgba(108, 170, 51, 0);
-            }
-        }
+
 
         .as-seen-on {
             margin-bottom: var(--space-5);
-            padding: var(--space-3);
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-4);
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            border: 2px solid var(--gray-200);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            text-align: center;
         }
 
         .as-seen-on-image {
@@ -606,80 +598,117 @@
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2.25rem, 4.5vw, 3.5rem);
             font-weight: 900;
-            color: var(--white);
+            color: var(--gray-900);
             margin-bottom: var(--space-5);
-            line-height: 1.1;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.15;
+            background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .team-intro {
-            font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            color: var(--gray-700);
             line-height: 1.7;
-            margin-bottom: var(--space-3);
+            margin-bottom: var(--space-4);
+            font-weight: 500;
         }
 
         .team-intro strong {
-            color: var(--white);
+            color: var(--gray-900);
             font-weight: 700;
-            background: linear-gradient(135deg, var(--secondary), rgba(108, 170, 51, 0.8));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .expertise-highlight {
-            background: rgba(108, 170, 51, 0.1);
-            border: 2px solid rgba(108, 170, 51, 0.3);
-            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.04), rgba(51, 128, 171, 0.04));
+            border: 1px solid rgba(108, 170, 51, 0.2);
+            border-radius: 20px;
             padding: var(--space-4);
             margin: var(--space-4) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-highlight::before {
+            content: '⏰';
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            font-size: 1.75rem;
+            opacity: 0.3;
         }
 
         .expertise-highlight .team-intro {
             margin-bottom: 0;
-            color: rgba(255, 255, 255, 0.95);
+            color: var(--gray-800);
+            font-weight: 600;
         }
 
         .client-testimonial {
             margin-top: var(--space-6);
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: var(--radius-xl);
-            padding: var(--space-5);
+            background: linear-gradient(135deg, var(--white), #fafbfc);
+            border: 1px solid var(--gray-100);
+            border-radius: 24px;
+            padding: var(--space-6);
             position: relative;
-            transition: all var(--transition);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .client-testimonial::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.02), rgba(51, 128, 171, 0.02));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 24px;
+            pointer-events: none;
         }
 
         .client-testimonial:hover {
-            transform: translateY(-4px);
-            border-color: rgba(108, 170, 51, 0.3);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 20px 50px rgba(108, 170, 51, 0.1);
+            transform: translateY(-6px);
+            border-color: rgba(108, 170, 51, 0.2);
+            box-shadow: 0 16px 50px rgba(108, 170, 51, 0.08), 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .client-testimonial:hover::after {
+            opacity: 1;
         }
 
         .client-testimonial::before {
             content: '"';
             position: absolute;
-            top: -10px;
-            left: var(--space-4);
+            top: 20px;
+            left: var(--space-6);
             font-size: 4rem;
-            font-weight: 900;
+            font-weight: 700;
             color: var(--secondary);
-            opacity: 0.6;
+            opacity: 0.15;
             line-height: 1;
+            z-index: 0;
         }
 
         .testimonial-text {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--gray-800);
             font-style: italic;
             margin-bottom: var(--space-4);
-            padding-left: var(--space-2);
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-author {
@@ -690,49 +719,68 @@
 
         .author-name {
             font-weight: 700;
-            color: var(--white);
-            font-size: 1rem;
+            color: var(--gray-900);
+            font-size: 1.1rem;
         }
 
         .author-title {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-size: 0.95rem;
         }
 
         .author-result {
             color: var(--secondary);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .founder-signature {
             display: flex;
             align-items: center;
-            gap: var(--space-3);
+            gap: var(--space-5);
             margin-top: var(--space-6);
-            padding: var(--space-4);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-xl);
-            transition: all var(--transition);
+            padding: var(--space-6);
+            background: linear-gradient(135deg, #fafbfc, var(--white));
+            border: 1px solid var(--gray-100);
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-signature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.02), rgba(51, 128, 171, 0.02));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .founder-signature:hover {
-            transform: translateY(-2px);
-            border-color: rgba(108, 170, 51, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            border-color: rgba(108, 170, 51, 0.2);
+            box-shadow: 0 12px 30px rgba(108, 170, 51, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .founder-signature:hover::before {
+            opacity: 1;
         }
 
         .founder-avatar {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 4px solid var(--secondary);
+            border: 4px solid var(--white);
             object-fit: cover;
-            box-shadow: 0 6px 16px rgba(108, 170, 51, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), inset 0 0 0 2px rgba(108, 170, 51, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .founder-info {
@@ -740,67 +788,253 @@
         }
 
         .founder-name {
+            font-weight: 800;
+            color: var(--gray-900);
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-title {
+            color: var(--secondary);
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--white);
-            font-size: 1.125rem;
             display: block;
             margin-bottom: 0.25rem;
         }
 
-        .founder-title {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
+        .founder-subtitle {
+            color: var(--gray-600);
+            font-size: 1rem;
+            font-weight: 500;
         }
+
+        /* Mike Section */
+        .mike-section {
+            margin-top: var(--space-6);
+            padding: var(--space-6);
+            background: linear-gradient(135deg, #fafbfc, var(--white));
+            border: 1px solid var(--gray-100);
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .mike-intro {
+            margin-bottom: var(--space-6);
+            text-align: center;
+            position: relative;
+            padding: var(--space-6) var(--space-8);
+            background: linear-gradient(135deg, #fafbfc 0%, var(--white) 100%);
+            border-radius: 24px;
+            border: 1px solid var(--gray-100);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .mike-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.03), rgba(51, 128, 171, 0.03));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mike-intro:hover::before {
+            opacity: 1;
+        }
+
+        .mike-text {
+            font-size: 1.35rem;
+            line-height: 1.6;
+            color: var(--gray-800);
+            font-weight: 500;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            font-family: var(--font-base);
+        }
+
+        .mike-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-family: Georgia, serif;
+            z-index: 0;
+        }
+
+        .mike-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            font-family: Georgia, serif;
+            z-index: 0;
+        }
+
+        /* Subtle CTA Buttons */
+        .subtle-cta {
+            display: flex;
+            justify-content: center;
+            margin: var(--space-5) 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.08), rgba(51, 128, 171, 0.08));
+            border: 1px solid rgba(108, 170, 51, 0.2);
+            border-radius: 12px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.1), rgba(51, 128, 171, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(108, 170, 51, 0.4);
+            box-shadow: 0 8px 25px rgba(108, 170, 51, 0.15);
+            color: var(--gray-800);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-icon {
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        /* Conversion Proof Section */
+        .conversion-proof {
+            margin: var(--space-6) 0;
+            padding: var(--space-6);
+            background: linear-gradient(135deg, #fafbfc, var(--white));
+            border: 1px solid var(--gray-100);
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .proof-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: var(--space-5);
+            text-align: center;
+        }
+
+
+
+        /* Conversion Proof Section */
+        .conversion-proof {
+            margin: var(--space-6) 0;
+            padding: var(--space-6);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border-radius: var(--radius-2xl);
+            box-shadow: 0 15px 50px rgba(51, 128, 171, 0.2);
+        }
+
+        .proof-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-5);
+            color: var(--white);
+        }
+
+
 
         .trust-metrics {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-3);
-            margin-top: var(--space-6);
+            gap: var(--space-4);
+            margin: var(--space-4) 0 var(--space-5);
         }
 
         .trust-metric {
             text-align: center;
-            padding: var(--space-4);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-xl);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            transition: all var(--transition);
+            padding: var(--space-6);
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-metric::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .trust-metric:hover {
             transform: translateY(-4px);
-            border-color: rgba(108, 170, 51, 0.5);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 40px rgba(108, 170, 51, 0.1);
+            border-color: rgba(108, 170, 51, 0.2);
+            box-shadow: 0 12px 40px rgba(108, 170, 51, 0.08), 0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
-        .trust-metric:nth-child(1):hover {
-            border-color: rgba(51, 128, 171, 0.5);
-            box-shadow: 0 15px 40px rgba(51, 128, 171, 0.1);
-        }
-
-        .trust-metric:nth-child(2):hover {
-            border-color: rgba(220, 38, 38, 0.5);
-            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.1);
+        .trust-metric:hover::before {
+            transform: scaleX(1);
         }
 
         .trust-metric-number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--white), rgba(255, 255, 255, 0.8));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             line-height: 1;
         }
 
         .trust-metric-label {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            color: var(--gray-700);
             font-weight: 600;
         }
 
@@ -1014,19 +1248,23 @@
         /* Tablet Responsive */
         @media (max-width: 1024px) {
             .hero-content {
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: var(--space-5);
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-6);
                 align-items: center;
             }
 
-            .checklist-preview-card {
-                max-width: 280px;
-                margin-top: var(--space-3);
+            .team-grid {
+                gap: var(--space-6);
             }
 
-            .preview-badge {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
+            .trust-metrics {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-3);
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
             }
         }
 
@@ -1034,19 +1272,9 @@
         @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: var(--space-4);
+                gap: var(--space-6);
                 align-items: center;
                 padding-top: 0;
-            }
-
-            .hero-preview {
-                order: -1;
-                margin-bottom: var(--space-6);
-            }
-
-            .checklist-preview-card {
-                max-width: 320px;
-                margin-top: 0;
             }
 
             .hero-text {
@@ -1057,6 +1285,10 @@
                 justify-content: center;
             }
 
+            .team-grid {
+                gap: var(--space-6);
+            }
+
             .problem-grid {
                 grid-template-columns: 1fr;
             }
@@ -1064,21 +1296,21 @@
             .solution-stats {
                 grid-template-columns: 1fr;
             }
+
+            .trust-metrics {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+            }
         }
 
         @media (max-width: 640px) {
             .hero {
                 padding: var(--space-6) var(--space-3);
-            }
-
-            .checklist-preview-card {
-                max-width: 240px;
-                padding: var(--space-3);
-            }
-
-            .preview-badge {
-                font-size: 0.7rem;
-                padding: 0.3rem 0.6rem;
             }
 
             .hero-title {
@@ -1094,7 +1326,59 @@
             }
 
             .team-grid {
-                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+
+            .team-image-wrapper {
+                margin-bottom: var(--space-6);
+            }
+
+            .mike-section {
+                padding: var(--space-4);
+                margin-top: var(--space-6);
+            }
+
+            .mike-intro {
+                padding: var(--space-4);
+                margin-bottom: var(--space-5);
+            }
+
+            .mike-intro::before {
+                font-size: 3rem;
+                top: -5px;
+                left: var(--space-3);
+            }
+
+            .mike-intro::after {
+                font-size: 3rem;
+                bottom: -20px;
+                right: var(--space-3);
+            }
+
+            .mike-text {
+                font-size: 1.1rem;
+            }
+
+            .founder-signature {
+                gap: var(--space-4);
+                padding: var(--space-4);
+            }
+
+            .founder-avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .founder-name {
+                font-size: 1.2rem;
+            }
+
+            .founder-title {
+                font-size: 1rem;
+            }
+
+            .team-section {
+                padding: var(--space-8) var(--space-3);
             }
 
             .awards-badge {
@@ -1114,12 +1398,21 @@
 
             .trust-metrics {
                 grid-template-columns: 1fr;
-                gap: var(--space-2);
+                gap: var(--space-3);
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .cta-icon {
+                font-size: 0.9rem;
             }
 
             .client-testimonial {
                 margin-top: var(--space-4);
-                padding: var(--space-3);
+                padding: var(--space-4);
             }
 
             .testimonial-text {
@@ -1128,8 +1421,18 @@
             }
 
             .expertise-highlight {
-                padding: var(--space-3);
-                margin: var(--space-3) 0;
+                padding: var(--space-4);
+                margin: var(--space-4) 0;
+            }
+
+            .conversion-proof {
+                padding: var(--space-4);
+                margin: var(--space-4) 0;
+            }
+
+            .proof-title {
+                font-size: 1.5rem;
+                margin-bottom: var(--space-4);
             }
 
             .team-image-card:hover,
@@ -1139,16 +1442,12 @@
                 transform: none;
             }
 
-            .section-eyebrow {
-                animation: none;
-            }
-
             .social-stats {
                 grid-template-columns: 1fr;
             }
 
             .trust-badges {
-                flex-direction: column;
+                grid-template-columns: repeat(2, 1fr);
                 gap: var(--space-2);
             }
         }
@@ -1186,45 +1485,42 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT9CMBJV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <span class="hero-eyebrow">Free Download</span>
-                <h1 class="hero-title">Stop Losing Revenue to Hidden Growth Leaks</h1>
+                <span class="hero-eyebrow">⚠️ WARNING: Your Store Is Bleeding Money</span>
+                <h1 class="hero-title">Every eCom Founder Should Run Their Store Through This Checklist</h1>
                 <p class="hero-subtitle">
-                    The 47-point checklist that helped 200+ ecommerce stores find and fix profit-killing mistakes in their funnel.
+                    <strong>Every ecommerce entrepreneur needs this:</strong> The exact 23-point audit checklist we use to find and plug revenue leaks that cost stores thousands monthly. <em>Used by 56+ successful store owners.</em>
                 </p>
 
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">€47M+</span>
-                        <span class="stat-label">Revenue Generated</span>
+                        <span class="stat-label">Revenue Recovered</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">200+</span>
-                        <span class="stat-label">Stores Optimized</span>
+                        <span class="stat-number">€12K+</span>
+                        <span class="stat-label">Average Monthly Leaks Found</span>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-preview">
-                <div class="checklist-preview-card">
-                    <img src="images/ecom-checklist-preview.png" alt="The Obsidian eCom Growth Leak Checklist Preview" class="checklist-preview-image">
-                    <div class="preview-badge">
-                        <span>✅ 47 Point Checklist</span>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="hero-form-card">
                 <div class="form-header">
-                    <span class="form-badge">100% Free • No Credit Card</span>
-                    <h2 class="form-title">Download Now</h2>
-                    <p class="form-subtitle">Join 200+ store owners finding €12K+ in hidden revenue</p>
+                    <span class="form-badge">🔥 FREE for eCommerce Entrepreneurs</span>
+                    <h2 class="form-title">Get Your Revenue Leak Audit</h2>
+                    <p class="form-subtitle">Join 200+ smart store owners who discovered €12K+ in hidden revenue in their first audit</p>
                 </div>
 
-                <form id="leadForm" action="/.netlify/functions/submit-ecom" method="POST">
+                <form id="leadForm" action="/.netlify/functions/submit-ecom-debug" method="POST">
                     <div class="form-group">
                         <label class="form-label" for="name">
                             First Name <span class="required">*</span>
@@ -1258,20 +1554,20 @@
                             Website / eShop URL
                         </label>
                         <input
-                            type="url"
+                            type="text"
                             id="website"
                             name="website"
                             class="form-input"
-                            placeholder="https://yourstore.com"
+                            placeholder="yourstore.com"
                         >
                     </div>
 
                     <button type="submit" class="form-cta">
-                        Get Free Checklist →
+                        🚀 Find My Revenue Leaks (FREE)
                     </button>
 
                     <p class="form-privacy">
-                        🔒 100% secure. Unsubscribe anytime.
+                        🔒 Trusted by 200+ entrepreneurs. No spam, ever. Unsubscribe anytime.
                     </p>
                 </form>
 
@@ -1301,66 +1597,78 @@
     <section class="team-section">
         <div class="container">
             <div class="team-grid">
-                <div class="team-image-wrapper" data-aos="fade-right">
+                <div class="team-image-wrapper" data-aos="fade-up">
                     <div class="team-image-card">
                         <img src="/saas/images/obsidian-team.webp" alt="The Obsidian Co Team" class="team-image">
                     </div>
                     <img src="/saas/images/awards-and-acolades-the-obsidian-co.png" alt="Awards & Recognition" class="awards-badge">
                 </div>
 
-                <div class="team-content" data-aos="fade-left">
-                    <span class="section-eyebrow">Trusted By Industry Leaders</span>
-                    <h2 class="section-title">Created by Growth Experts Who've Generated €47M+ in Revenue</h2>
+                <div class="team-content" data-aos="fade-up" data-aos-delay="200">
+                    <span class="section-eyebrow">⚡ PROOF: This System Works</span>
+                    <h2 class="section-title">The Team That's Helped 56+ eCommerce Entrepreneurs Add €47M+ in Revenue</h2>
 
                     <div class="as-seen-on">
                         <img src="/saas/images/As-seen-on-1.png" alt="As Seen On Leading Platforms" class="as-seen-on-image">
                     </div>
 
                     <p class="team-intro">
-                        This isn't another generic checklist from a marketing guru. <strong>The Obsidian Co has generated over €47M+ in revenue</strong> for 200+ brands across ecommerce, beauty, SaaS, and digital products.
+                        <strong>If you're an ecommerce entrepreneur leaving money on the table, this is for you.</strong> The Obsidian Co has generated over €47M+ in revenue for 56+ brands, and we've seen the same costly mistakes in 90% of stores we audit.
                     </p>
                     <p class="team-intro">
-                        After auditing hundreds of stores, we discovered the same profit-killing patterns appearing everywhere. This checklist contains the exact 47-point framework our team uses to uncover <strong>€12K+ in hidden revenue opportunities</strong> within the first 20 minutes of any store audit.
+                        <strong>Here's what every store owner needs to know:</strong> The average ecommerce business loses €12,000+ monthly to easily fixable "revenue leaks." This checklist contains the exact 23-point framework we use to find and plug these leaks in under 20 minutes.
                     </p>
                     <div class="expertise-highlight">
                         <p class="team-intro">
-                            <strong>Why this matters:</strong> Every day you wait to fix these leaks, you're leaving money on the table. Our clients typically see 25-40% revenue increases within 60 days of implementing these optimizations.
+                            <strong>⏰ TIME IS MONEY:</strong> Every day your store has these leaks, you're hemorrhaging revenue. Smart entrepreneurs who implement our checklist see 25-40% revenue increases within 60 days. <em>That's an extra €5K-€15K per month for most stores.</em>
                         </p>
                     </div>
 
                     <div class="trust-metrics">
                         <div class="trust-metric" data-aos="fade-up" data-aos-delay="100">
                             <span class="trust-metric-number">€47M+</span>
-                            <span class="trust-metric-label">Revenue Generated</span>
+                            <span class="trust-metric-label">Revenue Recovered for Entrepreneurs</span>
                         </div>
                         <div class="trust-metric" data-aos="fade-up" data-aos-delay="200">
-                            <span class="trust-metric-number">200+</span>
-                            <span class="trust-metric-label">Brands Helped</span>
+                            <span class="trust-metric-number">56+</span>
+                            <span class="trust-metric-label">Store Owners Helped</span>
                         </div>
                         <div class="trust-metric" data-aos="fade-up" data-aos-delay="300">
-                            <span class="trust-metric-number">25-40%</span>
-                            <span class="trust-metric-label">Revenue Increase</span>
+                            <span class="trust-metric-number">€12K+</span>
+                            <span class="trust-metric-label">Average Monthly Recovery</span>
                         </div>
                     </div>
 
-                    <div class="client-testimonial" data-aos="fade-up" data-aos-delay="400">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "We implemented just 12 of the 47 points from this checklist and saw a 32% increase in revenue within 45 days. The abandoned cart optimization alone recovered €18K in lost sales."
+                    <div class="subtle-cta" data-aos="fade-up" data-aos-delay="400">
+                        <a href="https://calendly.com/mnikolaou-toc/lets-talk-15min" class="cta-button" target="_blank">
+                            <span class="cta-icon">📞</span>
+                            <span>Get a Free 15-Min Call with Mike</span>
+                        </a>
+                    </div>
+
+
+
+                    <div class="mike-section" data-aos="fade-up" data-aos-delay="400">
+                        <div class="mike-intro">
+                            <p class="mike-text">
+                                <strong>"After auditing 56+ ecommerce stores, I've seen the same costly mistakes over and over. This checklist contains everything I wish every entrepreneur knew before they lose another €12K+ to preventable revenue leaks."</strong>
                             </p>
-                            <div class="testimonial-author">
-                                <span class="author-name">Sarah Chen</span>
-                                <span class="author-title">Founder, Luna Beauty Co.</span>
-                                <span class="author-result">+€47K in 90 days</span>
+                        </div>
+                        
+                        <div class="founder-signature">
+                            <img src="/saas/images/mike-face.jpeg" alt="Mike - COO" class="founder-avatar">
+                            <div class="founder-info">
+                                <span class="founder-name">Mike</span>
+                                <span class="founder-title">COO & Revenue Optimization Expert</span>
+                                <span class="founder-subtitle">The Obsidian Co</span>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="founder-signature" data-aos="fade-up" data-aos-delay="400">
-                        <img src="/saas/images/mike-face.jpeg" alt="Mike - Founder" class="founder-avatar">
-                        <div class="founder-info">
-                            <span class="founder-name">Mike</span>
-                            <span class="founder-title">Founder, The Obsidian Co</span>
+                        <div class="subtle-cta" data-aos="fade-up" data-aos-delay="500">
+                            <a href="https://calendly.com/mnikolaou-toc/lets-talk-15min" class="cta-button" target="_blank">
+                                <span class="cta-icon">💬</span>
+                                <span>Book Your Free Strategy Call</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1404,11 +1712,13 @@
             };
             
             try {
-                const res = await fetch('/.netlify/functions/submit-ecom', {
+                const res = await fetch('/.netlify/functions/submit-ecom-debug', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+                
+                const responseData = await res.json();
                 
                 if (res.ok) {
                     // Persist data for thank-you page
@@ -1421,11 +1731,15 @@
                     // Redirect to thank you page
                     window.location.href = '/ecom-checklist/thank-you';
                 } else {
-                    alert('Submission failed. Please try again.');
+                    // Show the actual error message from the server
+                    const errorMsg = responseData.error || 'Submission failed. Please try again.';
+                    const debugInfo = responseData.debug ? `\n\nDebug: ${JSON.stringify(responseData.debug)}` : '';
+                    alert(errorMsg + debugInfo);
+                    console.error('Server error:', responseData);
                 }
             } catch (err) {
                 console.error('Form submission error:', err);
-                alert('Submission failed. Please try again.');
+                alert('Network error: ' + err.message + '\n\nPlease check your internet connection and try again.');
             }
         });
 
