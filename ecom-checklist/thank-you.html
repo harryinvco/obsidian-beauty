@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#6CAA33">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Check Your Email - Your Checklist is Ready!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        :root {
+            --primary: #3380AB;
+            --primary-dark: #2a6a8a;
+            --secondary: #6CAA33;
+            --secondary-dark: #5a8f2b;
+            --accent: #DC2626;
+
+            --gray-900: #111827;
+            --gray-800: #1F2937;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-400: #9CA3AF;
+            --gray-300: #D1D5DB;
+            --gray-200: #E5E7EB;
+            --gray-100: #F3F4F6;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+
+            --font-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --space-2: 1rem;
+            --space-3: 1.5rem;
+            --space-4: 2rem;
+            --space-6: 3rem;
+            --space-8: 4rem;
+            --space-10: 5rem;
+
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+            --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-base);
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Success Hero */
+        .success-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #020202 0%, #3380AB 100%);
+            color: var(--white);
+            padding: var(--space-8) var(--space-4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                );
+            z-index: 0;
+        }
+
+        .success-content {
+            max-width: 700px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: var(--space-3);
+            display: inline-block;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: var(--space-3);
+            line-height: 1.1;
+        }
+
+        .success-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-4);
+        }
+
+        .success-checklist-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-xl);
+            margin-top: var(--space-2);
+        }
+
+        .success-checklist-link a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        /* Main CTA Section */
+        .cta-section {
+            padding: var(--space-10) var(--space-4);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255, 255, 255, 0.03) 10px,
+                    rgba(255, 255, 255, 0.03) 20px
+                );
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-3);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 900;
+            margin-bottom: var(--space-3);
+            line-height: 1.2;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-4);
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-bullets {
+            list-style: none;
+            margin-bottom: var(--space-6);
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+            padding: var(--space-2);
+            margin-bottom: var(--space-2);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            font-size: 1.125rem;
+        }
+
+        .cta-bullets li::before {
+            content: '✓';
+            font-weight: 900;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--secondary-dark);
+            padding: 1.25rem 3rem;
+            border-radius: var(--radius-lg);
+            font-weight: 800;
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: all var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: var(--space-3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-urgency {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* Upsell Section */
+        .upsell-section {
+            padding: var(--space-10) var(--space-4);
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+        }
+
+        .divider {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .divider-text {
+            color: var(--gray-500);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            display: inline-block;
+            padding: 0 var(--space-3);
+        }
+
+        .divider-text::before,
+        .divider-text::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 1px;
+            background: var(--gray-300);
+        }
+
+        .divider-text::before {
+            right: 100%;
+        }
+
+        .divider-text::after {
+            left: 100%;
+        }
+
+        .upsell-card {
+            background: var(--white);
+            border: 3px solid var(--gray-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-6);
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition);
+        }
+
+        .upsell-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .upsell-header {
+            text-align: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .upsell-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 38, 0.05));
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: var(--space-2);
+        }
+
+        .upsell-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gray-900);
+            margin-bottom: var(--space-2);
+        }
+
+        .upsell-description {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-4);
+        }
+
+        .upsell-features {
+            list-style: none;
+            margin-bottom: var(--space-4);
+        }
+
+        .upsell-features li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) 0;
+            color: var(--gray-700);
+            font-size: 1rem;
+        }
+
+        .upsell-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: 900;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .upsell-price {
+            text-align: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .price-wrapper {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-2);
+        }
+
+        .price-current {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .price-original {
+            font-size: 1.5rem;
+            color: var(--gray-400);
+            text-decoration: line-through;
+        }
+
+        .price-save {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.375rem 0.875rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .upsell-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.125rem 2rem;
+            border-radius: var(--radius-lg);
+            font-weight: 800;
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 14px rgba(51, 128, 171, 0.3);
+        }
+
+        .upsell-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(51, 128, 171, 0.5);
+        }
+
+        .upsell-guarantee {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-top: var(--space-3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: var(--space-6) var(--space-4);
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .footer a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            .success-hero {
+                padding: var(--space-6) var(--space-3);
+            }
+
+            .success-icon {
+                font-size: 3.5rem;
+            }
+
+            .cta-card,
+            .upsell-card {
+                padding: var(--space-4);
+            }
+
+            .cta-bullets,
+            .upsell-features {
+                font-size: 1rem;
+            }
+
+            .divider-text::before,
+            .divider-text::after {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Success Hero -->
+    <section class="success-hero">
+        <div class="success-content">
+            <div class="success-icon">✅</div>
+            <h1 class="success-title" data-aos="fade-up">Check Your Email!</h1>
+            <p class="success-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Your eCom Growth Leak Checklist is on its way to your inbox right now.
+            </p>
+            <div class="success-checklist-link" data-aos="fade-up" data-aos-delay="200">
+                <a href="#download">👉 Click here if you don't see it in 2 minutes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main CTA: Book a Call -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card" data-aos="fade-up">
+                <div class="cta-content">
+                    <span class="cta-badge">⚡ Limited Availability</span>
+                    <h2 class="cta-title">Want Us to Find Your Leaks FOR You?</h2>
+                    <p class="cta-description">
+                        Book a free 20-minute audit call and we'll walk through your store together to identify your biggest revenue opportunities.
+                    </p>
+
+                    <ul class="cta-bullets">
+                        <li>We'll review your funnel live on the call</li>
+                        <li>Identify your top 3 revenue leaks immediately</li>
+                        <li>Get a custom action plan (worth €500)</li>
+                        <li>No pressure, no pitch – just pure value</li>
+                    </ul>
+
+                    <a href="https://calendly.com/your-link" class="cta-button">
+                        Book My Free Audit Call →
+                    </a>
+
+                    <p class="cta-urgency">
+                        🔥 Only 3 slots available this week
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <section class="upsell-section">
+        <div class="container">
+            <div class="divider">
+                <span class="divider-text">Or Get Started Right Now</span>
+            </div>
+
+            <!-- One-Click Upsell -->
+            <div class="upsell-card" data-aos="fade-up">
+                <div class="upsell-header">
+                    <span class="upsell-badge">⚡ Special One-Time Offer</span>
+                    <h3 class="upsell-title">The Complete eCom Optimization Blueprint</h3>
+                    <p class="upsell-description">
+                        Don't just find the leaks – fix them. Get our complete implementation guide with step-by-step fixes for every leak in your funnel.
+                    </p>
+                </div>
+
+                <ul class="upsell-features">
+                    <li>Video walkthroughs for each optimization (12+ hours)</li>
+                    <li>Copy-paste templates for high-converting pages</li>
+                    <li>Email sequence templates that recovered 15%+ carts</li>
+                    <li>Technical implementation guides (no developer needed)</li>
+                    <li>Before/after case studies from 20+ stores</li>
+                    <li>Private community access for Q&A</li>
+                    <li>Monthly live optimization workshops</li>
+                </ul>
+
+                <div class="upsell-price">
+                    <div class="price-wrapper">
+                        <span class="price-current">€97</span>
+                        <span class="price-original">€297</span>
+                    </div>
+                    <span class="price-save">Save €200 Today Only</span>
+                </div>
+
+                <button class="upsell-button" onclick="handleUpsellClick()">
+                    Yes! Give Me The Blueprint →
+                </button>
+
+                <p class="upsell-guarantee">
+                    🔒 30-Day Money-Back Guarantee • Instant Access
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 The Obsidian Co. All Rights Reserved</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://theobsidianco.com">Website</a> •
+            <a href="mailto:hello@theobsidianco.com">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        function handleUpsellClick() {
+            // Add your payment/checkout integration here
+            alert('Payment integration coming soon! This would redirect to your checkout page.');
+            // Example: window.location.href = 'https://checkout.stripe.com/your-product';
+        }
+
+        // Track time on page
+        let startTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+            let timeSpent = Math.round((Date.now() - startTime) / 1000);
+            console.log('Time on page:', timeSpent, 'seconds');
+            // Send to analytics
+        });
+    </script>
+</body>
+</html>

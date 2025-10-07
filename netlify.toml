@@ -1,20 +1,16 @@
 [build]
-  publish = "beauty"
-  functions = "beauty/netlify/functions"
+  publish = "."
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Serve hub at root
-[[redirects]]
-  from = "/"
-  to = "/hub.html"
-  status = 200
+# Root serves index.html automatically, no redirect needed
 
-# Serve beauty landing page at /beauty path
+# Serve beauty page at /beauty path
 [[redirects]]
   from = "/beauty"
-  to = "/beauty-main.html"
+  to = "/beauty/index.html"
   status = 200
 
 [[redirects]]
@@ -33,12 +29,6 @@
   to = "/saas/:splat"
   status = 200
 
-# API endpoint for SaaS form submission
-[[redirects]]
-  from = "/api/submit-saas"
-  to = "/.netlify/functions/submit-saas"
-  status = 200
-
 # Serve ecom-checklist at /ecom-checklist path
 [[redirects]]
   from = "/ecom-checklist"
@@ -49,6 +39,21 @@
   from = "/ecom-checklist/*"
   to = "/ecom-checklist/:splat"
   status = 200
+
+# Block digital-products from production (only accessible in dev/preview)
+[[redirects]]
+  from = "/digital-products"
+  to = "/404.html"
+  status = 404
+  force = true
+  condition = "Country=!dev"
+
+[[redirects]]
+  from = "/digital-products/*"
+  to = "/404.html"
+  status = 404
+  force = true
+  condition = "Country=!dev"
 
 # Thank you page redirects
 [[redirects]]

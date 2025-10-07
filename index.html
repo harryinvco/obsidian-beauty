@@ -2,38 +2,1057 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#020202">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="robots" content="noindex, nofollow">
     <title>The Obsidian Co - Free Marketing Resources | €47M+ Generated</title>
     <meta name="description" content="Get proven marketing frameworks from a team that has generated €47M+ in revenue. Free beauty ad vault & SaaS lead gen blueprint. Trusted by 50+ brands.">
-    <meta http-equiv="refresh" content="0; url=/beauty/hub.html">
-    <script>
-        window.location.href = '/beauty/hub.html';
-    </script>
+
+    <!-- Performance optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/images/obsidian-team.webp" as="image" fetchpriority="high">
+
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <style>
+        /* Modern Design System */
+        :root {
+            /* Color Palette */
+            --primary: #3380AB;
+            --primary-dark: #2a6a8a;
+            --secondary: #6CAA33;
+            --secondary-dark: #5a8f2b;
+
+            /* Neutrals */
+            --gray-900: #111827;
+            --gray-800: #1F2937;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-400: #9CA3AF;
+            --gray-300: #D1D5DB;
+            --gray-200: #E5E7EB;
+            --gray-100: #F3F4F6;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+
+            /* Typography */
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing */
+            --space-1: 0.5rem;
+            --space-2: 1rem;
+            --space-3: 1.5rem;
+            --space-4: 2rem;
+            --space-5: 2.5rem;
+            --space-6: 3rem;
+            --space-8: 4rem;
+            --space-10: 5rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+            /* Transitions */
+            --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Animations */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.05; }
+            50% { opacity: 0.15; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #020202 0%, #3380ab 100%);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #020202 0%, #3380AB 100%);
+            color: var(--white);
+            overflow: hidden;
+            padding: var(--space-4);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.03) 41px
+                );
+            z-index: 0;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(108, 170, 51, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(51, 128, 171, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* Floating Emojis */
+        .floating-emojis {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .emoji:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .emoji:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .emoji:nth-child(3) {
+            bottom: 25%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .emoji:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        /* Hero Card */
+        .hero-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: var(--space-6) var(--space-4);
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 120px rgba(51, 128, 171, 0.2);
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--radius-lg);
+            object-fit: cover;
+            border: 2px solid rgba(51, 128, 171, 0.3);
+            margin-bottom: var(--space-4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-card h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--space-3);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--gray-700);
+            margin-bottom: var(--space-4);
+            line-height: 1.6;
+        }
+
+        .highlight-number {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
             color: white;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(108, 170, 51, 0.3);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            margin: var(--space-4) 0;
+            padding: var(--space-3) 0;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .trust-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-2);
         }
-        .container {
+
+        .trust-logos img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.9;
+            filter: grayscale(0);
+            transition: all var(--transition);
+        }
+
+        .trust-logos img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-6);
+            margin-top: var(--space-3);
+            flex-wrap: wrap;
+        }
+
+        .stat {
             text-align: center;
         }
-        a {
-            color: #6caa33;
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .trust-statement {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: var(--space-2);
+        }
+
+        .privacy-note {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-top: var(--space-2);
+            font-style: italic;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        .section {
+            padding: var(--space-10) 0;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-8);
+            color: var(--gray-900);
+        }
+
+        /* Client Results Section */
+        .clients-section {
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clients-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top left, rgba(51, 128, 171, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom right, rgba(108, 170, 51, 0.15) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .clients-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Client Screenshots Grid - Perfect Square */
+        .client-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-3);
+            max-width: 900px;
+            margin: 0 auto var(--space-8);
+        }
+
+        .client-screenshot-item {
+            aspect-ratio: 1;
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all var(--transition-slow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-screenshot-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .client-screenshot-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+        }
+
+        /* Awards Grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-4);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .award-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: var(--space-4);
+            text-align: center;
+            transition: all var(--transition-slow);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+        }
+
+        .award-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.2);
+        }
+
+        .award-image-container {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: var(--space-3);
+            border-radius: 16px;
+            margin-bottom: var(--space-3);
+        }
+
+        .award-image-container img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .award-card h4 {
+            color: var(--primary);
+            margin-bottom: var(--space-1);
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .award-card .award-subtitle {
+            color: var(--gray-800);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-1);
+        }
+
+        .award-stars {
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+            margin-bottom: var(--space-2);
+            color: #F59E0B;
+            font-size: 1.2rem;
+        }
+
+        .award-meta {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Offers Section */
+        .offers-section {
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+            padding: var(--space-10) 0;
+        }
+
+        .offers-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .offer-card {
+            background: var(--white);
+            border: 3px solid var(--gray-300);
+            border-radius: var(--radius-xl);
+            padding: var(--space-5);
+            transition: all var(--transition-slow);
             text-decoration: none;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(51, 128, 171, 0.08), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .offer-card:hover::before {
+            left: 100%;
+        }
+
+        .offer-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(51, 128, 171, 0.25);
+        }
+
+        .offer-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .offer-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .offer-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+
+        .offer-description {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .offer-arrow {
+            font-size: 1.75rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: transform var(--transition);
+            font-weight: 800;
+        }
+
+        .offer-card:hover .offer-arrow {
+            transform: translateX(6px);
+            color: var(--secondary);
+        }
+
+        /* Disabled Offer Cards */
+        .offer-card.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            position: relative;
+            pointer-events: none;
+        }
+
+        .offer-card.disabled:hover {
+            transform: none;
+            border-color: var(--gray-300);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .offer-card.disabled .offer-arrow {
+            opacity: 0.3;
+        }
+
+        .expired-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .relaunch-note {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            font-style: italic;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.05), rgba(51, 128, 171, 0.05));
+            border-top: 2px solid var(--gray-200);
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .trust-badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+
+        .trust-badge {
+            text-align: center;
+            padding: var(--space-4);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .trust-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-2);
+            display: block;
+        }
+
+        .trust-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: var(--space-8) 0 var(--space-6);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-security {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-2);
+            font-size: 1rem;
+        }
+
+        .footer-privacy {
+            font-size: 0.875rem;
+            margin-bottom: var(--space-4);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--gray-800);
+            margin-top: var(--space-4);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .hero-card {
+                padding: var(--space-6) var(--space-4);
+            }
+
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .stats-row {
+                gap: var(--space-4);
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .testimonials-grid,
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .floating-emojis {
+                display: none;
+            }
+
+            .trust-logos img {
+                height: 80px;
+            }
+
+            .client-screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: var(--space-6) 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: var(--space-4);
+            }
+
+            .offer-card,
+            .testimonial-card {
+                padding: var(--space-4);
+            }
+
+            .trust-badge {
+                padding: var(--space-3);
+            }
+
+            .trust-icon {
+                font-size: 2rem;
+            }
+
+            .client-screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-2);
+            }
+
+            .award-card {
+                padding: var(--space-3);
+            }
+
+            .award-image-container img {
+                max-width: 150px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Loading your free resources...</h1>
-        <p>If you're not redirected automatically, <a href="/beauty/hub.html">click here</a>.</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-emojis">
+            <span class="emoji">💄</span>
+            <span class="emoji">🚀</span>
+            <span class="emoji">📈</span>
+            <span class="emoji">💰</span>
+        </div>
+
+        <div class="hero-card">
+            <img src="images/obsidian-team.webp" alt="The Obsidian Co Team" class="team-photo">
+
+            <h1>The Obsidian Co</h1>
+
+            <p class="hero-tagline">
+                We've generated <span class="highlight-number">€47M+</span> in revenue for brands.
+                <br>Now get our best frameworks — completely free.
+            </p>
+
+            <div class="trust-bar">
+                <div class="trust-logos">
+                    <img src="images/As-seen-on-1.png" alt="As Seen On">
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="stat-number">€47M+</span>
+                        <span class="stat-label">Revenue Generated</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">238+</span>
+                        <span class="stat-label">Campaigns Launched</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Brands Scaled</span>
+                    </div>
+                </div>
+
+                <p class="trust-statement">Trusted by leading brands worldwide since 2019</p>
+                <p class="privacy-note">🔒 Unsubscribe anytime. No spam, ever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="section offers-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Choose Your Free Resource</h2>
+
+            <div class="offers-grid">
+                <a href="/beauty" class="offer-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="offer-icon">💄</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Beauty Brand Ad Vault</h3>
+                        <p class="offer-description">
+                            The exact 7 ad frameworks that generated €47M+ for beauty brands
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </a>
+
+                <a href="/saas" class="offer-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="offer-icon">🚀</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">SaaS Lead Generation Blueprint</h3>
+                        <p class="offer-description">
+                            How we booked 206 qualified demos with zero ad budget
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </a>
+
+                <div class="offer-card disabled" data-aos="fade-up" data-aos-delay="300">
+                    <div class="expired-ribbon">Expired</div>
+                    <span class="offer-icon">📊</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">E-commerce Conversion Blueprint</h3>
+                        <p class="offer-description">
+                            7-figure store optimization tactics from 50+ brands
+                            <span class="relaunch-note">Will relaunch Q1 2026</span>
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </div>
+
+                <div class="offer-card disabled" data-aos="fade-up" data-aos-delay="400">
+                    <div class="expired-ribbon">Expired</div>
+                    <span class="offer-icon">📧</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Email Marketing Mastery Pack</h3>
+                        <p class="offer-description">
+                            Complete email sequences that generated €2M+ in sales
+                            <span class="relaunch-note">Will relaunch Q1 2026</span>
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </div>
+
+                <div class="offer-card disabled" data-aos="fade-up" data-aos-delay="500">
+                    <div class="expired-ribbon">Expired</div>
+                    <span class="offer-icon">🎯</span>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Paid Traffic Playbook</h3>
+                        <p class="offer-description">
+                            €500K+ tested Meta & Google Ads strategies
+                            <span class="relaunch-note">Will relaunch Q1 2026</span>
+                        </p>
+                    </div>
+                    <span class="offer-arrow">→</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Results Section -->
+    <section class="section clients-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">📈 Real Results From Real Clients</h2>
+
+            <!-- Client Screenshots - 3x3 Perfect Square Puzzle -->
+            <div class="client-screenshots-grid">
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="saas/images/CS.png" alt="CS Bridge - 206 Demos">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="saas/images/Chili.png" alt="Chili Inc - 492 Leads">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/ClientScreen1.png" alt="Client Results 1">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="images/ClientScreen2.jpg" alt="Client Results 2">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/ClientScreen3.jpg" alt="Client Results 3">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="images/ClientScreen4.png" alt="Client Results 4">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/Untitled-1Artboard 4.jpg" alt="Client Results 5">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="450">
+                    <img src="images/winner_light.png" alt="Winner Award">
+                </div>
+                <div class="client-screenshot-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="images/google-partner-square.png" alt="Google Partner">
+                </div>
+            </div>
+
+            <!-- Awards & Trust Proof -->
+            <div data-aos="fade-up" data-aos-delay="600">
+                <h3 style="color: var(--gray-900); text-align: center; margin-bottom: var(--space-6); font-size: 2.2rem; font-weight: 700;">🏆 Trusted by Industry Leaders</h3>
+                <p style="color: var(--gray-700); text-align: center; margin-bottom: var(--space-6); font-size: 1.2rem;">Real awards. Real results. Real clients.</p>
+
+                <div class="awards-grid">
+                    <!-- Clutch Award -->
+                    <div class="award-card">
+                        <div class="award-image-container">
+                            <img src="images/Top Clutch Digital Marketing Company Cyprus 2025.png" alt="Top Clutch Company 2025">
+                        </div>
+                        <h4>#1 on Clutch</h4>
+                        <p class="award-subtitle">Top Digital Marketing Company</p>
+                        <div class="award-stars">
+                            <span>★★★★★</span>
+                        </div>
+                        <p class="award-meta">Verified by 50+ client reviews</p>
+                    </div>
+
+                    <!-- Industry Awards -->
+                    <div class="award-card" style="border-color: rgba(16, 185, 129, 0.3); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);">
+                        <div class="award-image-container" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(79, 172, 254, 0.1));">
+                            <img src="images/awards-and-acolades-the-obsidian-co.png" alt="Awards and Accolades">
+                        </div>
+                        <h4 style="color: var(--secondary);">Industry Excellence</h4>
+                        <p class="award-subtitle">Growth Marketing Awards 2024</p>
+                        <div style="background: var(--secondary-dark); color: white; padding: var(--space-2); border-radius: var(--radius-sm); margin-top: var(--space-2);">
+                            <p style="font-size: 0.9rem; font-weight: 700; margin: 0;">Best B2B Campaign</p>
+                        </div>
+                    </div>
+
+                    <!-- As Seen On -->
+                    <div class="award-card" style="border-color: rgba(245, 158, 11, 0.3); box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);">
+                        <div class="award-image-container" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 255, 0.1));">
+                            <img src="images/As-seen-on-1.png" alt="As Seen On" style="max-width: 250px;">
+                        </div>
+                        <h4 style="color: #F59E0B;">Featured In</h4>
+                        <p class="award-subtitle">Leading Marketing Publications</p>
+                        <div style="background: rgba(245, 158, 11, 0.1); padding: var(--space-2); border-radius: var(--radius-sm); margin-top: var(--space-2);">
+                            <p style="color: var(--gray-900); font-size: 1.1rem; font-weight: 700; margin: 0;">Industry Recognition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section trust-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why 50+ Brands Choose Us</h2>
+
+            <div class="trust-badges-grid">
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="100">
+                    <span class="trust-icon">🎯</span>
+                    <p class="trust-text">Data-Driven Strategy</p>
+                </div>
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="200">
+                    <span class="trust-icon">💰</span>
+                    <p class="trust-text">ROI Focused</p>
+                </div>
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="300">
+                    <span class="trust-icon">⚡</span>
+                    <p class="trust-text">Battle-Tested</p>
+                </div>
+
+                <div class="trust-badge" data-aos="fade-up" data-aos-delay="400">
+                    <span class="trust-icon">🏆</span>
+                    <p class="trust-text">Award Winning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-security">🔒 Your information is 100% secure</p>
+            <p class="footer-privacy">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+
+            <div class="footer-links">
+                <a href="https://theobsidianco.com" target="_blank">Website</a>
+                <a href="https://www.linkedin.com/company/the-obsidian-co" target="_blank">LinkedIn</a>
+                <a href="mailto:hello@theobsidianco.com">Contact</a>
+            </div>
+
+            <p class="footer-copyright">© 2025 The Obsidian Co. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
