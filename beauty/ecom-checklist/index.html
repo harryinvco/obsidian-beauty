@@ -287,6 +287,70 @@
             margin-top: 0.5rem;
         }
 
+        .platform-badges {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+            margin-top: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .platform-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .platform-badge:hover::before {
+            left: 100%;
+        }
+
+        .platform-badge:hover {
+            transform: translateY(-2px);
+            border-color: rgba(108, 170, 51, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(108, 170, 51, 0.2);
+        }
+
+        .platform-badge:nth-child(2):hover {
+            border-color: rgba(51, 128, 171, 0.4);
+            box-shadow: 0 8px 25px rgba(51, 128, 171, 0.2);
+        }
+
+        .platform-badge:nth-child(3):hover {
+            border-color: rgba(220, 38, 38, 0.4);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+        }
+
+        .platform-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 0.75rem;
+        }
+
         /* Hero Form Card */
         .hero-form-card {
             background: var(--white);
@@ -1057,6 +1121,19 @@
                 justify-content: center;
             }
 
+            .platform-badges {
+                justify-content: center;
+            }
+
+            .platform-text {
+                font-size: 0.8rem;
+            }
+
+            .platform-badge {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+
             .problem-grid {
                 grid-template-columns: 1fr;
             }
@@ -1206,6 +1283,13 @@
                         <span class="stat-label">Stores Optimized</span>
                     </div>
                 </div>
+
+                <div class="platform-badges">
+                    <span class="platform-text">Built for:</span>
+                    <div class="platform-badge">🛍️ Shopify</div>
+                    <div class="platform-badge">🌐 Wix</div>
+                    <div class="platform-badge">🛒 WooCommerce</div>
+                </div>
             </div>
 
             <div class="hero-preview">
@@ -1317,7 +1401,7 @@
                     </div>
 
                     <p class="team-intro">
-                        This isn't another generic checklist from a marketing guru. <strong>The Obsidian Co has generated over €47M+ in revenue</strong> for 200+ brands across ecommerce, beauty, SaaS, and digital products.
+                        This isn't another generic checklist from a marketing guru. <strong>The Obsidian Co. has generated over €47M+ in revenue</strong> for 200+ brands across ecommerce, beauty, SaaS, and digital products.
                     </p>
                     <p class="team-intro">
                         After auditing hundreds of stores, we discovered the same profit-killing patterns appearing everywhere. This checklist contains the exact 47-point framework our team uses to uncover <strong>€12K+ in hidden revenue opportunities</strong> within the first 20 minutes of any store audit.
