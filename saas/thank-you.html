@@ -18,23 +18,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap" rel="stylesheet">
 
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '5277803515582185');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=5277803515582185&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NC4CVSDZ');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- PostHog Analytics -->
     <script>
@@ -192,6 +182,11 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC4CVSDZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <!-- Enhanced Blueprint Background Overlay -->
     <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; background-image: radial-gradient(circle at 25% 25%, var(--color-green-accent) 2px, transparent 2px), radial-gradient(circle at 75% 75%, var(--color-blue-primary) 1px, transparent 1px); background-size: 60px 60px, 40px 40px; z-index: 1; pointer-events: none;"></div>
 
@@ -256,29 +251,57 @@
             </div>
         </section>
 
-        <!-- Upsell Section -->
+        <!-- Meeting Booking Section -->
         <section class="section">
             <div class="container">
-                <div style="max-width: 900px; margin: 0 auto;">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+                    <h2 style="color: #ffffff; margin-bottom: 2rem; text-shadow: 0 4px 8px rgba(2, 2, 2, 0.3); font-size: 2.5rem;">🚀 Ready to discuss your funnel strategy?</h2>
 
-                    <!-- Offer Header -->
-                    <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up">
-                        <h2 style="
-                            font-family: var(--font-subheading);
-                            font-size: 2.8rem;
-                            font-weight: 400;
-                            margin-bottom: 1rem;
-                            color: #ffffff;
-                            text-shadow: 0 4px 8px rgba(2, 2, 2, 0.3);
-                        ">Want Us To Plug This Funnel Into Your Ads For You?</h2>
+                                            <div class="content-card">
+                        <h3 style="color: var(--color-blue-primary); margin-bottom: 1rem; font-size: 1.8rem;">Let's talk about implementing this system for your SaaS</h3>
+                        <p style="margin-bottom: 2rem; color: #666666; font-size: 1.1rem; line-height: 1.6;">
+                            Book a quick 15-minute call to discuss how this funnel framework can be customized for your specific SaaS and target market.
+                        </p>
 
-                        <p style="
-                            font-family: var(--font-body-heading);
-                            font-size: 1.3rem;
-                            color: var(--color-green-accent);
-                            font-weight: 500;
-                            margin: 0;
-                        ">Limited time offer:</p>
+                        <a href="https://calendly.com/mnikolaou-toc/lets-talk-15min" 
+                           target="_blank"
+                           class="btn btn-primary" 
+                           style="
+                               background: linear-gradient(135deg, var(--color-blue-primary), #2563eb);
+                               color: white;
+                               font-size: 1.2rem;
+                               font-weight: 600;
+                               padding: 1rem 2.5rem;
+                               border-radius: 50px;
+                               text-decoration: none;
+                               display: inline-block;
+                               box-shadow: 0 8px 25px rgba(51, 128, 171, 0.4);
+                               transition: all 0.3s ease;
+                               border: none;
+                           "
+                           onclick="
+                               // Track meeting booking click via GTM
+                               if (typeof dataLayer !== 'undefined') {
+                                   dataLayer.push({
+                                       'event': 'meeting_booking_click',
+                                       'content_name': 'Book Strategy Call',
+                                       'content_category': 'Meeting',
+                                       'source': 'thank_you_page'
+                                   });
+                               }
+                           "
+                           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 35px rgba(51, 128, 171, 0.5)';"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(51, 128, 171, 0.4)';">
+                            📅 Book a 15-Minute Strategy Call
+                        </a>
+
+                        <p style="margin-top: 1.5rem; color: #888; font-size: 0.9rem; font-style: italic;">
+                            No sales pitch • Just actionable advice for your funnel
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
                     </div>
 
                     <!-- Main Offer Card -->
@@ -395,13 +418,14 @@
                         " onclick="
                             this.style.transform='scale(0.98)';
                             setTimeout(() => this.style.transform='scale(1)', 150);
-                            // Track Facebook Pixel Purchase Event
-                            if (typeof fbq !== 'undefined') {
-                                fbq('track', 'InitiateCheckout', {
-                                    content_name: 'Done-For-You B2B Demo Funnel Build',
-                                    content_category: 'Service',
-                                    value: 497,
-                                    currency: 'EUR'
+                            // Track conversion via GTM
+                            if (typeof dataLayer !== 'undefined') {
+                                dataLayer.push({
+                                    'event': 'initiate_checkout',
+                                    'content_name': 'Done-For-You B2B Demo Funnel Build',
+                                    'content_category': 'Service',
+                                    'value': 497,
+                                    'currency': 'EUR'
                                 });
                             }
                         ">
@@ -433,14 +457,15 @@
     </div>
 
     <script>
-        // Track ViewContent event on thank you page load
+        // Track page view event on thank you page load
         document.addEventListener('DOMContentLoaded', function() {
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'ViewContent', {
-                    content_name: 'Thank You Page - SaaS Funnel Offer',
-                    content_category: 'Upsell',
-                    value: 497,
-                    currency: 'EUR'
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'view_content',
+                    'content_name': 'Thank You Page - SaaS Funnel Offer',
+                    'content_category': 'Upsell',
+                    'value': 497,
+                    'currency': 'EUR'
                 });
             }
         });
