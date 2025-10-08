@@ -56,6 +56,7 @@ exports.handler = async function(event, context) {
   const {
     email,
     firstName,
+    website,
     utm_source,
     utm_medium,
     utm_campaign,
@@ -91,6 +92,7 @@ exports.handler = async function(event, context) {
       {
         email: email.toLowerCase().trim(),
         first_name: firstName.trim(),
+        website: website || null,
         utm_source: utm_source || null,
         utm_medium: utm_medium || null,
         utm_campaign: utm_campaign || null,
@@ -134,7 +136,7 @@ exports.handler = async function(event, context) {
       // Import the SaaS email template
       const { renderSaaSEmail } = require('./saas-email-template');
       
-      const emailHtml = renderSaaSEmail(firstName.trim(), data.website || 'your website');
+      const emailHtml = renderSaaSEmail(firstName.trim(), website || 'your website');
       
       await resend.emails.send({
         from: 'The Obsidian Co <noreply@theobsidianco.com>',
