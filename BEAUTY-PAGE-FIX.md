@@ -30,7 +30,7 @@ GRANT ALL PRIVILEGES ON SEQUENCE beauty_leads_id_seq TO service_role;
 ### 2. **Environment variables not set in Netlify**
 In Netlify Dashboard → Site Settings → Environment Variables:
 - `SUPABASE_URL` = `https://legzoryphvodcovbzxpb.supabase.co`
-- `SUPABASE_SERVICE_ROLE_KEY` = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlZ3pvcnlwaHZvZGNvdmJ6eHBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1OTkxMTg2NCwiZXhwIjoyMDc1NDg3ODY0fQ.agkiCIcPh_dv0hygudT0yAZJ2Fh2J83M6QbcyZ7nc1Y`
+- `SUPABASE_SERVICE_ROLE_KEY` = `your-service-role-key-here`
 
 Then trigger a new deployment.
 
