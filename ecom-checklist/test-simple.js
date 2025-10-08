@@ -1,8 +1,8 @@
 const { createClient } = require('@supabase/supabase-js');
 
-// Load environment variables
-const SUPABASE_URL = 'https://legzoryphvodcovbzxpb.supabase.co';
-const SUPABASE_SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlZ3pvcnlwaHZvZGNvdmJ6eHBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODc3MzU1OSwiZXhwIjoyMDc0MzQ5NTU5fQ.aNUAFVZWU48j-LXLsEK8oJlX07xG-a7ETsexyYIh94M';
+// REMOVED EXPOSED SECRETS - Use environment variables instead  
+const SUPABASE_URL = process.env.SUPABASE_URL || 'your-supabase-url';
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'your-service-key';
 
 async function testConnection() {
     console.log('🔍 Testing Supabase connection...');

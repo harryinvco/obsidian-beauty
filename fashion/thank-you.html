@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NC4CVSDZ');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Ce js Ls Te Fs Ds capture Ye calculateEventProperties zs register register_once register_for_session unregister unregister_for_session Ws getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Bs Us createPersonProfile Hs Ms Gs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Ns debug L qs getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_O6mcOhJzwoSQzkHU2DGpEMYTiygqfcIT6NEwmEztOSw', {
+            api_host: 'https://eu.i.posthog.com',
+            defaults: '2025-05-24',
+            person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+        });
+
+        // Track thank you page conversion
+        posthog.capture('conversion_complete', {
+            page: 'fashion_thank_you',
+            value: 1297,
+            currency: 'USD'
+        });
+    </script>
+    <!-- End PostHog Analytics -->
+
+    <!-- Animation Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#020202">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Thank you for claiming your Fashion Brand Ad Vault™ frameworks! Check your email for instant access to the top 7 high-converting ad frameworks + files.">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache">
+    
+    <!-- Performance optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Modern Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/confetti-js@0.0.18/dist/index.min.js"></script>
+    
+    <title>Thank You - Fashion Brand Ad Vault™ Frameworks Claimed!</title>
+    
+    <style>
+        /* Clean, Working CSS - No Framework Conflicts */
+        :root {
+            /* New Brand Color Scheme */
+            --color-black: #020202;
+            --color-blue-primary: #3380AB;
+            --color-green-accent: #6CAA33;
+            --color-gray-light: #E4E4E4;
+            --color-gray-lighter: #F2F2F2;
+            --color-white: #F9F9F9;
+            
+            /* Typography - Questrial with fallbacks */
+            --font-heading: 'Questrial', 'Arial Black', 'Helvetica Bold', sans-serif;
+            --font-subheading: 'Questrial', 'Arial', 'Helvetica', sans-serif;
+            --font-body-heading: 'Questrial', 'Arial', 'Helvetica', sans-serif;
+            --font-body: 'Questrial', 'Arial', 'Helvetica Neue', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--color-black) 0%, var(--color-blue-primary) 100%);
+            color: white;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        /* Success Animation */
+        .bounce {
+            animation: bounce 1s infinite alternate;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        
+        @keyframes bounce {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Typography */
+        h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #fff 0%, #f59e0b 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-family: var(--font-subheading);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+        
+        h3 {
+            font-family: var(--font-body-heading);
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            text-align: center;
+            opacity: 0.95;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #0f172a;
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.6);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            transform: translateY(-3px);
+            border-color: rgba(251, 191, 36, 0.5);
+        }
+        
+        /* Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* List Styles */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        
+        ul li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--color-green-accent);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        ul li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            html, body {
+                min-height: 100vh;
+                background: linear-gradient(135deg, var(--color-black) 0%, var(--color-blue-primary) 100%) !important;
+                background-attachment: fixed !important;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 20px;
+                max-width: 100%;
+            }
+            
+            .bounce {
+                font-size: 4rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            h1 {
+                font-size: 2.2rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            h2 {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            p {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            ul li {
+                font-size: 1rem !important;
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+                border-radius: 12px !important;
+            }
+            
+            .btn {
+                padding: 1rem 1.5rem !important;
+                font-size: 1rem !important;
+                width: 100% !important;
+                margin-bottom: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC4CVSDZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="section">
+        <div class="container">
+            <!-- Success Animation -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="bounce">🎉</span>
+                <h1>You're In!</h1>
+                <h2>Fashion Brand Ad Vault™ Frameworks Claimed</h2>
+                <p>
+                    Check your <strong>email inbox</strong> (and spam folder) for instant access to the top 7 high-converting fashion ad frameworks + files.
+                </p>
+            </div>
+
+            <!-- What You'll Get -->
+            <div class="card" data-aos="fade-up">
+                <h3 style="text-align: center; margin-bottom: 2rem;">🚀 Here's What You Just Unlocked:</h3>
+                <ul>
+                    <li><strong>👗 7 Fashion Ad Frameworks</strong> - The exact templates that converted for luxury and fast fashion brands</li>
+                    <li><strong>📊 Performance Metrics</strong> - See which frameworks work best for different fashion categories</li>
+                    <li><strong>🎯 Targeting Strategies</strong> - Learn how to reach fashion-conscious audiences that actually buy</li>
+                    <li><strong>📱 Mobile-First Designs</strong> - Templates optimized for Instagram and TikTok shopping</li>
+                    <li><strong>💰 ROAS Breakdown</strong> - Understand the economics of profitable fashion advertising</li>
+                    <li><strong>🔄 Seasonal Adaptations</strong> - How to modify campaigns for different fashion seasons</li>
+                    <li><strong>⚡ Bonus Materials</strong> - Exclusive case studies from successful fashion e-commerce brands</li>
+                </ul>
+            </div>
+
+            <!-- Next Steps -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <h3 style="margin-bottom: 2rem;">While You're Waiting for Your Email...</h3>
+                <p style="margin-bottom: 2rem;">
+                    Want to see how we helped a fashion startup go from $0 to $500K/month in 8 months?
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://theobsidianco.com/case-studies" class="btn btn-primary">
+                        📈 View Fashion Case Studies
+                    </a>
+                    <a href="https://theobsidianco.com/contact" class="btn btn-secondary">
+                        💬 Book a Strategy Call
+                    </a>
+                </div>
+            </div>
+
+            <!-- Email Not Received -->
+            <div class="card" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3);" data-aos="fade-up">
+                <h3 style="text-align: center;">📧 Don't See the Email?</h3>
+                <p style="text-align: center;">
+                    Sometimes our emails take a few minutes to arrive. If you don't see it within 10 minutes:
+                </p>
+                <ul style="max-width: 600px; margin: 0 auto;">
+                    <li>Check your spam/junk folder</li>
+                    <li>Add hello@theobsidianco.com to your contacts</li>
+                    <li>Check promotions tab if you use Gmail</li>
+                </ul>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="mailto:hello@theobsidianco.com?subject=Fashion Ad Vault - Email Not Received" class="btn btn-secondary">
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div style="text-align: center; margin-top: 4rem; opacity: 0.8;">
+                <p style="font-size: 0.875rem;">
+                    © 2025 The Obsidian Co. | Trusted by 3,000+ fashion brands worldwide
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        // Confetti animation on page load
+        window.addEventListener('load', function() {
+            const confettiSettings = {
+                target: 'confetti-canvas',
+                max: 80,
+                size: 1,
+                animate: true,
+                props: ['circle', 'square', 'triangle', 'line'],
+                colors: [[165,104,246], [230,61,135], [0,199,228], [253,214,126]],
+                clock: 25,
+                rotate: false,
+                width: window.innerWidth,
+                height: window.innerHeight,
+                start_from_edge: false,
+                respawn: false
+            };
+            
+            const confetti = new ConfettiGenerator(confettiSettings);
+            confetti.render();
+            
+            // Stop confetti after 3 seconds
+            setTimeout(() => {
+                confetti.clear();
+            }, 3000);
+        });
+    </script>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000;"></canvas>
+</body>
+</html>

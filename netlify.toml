@@ -40,6 +40,17 @@
   to = "/ecom-checklist/:splat"
   status = 200
 
+# Serve fashion page at /fashion path
+[[redirects]]
+  from = "/fashion"
+  to = "/fashion/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/fashion/*"
+  to = "/fashion/:splat"
+  status = 200
+
 # Block digital-products from production (only accessible in dev/preview)
 [[redirects]]
   from = "/digital-products"
@@ -69,6 +80,11 @@
 [[redirects]]
   from = "/ecom-checklist/thank-you"
   to = "/ecom-checklist/thank-you.html"
+  status = 200
+
+[[redirects]]
+  from = "/fashion/thank-you"
+  to = "/fashion/thank-you.html"
   status = 200
 
 [[headers]]
