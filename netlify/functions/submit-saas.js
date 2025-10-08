@@ -128,13 +128,25 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // Send welcome email (when ready)
+  // Send welcome email with SaaS blueprint
   if (resend) {
     try {
-      // TODO: Add SaaS-specific email template
-      console.log('SaaS welcome email would be sent to:', email);
+      // Import the SaaS email template
+      const { renderSaaSEmail } = require('./saas-email-template');
+      
+      const emailHtml = renderSaaSEmail(firstName.trim(), data.website || 'your website');
+      
+      await resend.emails.send({
+        from: 'The Obsidian Co <noreply@theobsidianco.com>',
+        to: [email.toLowerCase().trim()],
+        subject: 'Your free SaaS funnel map + ad scripts (PDF inside)',
+        html: emailHtml
+      });
+      
+      console.log('✅ SaaS welcome email sent to:', email);
     } catch (emailError) {
-      console.error('Email send error:', emailError);
+      console.error('❌ Email send error:', emailError);
+      // Don't fail the entire request if email fails
     }
   }
 
