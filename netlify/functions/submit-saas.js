@@ -76,8 +76,7 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // TEMPORARILY DISABLED - Return success without saving to database
-  console.log('SaaS form submission (temporarily disabled):', {
+  console.log('SaaS form submission:', {
     email: email.toLowerCase().trim(),
     firstName: firstName.trim(),
     utm_source,
@@ -85,21 +84,6 @@ exports.handler = async function(event, context) {
     utm_campaign,
     landing_path
   });
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
-    body: JSON.stringify({
-      success: true,
-      message: 'Thank you for your interest! This page is currently under development.'
-    })
-  };
-
-  // TODO: Uncomment when ready to go live
-  /*
   // Insert into Supabase saas_leads table
   const { error } = await supabase
     .from('saas_leads')
@@ -165,5 +149,4 @@ exports.handler = async function(event, context) {
       message: 'Thank you! Check your email for more information.'
     })
   };
-  */
 };
