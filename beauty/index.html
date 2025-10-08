@@ -1873,7 +1873,7 @@
                         <p style="margin: 5px 0; font-size: 14px; color: var(--color-green-accent); font-weight: 500;"><strong style="background: none; color: var(--color-green-accent); font-weight: 700; padding: 0; box-shadow: none;">🔥 Only <span style="background: var(--color-green-accent); color: var(--color-white); padding: 2px 8px; border-radius: 12px;">23/100</span> spots remaining!</strong></p>
                     </div>
                     
-                    <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit">
+                    <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit-beauty-debug">
                         <div class="form-group-modern">
                             <input type="email" id="email" name="email" class="form-input-modern" placeholder=" " required 
                                    autocomplete="email" 
@@ -3142,7 +3142,7 @@
                 // Send to Netlify Function
                 let success = false;
                 try {
-                    const res = await fetch('/.netlify/functions/submit', {
+                    const res = await fetch('/.netlify/functions/submit-beauty-debug', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
