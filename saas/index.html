@@ -162,6 +162,34 @@
             to { transform: scale(1); opacity: 1; }
         }
 
+        /* Obsidian Style Animations */
+        @keyframes crystallineMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -10px) rotate(90deg); }
+            50% { transform: translate(-5px, 5px) rotate(180deg); }
+            75% { transform: translate(5px, 10px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        @keyframes obsidianGlow {
+            0%, 100% { 
+                opacity: 0.8;
+                transform: scale(1) rotate(0deg);
+            }
+            25% { 
+                opacity: 1;
+                transform: scale(1.05) rotate(90deg);
+            }
+            50% { 
+                opacity: 0.9;
+                transform: scale(0.95) rotate(180deg);
+            }
+            75% { 
+                opacity: 1.1;
+                transform: scale(1.02) rotate(270deg);
+            }
+        }
+
         /* Hover Effects */
         .hover-lift {
             transition: all 0.3s ease;
@@ -385,12 +413,10 @@
             padding: 0 var(--space-4);
         }
 
-        /* Hero Section - Modern Gradient */
+        /* Hero Section - Obsidian Style */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 30%, #0f0f23 70%, #000000 100%);
             position: relative;
             display: flex;
             align-items: center;
@@ -399,20 +425,7 @@
             padding: var(--space-4) 0;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3), transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2), transparent 50%);
-            z-index: 1;
-        }
-
-        /* Blueprint Grid Background */
+        /* Obsidian Crystal Grid Pattern */
         .hero::before {
             content: '';
             position: absolute;
@@ -421,14 +434,15 @@
             right: 0;
             bottom: 0;
             background-image:
-                linear-gradient(rgba(0, 102, 255, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 102, 255, 0.15) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: gridMove 10s linear infinite;
+                linear-gradient(30deg, rgba(107, 70, 193, 0.1) 1px, transparent 1px),
+                linear-gradient(150deg, rgba(107, 70, 193, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+            background-size: 60px 60px, 60px 60px, 120px 120px;
+            animation: crystallineMove 25s linear infinite;
             z-index: 0;
         }
 
-        /* Floating particles */
+        /* Obsidian Light Reflections */
         .hero::after {
             content: '';
             position: absolute;
@@ -437,32 +451,26 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(0, 212, 255, 0.2) 0%, transparent 50%);
-            animation: floatUp 20s linear infinite;
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(10, 22, 40, 0.4) 100%);
+                radial-gradient(ellipse at 20% 30%, rgba(107, 70, 193, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 70%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+                radial-gradient(ellipse at 50% 90%, rgba(107, 70, 193, 0.08) 0%, transparent 50%);
+            animation: obsidianGlow 18s ease-in-out infinite;
             z-index: 1;
         }
 
         .hero-card {
-            background: rgba(255, 255, 255, 0.98);
-            border: 1px solid rgba(0, 102, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(120%);
+            -webkit-backdrop-filter: blur(20px) saturate(120%);
+            border: 2px solid rgba(107, 70, 193, 0.2);
             border-radius: var(--radius-xl);
             padding: var(--space-8) var(--space-6);
             max-width: 900px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 120px rgba(0, 102, 255, 0.1);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(107, 70, 193, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
             position: relative;
             z-index: 10;
             animation: fadeInUp var(--transition-slow) ease-out;
@@ -1514,15 +1522,6 @@
                 </p>
             </div>
 
-
-
-                    <!-- Mike's Info -->
-                    <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--gray-50); border-radius: var(--radius-lg);">
-                        <img src="images/mike-face.jpeg" alt="Mike - COO" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
-                        <div>
-                            <h3 style="color: var(--gray-900); margin-bottom: 4px; font-size: 1.25rem; font-weight: 700;">Mike - COO</h3>
-                            <p style="color: var(--gray-700); margin: 0; font-size: 0.95rem;">The Obsidian Co</p>
-                            <p style="color: var(--primary); margin-top: 4px; font-size: 0.9rem; font-weight: 600;">“This funnel system changed everything for our B2B clients”</p>
             <!-- Our Team -->
             <div style="background: var(--white); border: 2px solid var(--gray-200); border-radius: 24px; padding: var(--space-6) var(--space-4); margin-bottom: 3rem; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);" data-aos="fade-up" data-aos-delay="500">
                 <!-- Content -->
