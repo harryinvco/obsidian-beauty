@@ -3445,13 +3445,15 @@
                     });
                 }
 
-                // Facebook Pixel Lead Event
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead', {
-                        content_name: 'Beauty Ad Vault Frameworks - Top 7',
-                        content_category: 'Lead Magnet',
-                        value: 0,
-                        currency: 'USD'
+                // GTM Lead Event
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'lead_conversion',
+                        'conversion_type': 'lead',
+                        'content_name': 'Beauty Ad Vault Frameworks - Top 7',
+                        'content_category': 'Lead Magnet',
+                        'value': 0,
+                        'currency': 'USD'
                     });
                 }
 
