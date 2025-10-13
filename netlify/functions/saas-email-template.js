@@ -332,12 +332,12 @@ function getSaaSEmailTemplate() {
 
               <!-- Main CTA -->
               <div class="cta-container">
-                <a href="https://drive.google.com/drive/folders/1SjYPBoBrZGsre26-e4_VWRBJA22mvCez?usp=sharing" class="cta-button">
+                <a href="https://obsidianco.notion.site/The-Obsidian-eCom-Growth-Leak-Checklist-284035fa86b480e5b7a3c871bae7d249?source=copy_link" class="cta-button">
                   👉 Download It Here
                 </a>
               </div>
 
-              <!-- Secondary CTA Section -->
+              <!-- CTA Section -->
               <div class="cta-section">
                 <h3>🧠 Want help applying it to your SaaS?</h3>
                 <p>If you'd rather not DIY it, we can walk you through it in a free 20-min SaaS Growth Session.</p>
@@ -390,11 +390,11 @@ function renderSaaSEmail(firstName, website) {
   // Replace template variables
   html = html.replace(/{{firstName}}/g, firstName || 'there');
   
-  // Add personalized website mention if provided
-  if (website) {
-    const websiteMention = `<p style="background: rgba(51, 128, 171, 0.12); border-left: 4px solid #3380AB; padding: 16px; margin: 20px 0; border-radius: 6px; color: #020202;"><strong>I noticed you're working on ${website}</strong> - this blueprint will be perfect for scaling your SaaS lead generation!</p>`;
-    html = html.replace('<p>Just sent over your free resource:</p>', `<p>Just sent over your free resource:</p>${websiteMention}`);
-  }
+  // Update the download link to the new Notion URL
+  html = html.replace(
+    'https://drive.google.com/drive/folders/1SjYPBoBrZGsre26-e4_VWRBJA22mvCez?usp=sharing',
+    'https://obsidianco.notion.site/The-Obsidian-eCom-Growth-Leak-Checklist-284035fa86b480e5b7a3c871bae7d249?source=copy_link'
+  );
   
   return html;
 }
@@ -407,14 +407,14 @@ Just sent over your free resource:
 
 ✅ The $50/Day SaaS Demo Funnel Blueprint — the same system Chili used to book 206 demos in 31 days from cold traffic.
 
-${website ? `I noticed you're working on ${website} - this blueprint will be perfect for scaling your SaaS lead generation!\n\n` : ''}Inside you'll find:
+Inside you'll find:
 
 • The full ad-to-call funnel map
 • 3 plug-and-play ad frameworks (copy included)  
 • A quiz funnel template that filters out junk leads
 • Our demo-optimized landing page wireframe
 
-👉 Download it here: https://drive.google.com/drive/folders/1SjYPBoBrZGsre26-e4_VWRBJA22mvCez?usp=sharing
+👉 Download it here: https://obsidianco.notion.site/The-Obsidian-eCom-Growth-Leak-Checklist-284035fa86b480e5b7a3c871bae7d249?source=copy_link
 
 🧠 Want help applying it to your SaaS?
 If you'd rather not DIY it, we can walk you through it in a free 20-min SaaS Growth Session.
