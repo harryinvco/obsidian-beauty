@@ -1228,7 +1228,8 @@
             }
 
             .form-group-modern {
-                margin-bottom: 5px !important;
+                margin-bottom: 20px !important;
+                padding-top: 10px !important; /* Extra space for floating labels */
             }
 
             .form-input-modern, 
@@ -1259,16 +1260,19 @@
                 font-weight: 600 !important;
                 color: #374151 !important;
                 left: 16px !important;
-                top: 18px !important;
-                padding: 0 4px !important;
+                top: 28px !important; /* Adjusted for extra padding */
+                padding: 0 6px !important;
                 background: #ffffff !important;
+                z-index: 10 !important;
+                border-radius: 4px !important;
+                box-shadow: 0 0 0 2px #ffffff !important; /* Ensure background visibility */
             }
 
             .form-input-modern:focus + .form-label-modern,
             .form-input-modern:not(:placeholder-shown) + .form-label-modern,
             .form-select-modern:focus + .form-label-modern,
             .form-select-modern:not([value=""]) + .form-label-modern {
-                transform: translateY(-32px) scale(0.85) !important;
+                transform: translateY(-40px) scale(0.85) !important;
                 color: #16a34a !important;
                 font-weight: 700 !important;
             }
@@ -1967,7 +1971,7 @@
                             <label for="firstName" class="form-label-modern">First name</label>
                         </div>
                         <div class="form-group-modern">
-                            <input type="url" id="storeLink" name="storeLink" class="form-input-modern" placeholder=" "
+                            <input type="text" id="storeLink" name="storeLink" class="form-input-modern" placeholder=" "
                                    autocomplete="url"
                                    autocapitalize="none"
                                    spellcheck="false">
