@@ -330,12 +330,6 @@
                 margin: 20px 10px !important;
             }
             
-            #offer-timer {
-                font-size: 2.5rem !important;
-                font-family: var(--font-heading) !important;
-                font-weight: 500 !important;
-            }
-            
             /* CTA Button mobile optimization */
             .btn-primary {
                 width: 100% !important;
@@ -424,11 +418,122 @@
                 margin: 2rem 0 !important;
             }
             
-            /* Card improvements */
-            [style*="background: linear-gradient"] {
+            /* Card improvements - exclude sleek CTA */
+            section:not(:has(.sleek-cta-container)) [style*="background: linear-gradient"] {
                 border-radius: 20px !important;
                 padding: 2rem 1.5rem !important;
                 margin: 20px 10px !important;
+            }
+            
+            /* Sleek CTA mobile improvements */
+            .sleek-cta-container {
+                margin: 20px 10px !important;
+                max-width: 100% !important;
+            }
+            
+            /* Prevent general mobile styles from affecting sleek CTA */
+            .sleek-cta-card {
+                padding: 0 !important;
+                margin: 0 auto !important;
+                border-radius: 25px !important;
+                max-width: 100% !important;
+            }
+            
+            .sleek-cta-top-bar {
+                display: block !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                height: 4px !important;
+                z-index: 2 !important;
+            }
+            
+            .sleek-cta-content {
+                padding: 2rem 1.5rem !important;
+            }
+            
+            .sleek-cta-layout {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 1rem !important;
+            }
+            
+            .sleek-cta-text {
+                text-align: center !important;
+                min-width: auto !important;
+            }
+            
+            .sleek-cta-button {
+                width: 100% !important;
+                max-width: 280px !important;
+                margin: 0 auto !important;
+            }
+            
+            /* Only reset problematic conflicting styles, not all styles */
+            .sleek-cta-content,
+            .sleek-cta-layout {
+                padding: initial !important;
+                margin: initial !important;
+            }
+            
+            /* Reapply correct sleek CTA styles */
+            .sleek-cta-container {
+                margin: 20px 10px !important;
+                text-align: center !important;
+            }
+            
+            /* Ensure white background is preserved and enhanced */
+            .sleek-cta-card {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 249, 249, 0.95) 100%) !important;
+                border: 1px solid rgba(108, 170, 51, 0.2) !important;
+                border-radius: 25px !important;
+                margin: 0 auto !important;
+                max-width: 100% !important;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 8px 25px rgba(108, 170, 51, 0.15) !important;
+                overflow: hidden !important;
+                position: relative !important;
+                padding: 0 !important;
+            }
+            
+            .sleek-cta-content {
+                padding: 2rem 1.5rem !important;
+                background: transparent !important;
+                position: relative !important;
+                z-index: 2 !important;
+            }
+            
+            /* Ensure gradient top bar is visible */
+            .sleek-cta-top-bar {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                height: 4px !important;
+                background: linear-gradient(90deg, var(--color-blue-primary), var(--color-green-accent), var(--color-blue-primary)) !important;
+                z-index: 3 !important;
+            }
+            
+            /* Ensure button maintains proper styling on mobile */
+            .sleek-cta-button {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 0.5rem !important;
+                font-size: 1rem !important;
+                font-family: var(--font-heading) !important;
+                font-weight: 500 !important;
+                padding: 1rem 2rem !important;
+                background: linear-gradient(135deg, var(--color-green-accent) 0%, #5a9829 100%) !important;
+                color: #ffffff !important;
+                text-decoration: none !important;
+                border-radius: 50px !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                box-shadow: 0 4px 15px rgba(108, 170, 51, 0.4) !important;
+                width: 100% !important;
+                max-width: 280px !important;
+                margin: 0 auto !important;
+                transition: all 0.3s ease !important;
             }
         }
         
@@ -467,10 +572,6 @@
             
             .special-price {
                 font-size: 1.8rem !important;
-            }
-            
-            #offer-timer {
-                font-size: 2.2rem !important;
             }
             
             .btn-primary {
@@ -621,6 +722,121 @@
                            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
                        ">(Check spam - subject: "Your 7 Beauty Ad Frameworks + Files")</p>
                 </div>
+
+                <!-- First Free Call CTA - Sleek Design with Mike's Face -->
+                <div class="sleek-cta-container" style="text-align: center; margin-top: 3rem;" data-aos="fade-up" data-aos-delay="400">
+                    <div class="sleek-cta-card" style="
+                        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 249, 249, 0.95) 100%);
+                        border: 1px solid rgba(108, 170, 51, 0.2);
+                        border-radius: 25px;
+                        padding: 0;
+                        max-width: 650px;
+                        margin: 0 auto;
+                        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 8px 25px rgba(108, 170, 51, 0.15);
+                        overflow: hidden;
+                        position: relative;
+                    ">
+                        <!-- Subtle gradient overlay -->
+                        <div class="sleek-cta-top-bar" style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            height: 4px;
+                            background: linear-gradient(90deg, var(--color-blue-primary), var(--color-green-accent), var(--color-blue-primary));
+                            z-index: 2;
+                        "></div>
+                        
+                        <div class="sleek-cta-content" style="padding: 2.5rem 2rem;">
+                            <!-- Mike's Photo and Content Layout -->
+                            <div class="sleek-cta-layout" style="
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 1.5rem;
+                                margin-bottom: 2rem;
+                                flex-wrap: wrap;
+                            ">
+                                <!-- Mike's Photo -->
+                                <div style="
+                                    width: 80px;
+                                    height: 80px;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+                                    border: 3px solid var(--color-green-accent);
+                                    box-shadow: 0 8px 25px rgba(108, 170, 51, 0.3);
+                                    flex-shrink: 0;
+                                ">
+                                    <img src="/beauty/images/mike-face.jpeg" alt="Mike Nikolaou" style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        object-position: center;
+                                    ">
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="sleek-cta-text" style="text-align: left; flex: 1; min-width: 280px;">
+                                    <h3 style="
+                                        font-family: var(--font-heading);
+                                        font-size: 1.4rem;
+                                        font-weight: 500;
+                                        margin: 0 0 0.5rem 0;
+                                        color: var(--color-blue-primary);
+                                        line-height: 1.3;
+                                    ">Want personalized guidance?</h3>
+                                    
+                                    <p style="
+                                        font-family: var(--font-body);
+                                        font-size: 1rem;
+                                        color: #555555;
+                                        margin: 0;
+                                        line-height: 1.5;
+                                    ">Book a <strong style="color: var(--color-green-accent);">free 30-minute call</strong> with Mike Nikolaou, our COO</p>
+                                </div>
+                            </div>
+                            
+                            <!-- CTA Button -->
+                            <a href="https://calendly.com/mnikolaou-toc/lets-talk-30min" target="_blank" class="sleek-cta-button" style="
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 0.5rem;
+                                font-size: 1.1rem;
+                                font-family: var(--font-heading);
+                                font-weight: 500;
+                                padding: 1rem 2.5rem;
+                                background: linear-gradient(135deg, var(--color-green-accent) 0%, #5a9829 100%);
+                                color: #ffffff;
+                                text-decoration: none;
+                                border-radius: 50px;
+                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                                box-shadow: 0 4px 15px rgba(108, 170, 51, 0.4);
+                                border: 1px solid rgba(255, 255, 255, 0.2);
+                                position: relative;
+                                overflow: hidden;
+                            " onmouseover="
+                                this.style.transform='translateY(-2px) scale(1.02)';
+                                this.style.boxShadow='0 8px 25px rgba(108, 170, 51, 0.6)';
+                            " onmouseout="
+                                this.style.transform='translateY(0) scale(1)';
+                                this.style.boxShadow='0 4px 15px rgba(108, 170, 51, 0.4)';
+                            ">
+                                <span style="font-size: 1rem;">💬</span>
+                                <span>Schedule Free Call</span>
+                            </a>
+                            
+                            <!-- Trust Indicator -->
+                            <p style="
+                                font-family: var(--font-body);
+                                font-size: 0.85rem;
+                                color: #888888;
+                                margin: 1.5rem 0 0 0;
+                                font-style: italic;
+                            ">Quick chat • No commitment • Actionable insights</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -687,157 +903,64 @@
                 </div>
             </div>
         </section>
-        
-        <!-- The $197 Offer Section -->
-        <section class="section">
+
+        <!-- Second Free Call CTA -->
+        <section class="section" style="padding-top: 0;">
             <div class="container">
-                <div style="max-width: 900px; margin: 0 auto;">
-                    
-                    <!-- Offer Header -->
-                    <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+                    <div style="
+                        background: linear-gradient(135deg, rgba(51, 128, 171, 0.1), rgba(108, 170, 51, 0.1));
+                        backdrop-filter: blur(10px);
+                        border: 2px solid rgba(108, 170, 51, 0.4);
+                        border-radius: 25px;
+                        padding: 3rem 2.5rem;
+                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+                    ">
                         <h2 style="
-                            font-family: var(--font-subheading);
-                            font-size: 2.8rem; 
-                            font-weight: 400; 
-                            margin-bottom: 1rem; 
+                            font-family: var(--font-heading);
+                            font-size: 2.2rem;
+                            font-weight: 500;
+                            margin-bottom: 1.5rem;
                             color: #ffffff;
-                            text-shadow: 0 4px 8px rgba(2, 2, 2, 0.3);
-                        ">Custom Creative Strategy Session</h2>
+                            text-shadow: 0 4px 8px rgba(2, 2, 2, 0.5);
+                        ">Ready to customize your approach?</h2>
                         
                         <p style="
-                            font-family: var(--font-body-heading);
-                            font-size: 1.3rem; 
-                            color: var(--color-green-accent); 
-                            font-weight: 500; 
-                            margin: 0;
-                        ">For the next 48 hours only:</p>
-                    </div>
-                    
-                    <!-- Main Offer Card -->
-                    <div style="
-                        background: rgba(255, 255, 255, 0.98);
-                        border: 2px solid #3380AB;
-                        border-radius: 25px;
-                        padding: 3rem;
-                        margin-bottom: 3rem;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                        position: relative;
-                        overflow: hidden;
-                    " data-aos="zoom-in" data-aos-delay="200">
+                            font-family: var(--font-body);
+                            font-size: 1.3rem;
+                            color: #ffffff;
+                            margin-bottom: 2.5rem;
+                            line-height: 1.6;
+                            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                        ">Let's discuss how to adapt these frameworks for <strong style="color: var(--color-green-accent);">your specific beauty brand</strong> and audience.</p>
                         
-                        <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(249, 249, 249, 0.1), transparent); animation: shimmer 4s infinite;"></div>
-                        
-                        <div style="position: relative; z-index: 2;">
-                            <h3 style="color: #000000; font-family: var(--font-body-heading); font-size: 2rem; font-weight: 600; margin-bottom: 2rem; text-align: center;">1-Hour Call with Mike Nikolaou</h3>
-                            
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                                
-                                <!-- What We'll Cover -->
-                                <div>
-                                    <h4 style="color: var(--color-green-accent); font-family: var(--font-body-heading); font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem;">We'll cover:</h4>
-                                    <ul style="color: #000000; font-family: var(--font-body); font-weight: 400; line-height: 1.8; padding-left: 0; list-style: none;">
-                                        <li style="margin-bottom: 0.5rem;">✓ Your brand positioning</li>
-                                        <li style="margin-bottom: 0.5rem;">✓ Your audience psychology</li>
-                                        <li style="margin-bottom: 0.5rem;">✓ Your competition's weaknesses</li>
-                                        <li style="margin-bottom: 0.5rem;">✓ Your scaling strategy</li>
-                                    </ul>
-                                </div>
-                                
-                                <!-- What You'll Receive -->
-                                <div>
-                                    <h4 style="color: var(--color-blue-primary); font-family: var(--font-body-heading); font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem;">Then within 7 days, you receive:</h4>
-                                    <div style="
-                                        background: rgba(255, 255, 255, 0.98);
-                                        border: 2px solid #22c55e;
-                                        border-radius: 15px;
-                                        padding: 1.5rem;
-                                        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
-                                    ">
-                                        <h5 style="color: var(--color-green-accent); font-family: var(--font-body-heading); font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem;">3 Custom Ad Creatives:</h5>
-                                        <ul style="color: #000000; font-family: var(--font-body); font-weight: 400; line-height: 1.6; padding-left: 0; list-style: none; font-size: 0.95rem;">
-                                            <li style="margin-bottom: 0.5rem;">1. Your "Signature" Ad (your unique story)</li>
-                                            <li style="margin-bottom: 0.5rem;">2. Your "Competitor Crusher" (steal market share)</li>
-                                            <li style="margin-bottom: 0.5rem;">3. Your "Scale Machine" (built for $10K+/day)</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Pricing & Timer -->
-                    <div style="
-                        background: rgba(255, 255, 255, 0.98);
-                        border: 2px solid #22c55e;
-                        border-radius: 20px;
-                        padding: 2.5rem;
-                        margin-bottom: 3rem;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                        text-align: center;
-                    " data-aos="fade-up" data-aos-delay="400">
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <div class="pricing-comparison" style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 1.5rem;">
-                                <div class="regular-price" style="text-decoration: line-through; color: #999999; font-family: var(--font-body); font-size: 1.5rem;">Regular Price: $997</div>
-                                <div class="special-price" style="color: var(--color-blue-primary); font-family: var(--font-heading); font-size: 2.5rem; font-weight: 500;">Next 48 hours: $197</div>
-                            </div>
-                            
-                            <p style="color: #000000; font-family: var(--font-body); font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Why this price? We charge $5,000/month for digital marketing and creative services.<br>But I want to prove custom beats framework every time.</p>
-                            
-                            <div style="color: var(--color-green-accent); font-family: var(--font-body-heading); font-size: 1.2rem; font-weight: 500; margin-bottom: 2rem;">
-                                Limited: 10 calls this week <span style="background: var(--color-green-accent); color: var(--color-white); padding: 4px 12px; border-radius: 15px; margin-left: 8px;">(3 spots left)</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Countdown Timer -->
-                        <div style="
-                            background: linear-gradient(135deg, rgba(51, 128, 171, 0.15), rgba(51, 128, 171, 0.08)); 
-                            border: 2px solid rgba(51, 128, 171, 0.3); 
-                            border-radius: 15px; 
-                            padding: 1.5rem; 
-                            margin-bottom: 2rem;
-                            display: inline-block;
-                        ">
-                            <div style="color: var(--color-green-accent); font-size: 3rem; font-weight: 500; font-family: var(--font-heading);" id="offer-timer">47:59:59</div>
-                        </div>
-                        
-                        <div style="
-                            background: linear-gradient(135deg, rgba(108, 170, 51, 0.15), rgba(108, 170, 51, 0.08)); 
-                            border: 2px solid rgba(108, 170, 51, 0.3); 
-                            border-radius: 15px; 
-                            padding: 1.5rem; 
-                            margin-bottom: 2rem;
-                        ">
-                            <p style="color: var(--color-green-accent); font-family: var(--font-body-heading); font-weight: 500; margin: 0; font-size: 1.1rem;">
-                                <strong>Guarantee:</strong> Profitable ROAS in 30 days or 1 hour free strategy calll
-                            </p>
-                        </div>
-                        
-                        <!-- CTA Button -->
-                        <a href="#" class="btn btn-primary" style="
-                            font-size: 1.4rem; 
+                        <a href="https://calendly.com/mnikolaou-toc/lets-talk-30min" target="_blank" class="btn btn-primary" style="
+                            font-size: 1.3rem;
                             font-family: var(--font-heading);
-                            font-weight: 500; 
-                            padding: 1.5rem 3rem; 
-                            text-transform: uppercase; 
-                            letter-spacing: 1px;
-                            box-shadow: 0 12px 35px rgba(108, 170, 51, 0.6);
-                            border: 3px solid rgba(108, 170, 51, 0.3);
+                            font-weight: 500;
+                            padding: 1.5rem 3rem;
                             background: linear-gradient(135deg, var(--color-green-accent), #5a9829);
-                            position: relative;
-                            overflow: hidden;
                             color: #000000;
                             text-decoration: none;
                             border-radius: 50px;
                             display: inline-block;
                             transition: all 0.3s ease;
-                        " onclick="
-                            this.style.transform='scale(0.98)';
-                            setTimeout(() => this.style.transform='scale(1)', 150);
+                            box-shadow: 0 12px 35px rgba(108, 170, 51, 0.6);
+                            border: 3px solid rgba(108, 170, 51, 0.3);
+                            position: relative;
+                            overflow: hidden;
                         ">
-                            <span style="position: relative; z-index: 2;">Book Your Custom Session for $197</span>
-                            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); animation: shimmer 2s infinite;"></div>
+                            <span style="position: relative; z-index: 2;">🚀 Schedule Free Call with Mike</span>
+                            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); animation: shimmer 3s infinite;"></div>
                         </a>
+
+                        <p style="
+                            font-family: var(--font-body);
+                            font-size: 0.95rem;
+                            color: rgba(255, 255, 255, 0.8);
+                            margin-top: 1.5rem;
+                            margin-bottom: 0;
+                        ">30 minutes • No sales pitch • Just actionable insights</p>
                     </div>
                 </div>
             </div>
@@ -880,58 +1003,6 @@
             }, 5000);
         });
         
-        // 48-hour countdown timer for the offer (synced with main page)
-        function initOfferCountdown() {
-            // Use the same localStorage key as the main beauty page
-            let endTime = localStorage.getItem('campaignEndTime');
-            if (!endTime || Number(endTime) < Date.now()) {
-                endTime = Date.now() + (48 * 60 * 60 * 1000); // 48 hours in milliseconds
-                localStorage.setItem('campaignEndTime', endTime);
-            } else {
-                endTime = parseInt(endTime);
-            }
-            
-            function updateTimer() {
-                const now = Date.now();
-                const timeLeft = endTime - now;
-                
-                if (timeLeft > 0) {
-                    const hours = Math.floor(timeLeft / 3600000);
-                    const minutes = Math.floor((timeLeft % 3600000) / 60000);
-                    const seconds = Math.floor((timeLeft % 60000) / 1000);
-
-                    const timerDisplay = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-                    const timerElement = document.getElementById('offer-timer');
-                    if (timerElement) {
-                        timerElement.textContent = timerDisplay;
-                    }
-                } else {
-                    // Time expired
-                    const timerElement = document.getElementById('offer-timer');
-                    if (timerElement) {
-                        timerElement.textContent = "00:00";
-                        timerElement.style.color = '#ff6b6b';
-                        
-                        // Update the button text
-                        const button = document.querySelector('a[href="#"]');
-                        if (button) {
-                            button.innerHTML = '<span style="position: relative; z-index: 2;">Offer Expired - Check Back Soon</span>';
-                            button.style.background = 'linear-gradient(135deg, var(--color-gray-dark), var(--color-black))';
-                            button.style.cursor = 'not-allowed';
-                            button.onclick = function(e) { e.preventDefault(); };
-                        }
-                    }
-                    
-                    clearInterval(timerInterval);
-                }
-            }
-            
-            // Update immediately and then every second
-            updateTimer();
-            const timerInterval = setInterval(updateTimer, 1000);
-        }
-        
         // Get email from localStorage or URL and display it in the confirmation heading
         function displayUserEmail() {
             let email = null;
@@ -973,7 +1044,6 @@
         
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            initOfferCountdown();
             displayUserEmail();
         });
         

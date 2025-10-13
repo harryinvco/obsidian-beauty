@@ -81,6 +81,8 @@ exports.handler = async function(event, context) {
   const {
     email,
     firstName,
+    storeLink,
+    biggestGrowthIssue,
     utm_source,
     utm_medium,
     utm_campaign,
@@ -93,15 +95,21 @@ exports.handler = async function(event, context) {
   console.log('Validating fields:');
   console.log('Email:', email);
   console.log('First Name:', firstName);
+  console.log('Store Link:', storeLink);
+  console.log('Biggest Growth Issue:', biggestGrowthIssue);
   
-  if (!email || !firstName) {
+  if (!email || !firstName || !biggestGrowthIssue) {
     console.error('Validation failed - missing required fields');
     return {
       statusCode: 400,
       headers: corsHeaders,
       body: JSON.stringify({ 
-        error: 'Email and first name are required',
-        received: { email: !!email, firstName: !!firstName }
+        error: 'Email, first name, and biggest growth issue are required',
+        received: { 
+          email: !!email, 
+          firstName: !!firstName,
+          biggestGrowthIssue: !!biggestGrowthIssue
+        }
       })
     };
   }
@@ -111,6 +119,8 @@ exports.handler = async function(event, context) {
   const insertData = {
     email: email.toLowerCase().trim(),
     first_name: firstName.trim(),
+    store_link: storeLink ? storeLink.trim() : null,
+    biggest_growth_issue: biggestGrowthIssue ? biggestGrowthIssue.trim() : null,
     utm_source: utm_source || null,
     utm_medium: utm_medium || null,
     utm_campaign: utm_campaign || null,
@@ -140,7 +150,7 @@ exports.handler = async function(event, context) {
       // If email already exists, still try to send the email
       if (resend) {
         try {
-          await sendWelcomeEmail(resend, email, firstName);
+          await sendWelcomeEmail(resend, email, firstName, storeLink, biggestGrowthIssue);
           console.log('Email sent successfully to existing user');
         } catch (emailError) {
           console.error('Email send error for existing user:', emailError);
@@ -172,7 +182,7 @@ exports.handler = async function(event, context) {
   // Send welcome email with frameworks
   if (resend) {
     try {
-      await sendWelcomeEmail(resend, email, firstName);
+      await sendWelcomeEmail(resend, email, firstName, storeLink, biggestGrowthIssue);
       console.log('Welcome email sent to:', email);
     } catch (emailError) {
       console.error('Email send error:', emailError);
@@ -197,7 +207,7 @@ exports.handler = async function(event, context) {
 };
 
 // Helper function to send welcome email
-async function sendWelcomeEmail(resend, email, firstName) {
+async function sendWelcomeEmail(resend, email, firstName, storeLink, biggestGrowthIssue) {
   const { data, error } = await resend.emails.send({
     from: 'Mike Nikolaou <mnikolaou@theobsidianco.com>',
     to: [email],
@@ -446,6 +456,15 @@ async function sendWelcomeEmail(resend, email, firstName) {
 
             <div class="content">
               <p class="greeting">Hi ${firstName},</p>
+
+              ${storeLink || biggestGrowthIssue ? `
+              <div style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 20px 0; border-radius: 8px;">
+                <h3 style="color: #1e40af; font-size: 16px; margin-bottom: 10px;">📝 Your Submission Details:</h3>
+                ${storeLink ? `<p style="margin: 5px 0; color: #374151;"><strong>Store:</strong> ${storeLink}</p>` : ''}
+                ${biggestGrowthIssue ? `<p style="margin: 5px 0; color: #374151;"><strong>Main Challenge:</strong> ${biggestGrowthIssue}</p>` : ''}
+                <p style="margin: 10px 0 0 0; color: #6b7280; font-size: 14px; font-style: italic;">I'll keep this in mind for future content and offerings!</p>
+              </div>
+              ` : ''}
 
               <p class="intro">Your 7 beauty ad frameworks are ready:</p>
 

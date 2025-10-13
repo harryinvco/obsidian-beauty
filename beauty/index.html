@@ -721,7 +721,7 @@
         /* Trust Bar */
         .trust-bar {
             background: rgba(249, 249, 249, 0.15);
-            backdrop-filter: blur(10px);
+            
             border: 1px solid rgba(249, 249, 249, 0.2);
             padding: 20px;
             margin: 40px 0;
@@ -763,7 +763,7 @@
         /* Spot Counter */
         .spot-counter {
             background: rgba(249, 249, 249, 0.2);
-            backdrop-filter: blur(10px);
+            
             border: 1px solid rgba(249, 249, 249, 0.2);
             padding: 20px;
             border-radius: var(--border-radius);
@@ -782,7 +782,7 @@
         /* Modern Form */
         .lead-form {
             background: rgba(249, 249, 249, 0.95);
-            backdrop-filter: blur(10px);
+            
             padding: 40px;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
@@ -845,6 +845,23 @@
             background: var(--color-white);
             padding: 0 5px;
             transform-origin: left center;
+        }
+
+        /* Select field styling */
+        .form-select-modern {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 45px;
+        }
+
+        .form-select-modern:focus + .form-label-modern,
+        .form-select-modern:not([value=""]) + .form-label-modern,
+        .form-select-modern option:checked + .form-label-modern {
+            transform: translateY(-2.5rem) scale(0.85);
+            color: var(--color-blue-primary);
         }
         
         /* Modern Buttons */
@@ -1112,7 +1129,7 @@
         }
         
         .glass {
-            backdrop-filter: blur(10px);
+            
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -1203,6 +1220,90 @@
                 margin-bottom: 1rem;
                 border-radius: 50px;
             }
+
+            /* Enhanced Mobile Form Optimization */
+            .form-modern {
+                gap: 20px !important;
+                padding: 0 5px !important;
+            }
+
+            .form-group-modern {
+                margin-bottom: 5px !important;
+            }
+
+            .form-input-modern, 
+            .form-select-modern {
+                padding: 18px 16px !important;
+                font-size: 16px !important; /* Prevents zoom on iOS */
+                border: 2px solid #22c55e !important;
+                border-radius: 12px !important;
+                background: #ffffff !important;
+                color: #1a1a1a !important;
+                font-weight: 500 !important;
+                line-height: 1.4 !important;
+                -webkit-appearance: none !important;
+                appearance: none !important;
+                min-height: 56px !important; /* Touch-friendly size */
+                box-sizing: border-box !important;
+            }
+
+            .form-input-modern:focus, 
+            .form-select-modern:focus {
+                border-color: #16a34a !important;
+                box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15) !important;
+                outline: none !important;
+            }
+
+            .form-label-modern {
+                font-size: 14px !important;
+                font-weight: 600 !important;
+                color: #374151 !important;
+                left: 16px !important;
+                top: 18px !important;
+                padding: 0 4px !important;
+                background: #ffffff !important;
+            }
+
+            .form-input-modern:focus + .form-label-modern,
+            .form-input-modern:not(:placeholder-shown) + .form-label-modern,
+            .form-select-modern:focus + .form-label-modern,
+            .form-select-modern:not([value=""]) + .form-label-modern {
+                transform: translateY(-32px) scale(0.85) !important;
+                color: #16a34a !important;
+                font-weight: 700 !important;
+            }
+
+            .form-select-modern {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") !important;
+                background-position: right 16px center !important;
+                background-repeat: no-repeat !important;
+                background-size: 16px !important;
+                padding-right: 45px !important;
+            }
+
+            .btn-modern {
+                padding: 18px 24px !important;
+                font-size: 17px !important;
+                font-weight: 700 !important;
+                border-radius: 12px !important;
+                min-height: 56px !important;
+                width: 100% !important;
+                margin-top: 10px !important;
+                box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3) !important;
+                border: none !important;
+                background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+                color: white !important;
+                text-transform: none !important;
+                letter-spacing: 0.3px !important;
+                transition: all 0.2s ease !important;
+            }
+
+            .btn-modern:active {
+                transform: translateY(1px) !important;
+                box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4) !important;
+            }
+
+
             
             /* Story section mobile - enhanced optimization */
             .story-intro {
@@ -1832,34 +1933,15 @@
                     </span>
                 </h1>
 
-                <div class="hero-value-props" style="display: flex; gap: 1.5rem; justify-content: center; margin: 2rem auto; max-width: 900px; flex-wrap: nowrap;">
-                    <div class="value-prop-item value-prop-desktop" style="background: rgba(255,255,255,0.1); padding: 0.8rem 1.2rem; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); flex: 1; text-align: center;">
-                        <span style="color: #fbbf24; font-weight: 700; font-size: 1.3rem;">✓</span>
-                        <span class="value-prop-text value-text-desktop" style="color: #ffffff; font-weight: 500;">Proven 16.9x ROAS</span>
-                    </div>
-                    <div class="value-prop-item value-prop-desktop" style="background: rgba(255,255,255,0.1); padding: 0.8rem 1.2rem; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); flex: 1; text-align: center;">
-                        <span style="color: #fbbf24; font-weight: 700; font-size: 1.3rem;">✓</span>
-                        <span class="value-prop-text value-text-desktop" style="color: #ffffff; font-weight: 500;">Ready-to-launch templates</span>
-                    </div>
-                    <div class="value-prop-item value-prop-desktop" style="background: rgba(255,255,255,0.1); padding: 0.8rem 1.2rem; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); flex: 1; text-align: center;">
-                        <span style="color: #fbbf24; font-weight: 700; font-size: 1.3rem;">✓</span>
-                        <span class="value-prop-text value-text-desktop" style="color: #ffffff; font-weight: 500;">48-hour free access</span>
-                    </div>
-                </div>
-
                 <p class="hero-subheadline hero-sub-desktop" style="font-size: 1.2rem; line-height: 1.6; color: #ffffff; max-width: 650px; margin: 1.5rem auto; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
                     <strong style="background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%); padding: 0.1rem 0.4rem; border-radius: 4px; color: #1f2937;">Warning:</strong> These aren't theory or "best practices." These are battle-tested frameworks from <strong style="background: rgba(34, 197, 94, 0.3); padding: 0.1rem 0.4rem; border-radius: 4px; color: #22c55e; font-weight: 700;">$127K generated in the last 2 weeks alone.</strong>
                 </p>
 
                 
                 <!-- Trust Bar -->
-                <div class="trust-bar" data-aos="fade-up" data-aos-delay="200">
-                    <div class="trust-content">
-                        <p style="font-size: 0.9rem;"><strong style="background: none; color: var(--color-black); font-weight: 700; padding: 0; box-shadow: none;">Trusted by 1,000+ brands worldwide</strong></p>
-                        <div class="trust-logos">
-                            <img src="/beauty/images/As-seen-on-1.png" alt="As seen on trusted platforms" class="trust-logo">
-                        </div>
-                    </div>
+                <div data-aos="fade-up" data-aos-delay="200" style="margin: var(--space-6) 0; text-align: center;">
+                    <p style="font-size: 1.125rem; margin-bottom: var(--space-3);"><strong style="color: #ffffff; font-weight: 700;">Trusted by 1,000+ brands worldwide</strong></p>
+                    <img src="/beauty/images/As-seen-on-1.png" alt="As seen on trusted platforms" class="trust-logo" style="height: 150px; width: auto;">
                 </div>
                 
                 
@@ -1867,12 +1949,7 @@
                 <div class="lead-form" data-aos="fade-up" data-aos-delay="800">
                     <h3>Get Your 7 High-Converting Ad Frameworks + Files ($1,297 Value)</h3>
                     
-                    <!-- Timer and Spots in Form -->
-                    <div style="background: rgba(108, 170, 51, 0.1); border: 2px solid var(--color-green-accent); border-radius: 10px; padding: 15px; margin: 20px 0; text-align: center;">
-                        <p style="margin: 5px 0; font-size: 14px; color: var(--color-green-accent); font-weight: 500;"><strong style="background: none; color: var(--color-green-accent); font-weight: 700; padding: 0; box-shadow: none;">⏰ Offer expires in: <span class="countdown-time" id="countdown">47:59:59</span></strong></p>
-                        <p style="margin: 5px 0; font-size: 14px; color: var(--color-green-accent); font-weight: 500;"><strong style="background: none; color: var(--color-green-accent); font-weight: 700; padding: 0; box-shadow: none;">🔥 Only <span style="background: var(--color-green-accent); color: var(--color-white); padding: 2px 8px; border-radius: 12px;">23/100</span> spots remaining!</strong></p>
-                    </div>
-                    
+
                     <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit">
                         <div class="form-group-modern">
                             <input type="email" id="email" name="email" class="form-input-modern" placeholder=" " required 
@@ -1888,6 +1965,28 @@
                                    autocapitalize="words"
                                    spellcheck="false">
                             <label for="firstName" class="form-label-modern">First name</label>
+                        </div>
+                        <div class="form-group-modern">
+                            <input type="url" id="storeLink" name="storeLink" class="form-input-modern" placeholder=" "
+                                   autocomplete="url"
+                                   autocapitalize="none"
+                                   spellcheck="false">
+                            <label for="storeLink" class="form-label-modern">Your store/Instagram link (optional)</label>
+                        </div>
+                        <div class="form-group-modern">
+                            <select id="biggestGrowthIssue" name="biggestGrowthIssue" class="form-input-modern form-select-modern" required>
+                                <option value="" disabled selected></option>
+                                <option value="Low ROAS/Poor ad performance">Low ROAS/Poor ad performance</option>
+                                <option value="High cost per acquisition">High cost per acquisition</option>
+                                <option value="Ads not converting customers">Ads not converting customers</option>
+                                <option value="Can't scale profitable campaigns">Can't scale profitable campaigns</option>
+                                <option value="Low engagement on posts">Low engagement on posts</option>
+                                <option value="Struggling to find winning products">Struggling to find winning products</option>
+                                <option value="Customer retention issues">Customer retention issues</option>
+                                <option value="Brand awareness problems">Brand awareness problems</option>
+                                <option value="Other/Multiple issues">Other/Multiple issues</option>
+                            </select>
+                            <label for="biggestGrowthIssue" class="form-label-modern">What's your biggest growth challenge?</label>
                         </div>
                         <input type="hidden" id="utm_source" name="utm_source">
                         <input type="hidden" id="utm_medium" name="utm_medium">
@@ -1929,7 +2028,7 @@
                     
                     <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--color-white); font-family: var(--font-body); font-weight: 300;"><strong style="color: var(--color-white);">Hey, I'm Mke and I watched our beauty brand clients burn through $70,000/month on ads that looked gorgeous but converted like garbage.</strong></p>
                     
-                    <div style="background: rgba(249, 249, 249, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 1.5rem; margin: 2rem 0;">
+                    <div style="background: rgba(249, 249, 249, 0.1);  border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 1.5rem; margin: 2rem 0;">
                         <p style="margin: 0; color: var(--color-green-accent); font-weight: 500; font-size: 1.1rem; font-family: var(--font-body);">💔 2.3x ROAS. Bleeding money daily.</p>
                     </div>
                     
@@ -1959,28 +2058,28 @@
             
             <!-- Updated Experiment Details -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0;" data-aos="fade-up" data-aos-delay="300">
-                <div style="background: rgba(249, 249, 249, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
+                <div style="background: rgba(249, 249, 249, 0.1);  border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
                     <h4 style="color: var(--color-green-accent); margin-bottom: 0.5rem; font-family: var(--font-body-heading); font-weight: 500;">Investment</h4>
                     <p style="font-size: 1.5rem; font-weight: 500; margin: 0; font-family: var(--font-body);">$500,000</p>
                     <p style="opacity: 0.8; margin: 0.5rem 0 0 0; font-family: var(--font-body); font-weight: 300;">of our own money</p>
                 </div>
                 
-                <div style="background: rgba(249, 249, 249, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
+                <div style="background: rgba(249, 249, 249, 0.1);  border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 1rem;">⏱️</div>
                     <h4 style="color: var(--color-green-accent); margin-bottom: 0.5rem; font-family: var(--font-body-heading); font-weight: 500;">Duration</h4>
                     <p style="font-size: 1.5rem; font-weight: 500; margin: 0; font-family: var(--font-body);">7 months</p>
                     <p style="opacity: 0.8; margin: 0.5rem 0 0 0; font-family: var(--font-body); font-weight: 300;">intensive testing</p>
                 </div>
                 
-                <div style="background: rgba(249, 249, 249, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
+                <div style="background: rgba(249, 249, 249, 0.1);  border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧪</div>
                     <h4 style="color: var(--color-green-accent); margin-bottom: 0.5rem; font-family: var(--font-body-heading); font-weight: 500;">Variations</h4>
                     <p style="font-size: 1.5rem; font-weight: 500; margin: 0; font-family: var(--font-body);">238</p>
                     <p style="opacity: 0.8; margin: 0.5rem 0 0 0; font-family: var(--font-body); font-weight: 300;">ad variations tested</p>
                 </div>
                 
-                <div style="background: rgba(249, 249, 249, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
+                <div style="background: rgba(249, 249, 249, 0.1);  border: 1px solid rgba(249, 249, 249, 0.2); border-radius: 15px; padding: 2rem; text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔥</div>
                     <h4 style="color: var(--color-green-accent); margin-bottom: 0.5rem; font-family: var(--font-body-heading); font-weight: 500;">Burn Rate</h4>
                     <p style="font-size: 1.5rem; font-weight: 500; margin: 0; font-family: var(--font-body);">$75,000/month</p>
@@ -2004,40 +2103,7 @@
                     </div>
                 </div>
                 
-                <div style="
-                    text-align: center; 
-                    margin: 4rem 0; 
-                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%); 
-                    backdrop-filter: blur(20px); 
-                    border: 2px solid rgba(255, 255, 255, 0.25); 
-                    border-radius: 30px; 
-                    padding: 4rem 3rem; 
-                    position: relative;
-                    overflow: hidden;
-                    box-shadow: 
-                        0 25px 50px rgba(0, 0, 0, 0.25),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                " 
-                data-aos="zoom-in" 
-                data-aos-delay="600"
-                onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 35px 70px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4)';"
-                onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 25px 50px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';">
-                    
-                    <!-- Floating background elements -->
-                    <div style="
-                        position: absolute;
-                        top: -50%;
-                        left: -50%;
-                        width: 200%;
-                        height: 200%;
-                        background: conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.1), transparent, rgba(255, 107, 107, 0.1), transparent);
-                        animation: rotate 20s linear infinite;
-                        pointer-events: none;
-                    "></div>
-                    
-                    <div style="position: relative; z-index: 1;">
+                <div style="text-align: center; margin: 4rem 0;">
                         <div style="
                             display: inline-block;
                             background: linear-gradient(135deg, #fbbf24, #f59e0b);
@@ -2085,92 +2151,23 @@
                             </span>.
                         </div>
                         
-                        <div style="
-                            display: grid; 
-                            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-                            gap: 2rem; 
-                            margin: 3rem 0;
-                        ">
-                            <div style="
-                                padding: 1.5rem;
-                                background: rgba(255, 255, 255, 0.08);
-                                border: 1px solid rgba(255, 255, 255, 0.15);
-                                border-radius: 16px;
-                                transition: all 0.3s ease;
-                                font-size: 1.1rem;
-                                font-weight: 500;
-                            " 
-                            onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-4px)';"
-                            onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)';">
-                                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">❌</div>
-                                No lifestyle photography
+                        <!-- Minimal Comparison -->
+                        <div style="margin: 3rem 0; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+                            
+                            <div style="margin-bottom: 2rem;">
+                                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 1rem; line-height: 1.5;">
+                                    While beauty brands waste money on perfect photos and fancy graphics...
+                                </p>
+                            </div>
+
+                            <div style="font-size: 1.4rem; font-weight: 700; color: #22c55e; margin: 2rem 0; line-height: 1.4;">
+                                We use simple psychological triggers that force instant purchases
                             </div>
                             
-                            <div style="
-                                padding: 1.5rem;
-                                background: rgba(255, 255, 255, 0.08);
-                                border: 1px solid rgba(255, 255, 255, 0.15);
-                                border-radius: 16px;
-                                transition: all 0.3s ease;
-                                font-size: 1.1rem;
-                                font-weight: 500;
-                            " 
-                            onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-4px)';"
-                            onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)';">
-                                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">❌</div>
-                                No beautiful branding
-                            </div>
-                            
-                            <div style="
-                                padding: 1.5rem;
-                                background: rgba(255, 255, 255, 0.08);
-                                border: 1px solid rgba(255, 255, 255, 0.15);
-                                border-radius: 16px;
-                                transition: all 0.3s ease;
-                                font-size: 1.1rem;
-                                font-weight: 500;
-                            " 
-                            onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-4px)';"
-                            onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)';">
-                                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">❌</div>
-                                No fancy graphics
-                            </div>
-                            
-                            <div style="
-                                padding: 1.5rem;
-                                background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.08));
-                                border: 2px solid rgba(34, 197, 94, 0.3);
-                                border-radius: 16px;
-                                transition: all 0.3s ease;
-                                font-size: 1.1rem;
-                                font-weight: 600;
-                                position: relative;
-                                overflow: hidden;
-                            " 
-                            onmouseover="this.style.background='linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(34, 197, 94, 0.15))'; this.style.transform='translateY(-4px) scale(1.05)';"
-                            onmouseout="this.style.background='linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.08))'; this.style.transform='translateY(0) scale(1)';">
-                                
-                                <div style="
-                                    position: absolute;
-                                    top: 0;
-                                    left: -100%;
-                                    width: 100%;
-                                    height: 100%;
-                                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-                                    animation: shimmer 2s infinite;
-                                "></div>
-                                
-                                <div style="
-                                    font-size: 1.5rem; 
-                                    margin-bottom: 0.5rem;
-                                    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.5));
-                                ">✅</div>
-                                <span style="color: #22c55e; text-shadow: 0 0 8px rgba(34, 197, 94, 0.3);">
-                                    Just raw psychological triggers
-                                </span>
-                            </div>
+                            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-top: 2rem; line-height: 1.6;">
+                                No beautiful design needed. Just brain hacks that bypass logic and hit deep emotional triggers.
+                            </p>
                         </div>
-                    </div>
                 </div>
                 
             </div>
@@ -2191,11 +2188,10 @@
                     <img src="/beauty/images/ClientScreen1.png" alt="Client Results Screenshot" class="screenshot-item" style="width: 100%; height: auto; max-height: 300px; object-fit: contain; border-radius: 15px; border: 3px solid rgba(34, 197, 94, 0.5); box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3); background: rgba(255, 255, 255, 0.95); cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);" onclick="toggleZoom(this)" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 35px rgba(34, 197, 94, 0.4)';" onmouseout="if(!this.classList.contains('zoomed')) { this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(34, 197, 94, 0.3)'; }">
                     <img src="/beauty/images/ClientScreen2.jpg" alt="Client Results Screenshot" class="screenshot-item" style="width: 100%; height: auto; max-height: 300px; object-fit: contain; border-radius: 15px; border: 3px solid rgba(34, 197, 94, 0.5); box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3); background: rgba(255, 255, 255, 0.95); cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);" onclick="toggleZoom(this)" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 35px rgba(34, 197, 94, 0.4)';" onmouseout="if(!this.classList.contains('zoomed')) { this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(34, 197, 94, 0.3)'; }">
                     <img src="/beauty/images/ClientScreen3.jpg" alt="Client Results Screenshot" class="screenshot-item" style="width: 100%; height: auto; max-height: 300px; object-fit: contain; border-radius: 15px; border: 3px solid rgba(34, 197, 94, 0.5); box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3); background: rgba(255, 255, 255, 0.95); cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);" onclick="toggleZoom(this)" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 35px rgba(34, 197, 94, 0.4)';" onmouseout="if(!this.classList.contains('zoomed')) { this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(34, 197, 94, 0.3)'; }">
-                    <img src="/beauty/images/ClientScreen4.png" alt="Client Results Screenshot" class="screenshot-item" style="width: 100%; height: auto; max-height: 300px; object-fit: contain; border-radius: 15px; border: 3px solid rgba(34, 197, 94, 0.5); box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3); background: rgba(255, 255, 255, 0.95); cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);" onclick="toggleZoom(this)" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 35px rgba(34, 197, 94, 0.4)';" onmouseout="if(!this.classList.contains('zoomed')) { this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(34, 197, 94, 0.3)'; }">
                 </div>
                 
                 <!-- White CTA Box -->
-                <div style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; margin: 3rem 0; text-align: center; color: #1e3a8a; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
+                <div style="background: rgba(255, 255, 255, 0.95);  border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 2.5rem; margin: 3rem 0; text-align: center; color: #1e3a8a; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
                     <p style="font-size: 1.4rem; font-weight: bold; margin: 0 0 1.5rem 0; color: #1e3a8a;">We now manage $2.1M in monthly ad spend<br>Average client ROAS: 12.7x</p>
                     
                     <a href="#leadForm" style="display: inline-block; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; padding: 1rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3); transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.2); margin-top: 1rem;" onclick="document.getElementById('leadForm').scrollIntoView({behavior: 'smooth'});">
@@ -2209,27 +2205,37 @@
     </section>
     
     <!-- Template Preview Section -->
-    <section class="section" style="background: linear-gradient(135deg, var(--color-gray-lighter) 0%, var(--color-gray-light) 100%); position: relative; overflow: hidden;">
+    <section class="section" style="background: linear-gradient(135deg, var(--color-gray-lighter) 0%, var(--color-gray-light) 100%); position: relative; overflow: hidden; padding: 80px 0;">
         <!-- Floating background elements -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle at 25% 25%, var(--color-green-accent) 2px, transparent 2px), radial-gradient(circle at 75% 75%, var(--color-blue-primary) 1px, transparent 1px); background-size: 60px 60px, 40px 40px;"></div>
         
-        <div class="container-modern" style="position: relative; z-index: 1;">
+        <div class="container" style="position: relative; z-index: 1;">
             <div style="text-align: center; margin-bottom: 4rem;" data-aos="fade-up">
-                <h2 style="font-size: 3rem; font-weight: 500; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--color-blue-primary), var(--color-green-accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-family: var(--font-heading);">The 7 Ad Frameworks That Did It All</h2>
-                <p style="font-size: 1.3rem; color: var(--color-black); max-width: 600px; margin: 0 auto; line-height: 1.6; font-family: var(--font-body); font-weight: 300;">Each framework tested across 238 different ads. Here's a preview of what's in your vault...</p>
+                <div style="display: inline-block; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);">
+                    ⚡ BATTLE-TESTED FRAMEWORKS
+                </div>
+                <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--color-blue-primary), var(--color-green-accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-family: var(--font-heading);">
+                    The 7 Ad Frameworks That Did It All
+                </h2>
+                <p style="font-size: 1.3rem; color: var(--color-black); max-width: 600px; margin: 0 auto; line-height: 1.6; font-family: var(--font-body); font-weight: 300;">
+                    Each framework tested across 238 different ads. Here's a preview of what's in your vault...
+                </p>
             </div>
             
-            <!-- Simplified Template Grid -->
-            <div class="template-grid-modern frameworks-showcase" style="display: flex; flex-direction: column; gap: 3rem; max-width: 800px; margin: 0 auto; padding: 20px;" data-aos="fade-up" data-aos-delay="200">
+            <!-- Clean Framework Preview -->
+            <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;" data-aos="fade-up" data-aos-delay="200">
                 
-                <!-- Framework 1 - Before & After -->
+                <!-- Framework Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                    
+                    <!-- Framework 1 -->
                 <div style="
-                    background: linear-gradient(145deg, rgba(249, 249, 249, 0.9), rgba(242, 242, 242, 0.8)); 
+                     
                     border: 2px solid var(--color-gray-light); 
                     border-radius: 20px; 
                     padding: 1.5rem; 
                     text-align: center;
-                    backdrop-filter: blur(10px);
+                    
                     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                     position: relative;
                     overflow: hidden;
@@ -2248,12 +2254,12 @@
                 
                 <!-- Framework 2 - UGC Testimonial -->
                 <div style="
-                    background: linear-gradient(145deg, rgba(249, 249, 249, 0.9), rgba(242, 242, 242, 0.8)); 
+                     
                     border: 2px solid var(--color-gray-light); 
                     border-radius: 20px; 
                     padding: 1.5rem; 
                     text-align: center;
-                    backdrop-filter: blur(10px);
+                    
                     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                     position: relative;
                     overflow: hidden;
@@ -2277,7 +2283,7 @@
                     border-radius: 20px; 
                     padding: 1.5rem; 
                     text-align: center;
-                    backdrop-filter: blur(10px);
+                    
                     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                     position: relative;
                     overflow: hidden;
@@ -2295,88 +2301,6 @@
                 </div>
                 </div>
 
-                <!-- Additional Frameworks Message -->
-                <div style="
-                    background: linear-gradient(135deg, rgba(108, 170, 51, 0.08), rgba(51, 128, 171, 0.05));
-                    border: 2px solid rgba(108, 170, 51, 0.3);
-                    border-radius: 25px;
-                    padding: 2.5rem;
-                    margin-top: 3rem;
-                    text-align: center;
-                    position: relative;
-                    overflow: hidden;
-                " data-aos="fade-up" data-aos-delay="400">
-                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(108, 170, 51, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-                    <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(51, 128, 171, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-
-                    <h3 style="
-                        font-size: 2.2rem;
-                        font-weight: 600;
-                        margin-bottom: 1.5rem;
-                        font-family: var(--font-heading);
-                    ">
-                        <span style="font-size: 2.5rem;">🎁</span> <span style="background: linear-gradient(135deg, var(--color-green-accent), var(--color-blue-primary));
-                        -webkit-background-clip: text;
-                        background-clip: text;
-                        -webkit-text-fill-color: transparent;">Plus 4 MORE Exclusive Frameworks!</span>
-                    </h3>
-
-                    <p style="
-                        font-size: 1.3rem;
-                        color: var(--color-black);
-                        margin-bottom: 1.5rem;
-                        line-height: 1.8;
-                        font-family: var(--font-body);
-                        font-weight: 400;
-                        max-width: 600px;
-                        margin-left: auto;
-                        margin-right: auto;
-                    ">
-                        <strong style="color: var(--color-green-accent);">4 additional premium frameworks</strong> are waiting for you inside the vault.
-                        These exclusive templates have generated <strong>$127K+ in the last 2 weeks</strong> for beauty brands just like yours.
-                    </p>
-
-                    <div style="
-                        display: flex;
-                        justify-content: center;
-                        gap: 2rem;
-                        margin: 2rem 0;
-                        flex-wrap: wrap;
-                    ">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-green-accent);">4</div>
-                            <div style="font-size: 1rem; color: var(--color-black); opacity: 0.8;">Bonus Frameworks</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-blue-primary);">$0</div>
-                            <div style="font-size: 1rem; color: var(--color-black); opacity: 0.8;">Extra Cost</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-green-accent);">100%</div>
-                            <div style="font-size: 1rem; color: var(--color-black); opacity: 0.8;">Tested & Proven</div>
-                        </div>
-                    </div>
-
-                    <p style="
-                        font-size: 1.1rem;
-                        color: var(--color-black);
-                        opacity: 0.9;
-                        margin-bottom: 2rem;
-                        font-style: italic;
-                    ">
-                        "The hidden frameworks alone paid for my entire ad spend in the first month!" - Sarah M., Beauty Brand Owner
-                    </p>
-
-                    <a href="#leadForm" class="btn btn-modern btn-large" style="
-                        background: linear-gradient(135deg, var(--color-green-accent), var(--color-blue-primary));
-                        padding: 1rem 2.5rem;
-                        font-size: 1.2rem;
-                        box-shadow: 0 15px 30px rgba(108, 170, 51, 0.3);
-                    ">
-                        Get All 7 Frameworks Now →
-                    </a>
-                </div>
-
             </div>
 
             <!-- Compelling CTA Section -->
@@ -2387,7 +2311,7 @@
                     background: linear-gradient(135deg, rgba(108, 170, 51, 0.1), rgba(108, 170, 51, 0.05));
                     border: 2px solid var(--color-green-accent);
                     border-radius: 20px;
-                    backdrop-filter: blur(10px);
+                    
                 " data-aos="zoom-in" data-aos-delay="600">
 
                 <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-green-accent); font-family: var(--font-heading);">
@@ -2438,14 +2362,21 @@
     </section>
     
     <!-- Offer Section -->
-    <section class="section section-alt" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden;">
+    <section class="section section-alt" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden; padding: 80px 0;">
         <!-- Floating background elements -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle at 25% 25%, #fbbf24 2px, transparent 2px), radial-gradient(circle at 75% 75%, #fbbf24 1px, transparent 1px); background-size: 60px 60px, 40px 40px;"></div>
         
         <div class="container" style="position: relative; z-index: 1;">
             <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up">
-                <h2 style="font-size: 2.8rem; font-weight: 900; margin-bottom: 1.5rem; color: white;">What You Get Inside The Vault</h2>
-                <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto;">Everything you need to dominate beauty brand advertising</p>
+                <div style="display: inline-block; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);">
+                    💎 Complete Ad Vault
+                </div>
+                <h2 style="font-size: 2.8rem; font-weight: 900; margin-bottom: 1.5rem; color: white;">
+                    What You Get Inside The Vault
+                </h2>
+                <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto;">
+                    Everything you need to dominate beauty brand advertising
+                </p>
             </div>
             
             <div style="max-width: 800px; margin: 0 auto;">
@@ -2456,7 +2387,7 @@
                     border-radius: 20px; 
                     padding: 2.5rem; 
                     margin-bottom: 2rem;
-                    backdrop-filter: blur(10px);
+                    
                     position: relative;
                     overflow: hidden;
                 " data-aos="zoom-in" data-aos-delay="200">
@@ -2487,7 +2418,7 @@
                         border-radius: 16px; 
                         padding: 2rem; 
                         text-align: center;
-                        backdrop-filter: blur(10px);
+                        
                         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     " 
                     data-aos="fade-right" 
@@ -2508,7 +2439,7 @@
                         border-radius: 16px; 
                         padding: 2rem; 
                         text-align: center;
-                        backdrop-filter: blur(10px);
+                        
                         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     " 
                     data-aos="fade-left" 
@@ -2531,7 +2462,7 @@
                     padding: 2.5rem; 
                     text-align: center;
                     margin-bottom: 2rem;
-                    backdrop-filter: blur(10px);
+                    
                 " data-aos="zoom-in" data-aos-delay="500">
                     
                     <h3 style="font-size: 2.2rem; font-weight: 900; color: #22c55e; margin-bottom: 1rem;">Total Value: $997</h3>
@@ -2569,7 +2500,7 @@
     </section>
     
     <!-- Guarantee Section -->
-    <section class="section" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden;">
+    <section class="section" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden; padding: 80px 0;">
         <!-- Floating background elements -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle at 25% 25%, #22c55e 2px, transparent 2px), radial-gradient(circle at 75% 75%, #22c55e 1px, transparent 1px); background-size: 60px 60px, 40px 40px;"></div>
         
@@ -2611,7 +2542,7 @@
                         border-radius: 15px; 
                         padding: 2rem; 
                         margin-bottom: 2rem;
-                        backdrop-filter: blur(10px);
+                        
                     ">
                         <p style="
                             font-size: 1.3rem; 
@@ -2649,7 +2580,7 @@
     </section>
     
     <!-- Footer CTA -->
-    <section class="section section-alt" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden;">
+    <section class="section section-alt" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden; padding: 80px 0;">
         <!-- Floating background elements -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle at 25% 25%, #ff6b6b 2px, transparent 2px), radial-gradient(circle at 75% 75%, #ff6b6b 1px, transparent 1px); background-size: 60px 60px, 40px 40px;"></div>
         
@@ -2663,7 +2594,7 @@
                     border-radius: 20px; 
                     padding: 2rem; 
                     margin-bottom: 3rem;
-                    backdrop-filter: blur(10px);
+                    
                 ">
                     <h2 style="
                         font-size: 2.8rem; 
@@ -2679,7 +2610,7 @@
                             border: 1px solid rgba(255, 255, 255, 0.2); 
                             border-radius: 12px; 
                             padding: 1.5rem;
-                            backdrop-filter: blur(10px);
+                            
                         ">
                             <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #fbbf24;">77</div>
                             <p style="color: white; font-weight: 600; margin: 0;">People have already claimed their frameworks</p>
@@ -2690,7 +2621,7 @@
                             border: 1px solid rgba(255, 255, 255, 0.2); 
                             border-radius: 12px; 
                             padding: 1.5rem;
-                            backdrop-filter: blur(10px);
+                            
                         ">
                             <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #ff6b6b;">23</div>
                             <p style="color: white; font-weight: 600; margin: 0;">Spots left before this goes to $497</p>
@@ -2698,34 +2629,7 @@
                     </div>
                 </div>
                 
-                <!-- Final Countdown -->
-                <div style="
-                    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.08)); 
-                    border: 2px solid rgba(251, 191, 36, 0.3); 
-                    border-radius: 20px; 
-                    padding: 2rem; 
-                    margin-bottom: 3rem;
-                    backdrop-filter: blur(10px);
-                " data-aos="zoom-in" data-aos-delay="400">
-                    
-                    <h3 style="color: #fbbf24; font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem;">⏰ Time Remaining:</h3>
-                    
-                    <div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0;">
-                        <div style="background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 15px; padding: 1rem; min-width: 80px;">
-                            <div style="font-size: 2rem; font-weight: 900; color: #fbbf24;" id="hours-footer">48</div>
-                            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">Hours</div>
-                        </div>
-                        <div style="background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 15px; padding: 1rem; min-width: 80px;">
-                            <div style="font-size: 2rem; font-weight: 900; color: #fbbf24;" id="minutes-footer">47</div>
-                            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">Minutes</div>
-                        </div>
-                        <div style="background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 15px; padding: 1rem; min-width: 80px;">
-                            <div style="font-size: 2rem; font-weight: 900; color: #fbbf24;" id="seconds-footer">12</div>
-                            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">Seconds</div>
-                        </div>
-                    </div>
-                </div>
-                
+
                 <!-- Final CTA -->
                 <div data-aos="fade-up" data-aos-delay="600">
                     <a href="#leadForm" style="
@@ -2761,7 +2665,7 @@
                     border-radius: 15px; 
                     padding: 2rem; 
                     margin-top: 3rem;
-                    backdrop-filter: blur(10px);
+                    
                 " data-aos="fade-up" data-aos-delay="800">
                     
                     <p style="
@@ -3089,16 +2993,19 @@
                 });
                 
                 // Real-time validation
-                const inputs = form.querySelectorAll('.form-input-modern');
+                const inputs = form.querySelectorAll('.form-input-modern, .form-select-modern');
                 inputs.forEach(input => {
                     input.addEventListener('blur', () => this.validateField(input));
                     input.addEventListener('input', () => this.clearFieldError(input));
+                    input.addEventListener('change', () => this.clearFieldError(input));
                 });
             }
             
             async handleFormSubmission(form) {
                 const email = form.querySelector('#email').value;
                 const firstName = form.querySelector('#firstName').value;
+                const storeLink = form.querySelector('#storeLink').value;
+                const biggestGrowthIssue = form.querySelector('#biggestGrowthIssue').value;
                 const button = form.querySelector('button[type="submit"]');
                 const btnText = button.querySelector('.btn-text');
                 const loader = button.querySelector('.btn-loader');
@@ -3122,6 +3029,11 @@
                     return;
                 }
 
+                if (!biggestGrowthIssue) {
+                    this.showFieldError('biggestGrowthIssue', 'Please select your biggest challenge');
+                    return;
+                }
+
                 // Show loading state
                 btnText.style.display = 'none';
                 loader.style.display = 'block';
@@ -3131,6 +3043,8 @@
                 const payload = {
                     email,
                     firstName,
+                    storeLink,
+                    biggestGrowthIssue,
                     utm_source,
                     utm_medium,
                     utm_campaign,
