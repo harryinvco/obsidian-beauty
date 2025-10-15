@@ -1,5 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 const { Resend } = require('resend');
+const { renderSaaSEmail, getSaaSEmailText } = require('./saas-email-template');
 
 exports.handler = async function(event, context) {
   // Only allow POST requests
@@ -57,6 +58,7 @@ exports.handler = async function(event, context) {
     email,
     firstName,
     website,
+    adSpend,
     utm_source,
     utm_medium,
     utm_campaign,
@@ -77,14 +79,6 @@ exports.handler = async function(event, context) {
     };
   }
 
-  console.log('SaaS form submission:', {
-    email: email.toLowerCase().trim(),
-    firstName: firstName.trim(),
-    utm_source,
-    utm_medium,
-    utm_campaign,
-    landing_path
-  });
   // Insert into Supabase saas_leads table
   const { error } = await supabase
     .from('saas_leads')
@@ -92,7 +86,8 @@ exports.handler = async function(event, context) {
       {
         email: email.toLowerCase().trim(),
         first_name: firstName.trim(),
-        website: website || null,
+        website: website ? website.trim() : null,
+        ad_spend: adSpend || null,
         utm_source: utm_source || null,
         utm_medium: utm_medium || null,
         utm_campaign: utm_campaign || null,
@@ -108,14 +103,24 @@ exports.handler = async function(event, context) {
 
     // Handle duplicate email error
     if (error.code === '23505') {
+      // If email already exists, still try to send the email
+      if (resend) {
+        try {
+          await sendB2BBlueprint(resend, email, firstName, website);
+        } catch (emailError) {
+          console.error('Email send error for existing user:', emailError);
+        }
+      }
+
       return {
-        statusCode: 409,
+        statusCode: 200, // Return success even for duplicates
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify({
-          error: 'This email is already registered. Please check your inbox.'
+          success: true,
+          message: 'Thank you! Check your email for the B2B lead generation blueprint.'
         })
       };
     }
@@ -130,27 +135,21 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // Send welcome email with SaaS blueprint
+  // Send B2B Blueprint email
   if (resend) {
     try {
-      // Import the SaaS email template
-      const { renderSaaSEmail } = require('./saas-email-template');
-      
-      const emailHtml = renderSaaSEmail(firstName.trim(), website || 'your website');
-      
-      await resend.emails.send({
-        from: 'The Obsidian Co <noreply@theobsidianco.com>',
-        to: [email.toLowerCase().trim()],
-        subject: 'Your free SaaS funnel map + ad scripts (PDF inside)',
-        html: emailHtml
-      });
-      
-      console.log('✅ SaaS welcome email sent to:', email);
+      await sendB2BBlueprint(resend, email, firstName, website);
+      console.log('B2B Blueprint email sent to:', email);
     } catch (emailError) {
-      console.error('❌ Email send error:', emailError);
-      // Don't fail the entire request if email fails
+      console.error('Email send error:', emailError);
+      // Don't fail the request if email fails - lead is already saved
     }
+  } else {
+    console.log('Resend API key not configured - skipping email');
   }
+
+  // Log success for debugging
+  console.log('SaaS lead successfully saved:', email, 'Website:', website, 'Ad Spend:', adSpend);
 
   return {
     statusCode: 200,
@@ -160,7 +159,24 @@ exports.handler = async function(event, context) {
     },
     body: JSON.stringify({
       success: true,
-      message: 'Thank you! Check your email for more information.'
+      message: 'Thank you! Check your email for the B2B lead generation blueprint.'
     })
   };
 };
+
+// Helper function to send B2B Blueprint email
+async function sendB2BBlueprint(resend, email, firstName, website) {
+  const { data, error } = await resend.emails.send({
+    from: 'Mike Nikolaou <mnikolaou@theobsidianco.com>',
+    to: [email],
+    subject: 'Your free SaaS funnel map + ad scripts (PDF inside)',
+    html: renderSaaSEmail(firstName, website),
+    text: getSaaSEmailText(firstName, website)
+  });
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
