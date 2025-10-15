@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NC4CVSDZ');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Reddit Pixel -->
+    <script>
+    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_hrc9q3mpxf14', {
+    optOut: false,
+    useDecimalCurrencyValues: true,
+    email: '<email_address>',
+    externalId: '<external_id>'
+    });
+    rdt('track', 'PageVisit');
+    </script>
+    <!-- End Reddit Pixel -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -95,6 +115,14 @@
             }
         }
 
+        /* FORCE MOBILE LAYOUT */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr !important;
+                gap: 0.5rem !important;
+            }
+        }
+        
         /* Reset */
         * {
             margin: 0;
@@ -118,7 +146,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: auto;
             position: relative;
             display: flex;
             align-items: center;
@@ -126,7 +154,7 @@
             background: linear-gradient(135deg, #020202 0%, #3380AB 100%);
             color: var(--white);
             overflow: hidden;
-            padding: var(--space-4);
+            padding: var(--space-8) var(--space-4);
         }
 
         .hero::before {
@@ -177,11 +205,14 @@
             grid-template-columns: 1fr 1fr;
             gap: var(--space-8);
             align-items: center;
-            padding-top: var(--space-4);
+            padding: 0;
         }
 
         .hero-text {
             animation: slideUp 0.8s ease-out;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
         }
 
 
@@ -196,59 +227,74 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: var(--space-3);
+            margin: 0;
             border: 1px solid rgba(108, 170, 51, 0.3);
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 900;
-            margin-bottom: var(--space-3);
-            line-height: 1.1;
+            margin: 0;
+            line-height: 1.15;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
             line-height: 1.6;
-            margin-bottom: var(--space-4);
+            margin: 0;
             color: rgba(255, 255, 255, 0.9);
         }
 
-        .hero-built-for {
+        .platform-badge {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             gap: 0.75rem;
-            margin-bottom: var(--space-3);
-            padding: 0.75rem 1.5rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50px;
-            backdrop-filter: blur(20px);
-            transition: all var(--transition);
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0;
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .hero-built-for:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.25);
+        .platform-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .platform-logos {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 100%;
+        }
+
+        .platform-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            padding: 0.375rem 0.75rem;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.2), rgba(51, 128, 171, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            transition: all var(--transition);
+        }
+
+        .platform-name:hover {
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.3), rgba(51, 128, 171, 0.3));
             transform: translateY(-1px);
         }
 
-        .built-for-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 0.025em;
-        }
-
-        .built-for-text {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 0.3px;
+        .platform-separator {
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
         }
 
         .hero-stats {
@@ -279,7 +325,7 @@
         .hero-form-card {
             background: var(--white);
             border-radius: var(--radius-2xl);
-            padding: var(--space-4);
+            padding: var(--space-6);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
             animation: slideUp 0.8s ease-out 0.2s both;
             position: relative;
@@ -316,7 +362,7 @@
         }
 
         .form-title {
-            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
             font-weight: 900;
             color: var(--gray-900);
             margin-bottom: var(--space-2);
@@ -348,13 +394,14 @@
 
         .form-input {
             width: 100%;
-            padding: 0.75rem 1rem;
+            padding: 1rem 1.25rem;
             border: 2px solid var(--gray-200);
             border-radius: var(--radius-md);
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-family: var(--font-base);
             transition: all var(--transition);
             background: var(--white);
+            min-height: 48px; /* Better touch target */
         }
 
         .form-input:focus {
@@ -372,19 +419,20 @@
             width: 100%;
             background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
             color: white;
-            padding: 0.875rem 2rem;
+            padding: 1.25rem 2rem;
             border-radius: var(--radius-lg);
             font-weight: 800;
             font-size: 1rem;
             border: none;
             cursor: pointer;
             transition: all var(--transition);
-            margin-top: var(--space-3);
+            margin-top: var(--space-4);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             box-shadow: 0 4px 14px rgba(108, 170, 51, 0.3);
             position: relative;
             overflow: hidden;
+            min-height: 56px; /* Better touch target */
         }
 
         .form-cta::before {
@@ -649,7 +697,7 @@
         }
 
         .expertise-highlight::before {
-            content: '⏰';
+            content: '💡';
             position: absolute;
             top: var(--space-4);
             left: var(--space-4);
@@ -896,6 +944,63 @@
             right: -20px;
             font-family: Georgia, serif;
             z-index: 0;
+        }
+
+        /* Subtle CTA Buttons */
+        .subtle-cta {
+            display: flex;
+            justify-content: center;
+            margin: var(--space-5) 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.08), rgba(51, 128, 171, 0.08));
+            border: 1px solid rgba(108, 170, 51, 0.2);
+            border-radius: 12px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(108, 170, 51, 0.1), rgba(51, 128, 171, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(108, 170, 51, 0.4);
+            box-shadow: 0 8px 25px rgba(108, 170, 51, 0.15);
+            color: var(--gray-800);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-icon {
+            font-size: 1rem;
+            color: var(--primary);
         }
 
         /* Conversion Proof Section */
@@ -1206,6 +1311,10 @@
 
         /* Tablet Responsive */
         @media (max-width: 1024px) {
+            .hero {
+                padding: var(--space-6) var(--space-4);
+            }
+            
             .hero-content {
                 grid-template-columns: 1fr 1fr;
                 gap: var(--space-6);
@@ -1229,15 +1338,20 @@
 
         /* Mobile Responsive */
         @media (max-width: 968px) {
+            .hero {
+                padding: var(--space-6) var(--space-3);
+            }
+            
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: var(--space-6);
-                align-items: center;
-                padding-top: 0;
+                align-items: stretch;
+                padding: 0;
             }
 
             .hero-text {
                 text-align: center;
+                gap: var(--space-4);
             }
 
             .hero-stats {
@@ -1267,36 +1381,135 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .hero {
+                padding: var(--space-8) var(--space-4);
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+                text-align: left;
+            }
+            
+            .hero-text {
+                order: 1;
+                text-align: center;
+                gap: var(--space-6);
+            }
+            
+            .hero-form-card {
+                order: 2;
+                padding: var(--space-6);
+            }
+        }
+
         @media (max-width: 640px) {
             .hero {
-                padding: var(--space-6) var(--space-3);
+                padding: var(--space-6) var(--space-4);
+                min-height: auto;
             }
 
+            .hero-content {
+                padding: 0;
+                gap: var(--space-6);
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                gap: var(--space-4);
+                text-align: center;
+            }
+            
             .hero-title {
-                font-size: 2rem;
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+                line-height: 1.25;
+                margin-bottom: 1rem;
             }
-
+            
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: clamp(1.1rem, 3vw, 1.25rem);
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
             }
-
-            .hero-built-for {
-                gap: 0.5rem;
-                padding: 0.5rem 1.25rem;
-                margin-bottom: var(--space-2);
-                border-radius: 25px;
-            }
-
-            .built-for-label {
-                font-size: 0.75rem;
-            }
-
-            .built-for-text {
-                font-size: 0.8rem;
+            
+            .hero-eyebrow {
+                font-size: 0.875rem;
+                padding: 0.75rem 1.25rem;
+                margin-bottom: 1rem;
             }
 
             .hero-form-card {
                 padding: var(--space-4);
+            }
+            
+            .platform-badge {
+                padding: 0.75rem 1rem;
+                margin: 0;
+                gap: 0.375rem;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .platform-text {
+                font-size: 0.75rem;
+                font-weight: 600;
+                margin-right: 0.5rem;
+            }
+
+            .platform-logos {
+                gap: 0.2rem;
+                flex-wrap: nowrap;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+            }
+
+            .platform-name {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.4rem;
+                white-space: nowrap;
+            }
+            
+            .platform-separator {
+                font-size: 0.65rem;
+                margin: 0 0.1rem;
+            }
+            
+            .form-input {
+                padding: 1.25rem 1.25rem;
+                font-size: 1.1rem;
+                min-height: 56px;
+            }
+            
+            .form-cta {
+                padding: 1.375rem 2rem;
+                font-size: 1.1rem;
+                min-height: 52px;
+            }
+            
+            .form-group {
+                margin-bottom: var(--space-3);
+            }
+
+            .platform-badge {
+                padding: 0.75rem 1rem;
+                margin: 0;
+            }
+
+            .platform-logos {
+                gap: 0.5rem;
+            }
+
+            .platform-name {
+                font-size: 0.875rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .platform-text {
+                font-size: 0.75rem;
             }
 
             .team-grid {
@@ -1375,6 +1588,15 @@
                 gap: var(--space-3);
             }
 
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .cta-icon {
+                font-size: 0.9rem;
+            }
+
             .client-testimonial {
                 margin-top: var(--space-4);
                 padding: var(--space-4);
@@ -1417,8 +1639,86 @@
             }
         }
 
+        /* Very small screens - simplified platform badge */
+        @media (max-width: 360px) {
+            .platform-badge {
+                padding: 0.5rem 0.75rem;
+                gap: 0.25rem;
+            }
+            
+            .platform-text {
+                font-size: 0.7rem;
+                text-align: center;
+            }
+            
+            .platform-logos {
+                display: none; /* Hide individual platforms on very small screens */
+            }
+        }
+
         /* Extra small screens */
         @media (max-width: 480px) {
+            .hero {
+                padding: var(--space-6) var(--space-3);
+            }
+            
+            .hero-content {
+                gap: var(--space-4);
+            }
+            
+            .hero-text {
+                gap: var(--space-3);
+            }
+            
+            .hero-form-card {
+                padding: var(--space-4);
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+                line-height: 1.3;
+                margin-bottom: 0.75rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .hero-eyebrow {
+                font-size: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+            
+            .platform-badge {
+                padding: 0.5rem 0.75rem;
+                gap: 0.25rem;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: nowrap;
+            }
+            
+            .platform-text {
+                font-size: 0.7rem;
+                margin-right: 0.375rem;
+            }
+            
+            .platform-logos {
+                gap: 0.15rem;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+            
+            .platform-name {
+                font-size: 0.6rem;
+                padding: 0.15rem 0.3rem;
+            }
+            
+            .platform-separator {
+                font-size: 0.6rem;
+                margin: 0 0.075rem;
+            }
+            
             .team-section {
                 padding: var(--space-6) var(--space-3);
             }
@@ -1450,20 +1750,29 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC4CVSDZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Hero Section - Updated 2025-10-11 -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <span class="hero-eyebrow">⚠️ WARNING: Your Store Is Bleeding Money</span>
-                <h1 class="hero-title">Is Your eCommerce Store Losing €12,000+ Every Month?</h1>
+                <h1 class="hero-title">The Revenue Leak Checklist Every eCom Store Needs</h1>
                 <p class="hero-subtitle">
-                    <strong>Every ecommerce entrepreneur needs this:</strong> The exact 47-point audit checklist we use to find and plug revenue leaks that cost stores thousands monthly. <em>Used by 200+ successful store owners.</em>
+                    <strong>Stop losing money to hidden leaks.</strong> Get the exact 23-point audit checklist that helps store owners find and fix revenue drains costing thousands monthly. <em>Trusted by 56+ successful entrepreneurs.</em>
                 </p>
 
-                <div class="hero-built-for">
-                    <span class="built-for-label">Built for</span>
-                    <span class="built-for-text">Shopify • WooCommerce • Wix</span>
-                </div>
+                <div class="platform-badge">
+                    <span class="platform-text">Works with any platform</span>
+                    <div class="platform-logos">
+                        <span class="platform-name">Shopify</span>
+                        <span class="platform-separator">•</span>
+                        <span class="platform-name">Wix</span>
+                        <span class="platform-separator">•</span>
+                        <span class="platform-name">Any Store</span>
+                    </div>
                 </div>
             </div>
 
@@ -1555,28 +1864,28 @@
             <div class="team-grid">
                 <div class="team-image-wrapper" data-aos="fade-up">
                     <div class="team-image-card">
-                        <img src="/saas/images/obsidian-team.webp" alt="The Obsidian Co Team" class="team-image">
+                        <img src="/images/obsidian-team.webp" alt="The Obsidian Co. Team" class="team-image">
                     </div>
-                    <img src="/saas/images/awards-and-acolades-the-obsidian-co.png" alt="Awards & Recognition" class="awards-badge">
+                    <img src="/images/awards-and-acolades-the-obsidian-co.png" alt="Awards & Recognition" class="awards-badge">
                 </div>
 
                 <div class="team-content" data-aos="fade-up" data-aos-delay="200">
                     <span class="section-eyebrow">⚡ PROOF: This System Works</span>
-                    <h2 class="section-title">The Team That's Helped 200+ eCommerce Entrepreneurs Add €47M+ in Revenue</h2>
+                    <h2 class="section-title">The Team That's Helped 56+ eCommerce Entrepreneurs Add €47M+ in Revenue</h2>
 
                     <div class="as-seen-on">
-                        <img src="/saas/images/As-seen-on-1.png" alt="As Seen On Leading Platforms" class="as-seen-on-image">
+                        <img src="/images/As-seen-on-1.png" alt="As Seen On Leading Platforms" class="as-seen-on-image">
                     </div>
 
                     <p class="team-intro">
-                        <strong>If you're an ecommerce entrepreneur leaving money on the table, this is for you.</strong> The Obsidian Co. has generated over €47M+ in revenue for 200+ brands, and we've seen the same costly mistakes in 90% of stores we audit.
+                        <strong>If you're an ecommerce entrepreneur leaving money on the table, this is for you.</strong> The Obsidian Co. has generated over €47M+ in revenue for 56+ brands, and we've seen the same costly mistakes in 90% of stores we audit.
                     </p>
                     <p class="team-intro">
-                        <strong>Here's what every store owner needs to know:</strong> The average ecommerce business loses €12,000+ monthly to easily fixable "revenue leaks." This checklist contains the exact 47-point framework we use to find and plug these leaks in under 20 minutes.
+                        <strong>Here's what every store owner needs to know:</strong> The average ecommerce business loses €12,000+ monthly to easily fixable "revenue leaks." This checklist contains the exact 23-point framework we use to find and plug these leaks in under 20 minutes.
                     </p>
                     <div class="expertise-highlight">
                         <p class="team-intro">
-                            <strong>⏰ TIME IS MONEY:</strong> Every day your store has these leaks, you're hemorrhaging revenue. Smart entrepreneurs who implement our checklist see 25-40% revenue increases within 60 days. <em>That's an extra €5K-€15K per month for most stores.</em>
+                            <strong>TIME IS MONEY:</strong> Every day your store has these leaks, you're hemorrhaging revenue. Smart entrepreneurs who implement our checklist see 25-40% revenue increases within 60 days. <em>That's an extra €5K-€15K per month for most stores.</em>
                         </p>
                     </div>
 
@@ -1586,12 +1895,45 @@
                             <span class="trust-metric-label">Revenue Recovered for Entrepreneurs</span>
                         </div>
                         <div class="trust-metric" data-aos="fade-up" data-aos-delay="200">
-                            <span class="trust-metric-number">200+</span>
+                            <span class="trust-metric-number">56+</span>
                             <span class="trust-metric-label">Store Owners Helped</span>
                         </div>
                         <div class="trust-metric" data-aos="fade-up" data-aos-delay="300">
                             <span class="trust-metric-number">€12K+</span>
                             <span class="trust-metric-label">Average Monthly Recovery</span>
+                        </div>
+                    </div>
+
+                    <div class="subtle-cta" data-aos="fade-up" data-aos-delay="400">
+                        <a href="https://calendly.com/mnikolaou-toc/lets-talk-15min" class="cta-button" target="_blank">
+                            <span class="cta-icon">📞</span>
+                            <span>Get a Free 15-Min Call with Mike</span>
+                        </a>
+                    </div>
+
+
+
+                    <div class="mike-section" data-aos="fade-up" data-aos-delay="400">
+                        <div class="mike-intro">
+                            <p class="mike-text">
+                                <strong>"After auditing 56+ ecommerce stores, I've seen the same costly mistakes over and over. This checklist contains everything I wish every entrepreneur knew before they lose another €12K+ to preventable revenue leaks."</strong>
+                            </p>
+                        </div>
+                        
+                        <div class="founder-signature">
+                            <img src="/images/mike-face.jpeg" alt="Mike - COO" class="founder-avatar">
+                            <div class="founder-info">
+                                <span class="founder-name">Mike</span>
+                                <span class="founder-title">COO & Revenue Optimization Expert</span>
+                                <span class="founder-subtitle">The Obsidian Co.</span>
+                            </div>
+                        </div>
+
+                        <div class="subtle-cta" data-aos="fade-up" data-aos-delay="500">
+                            <a href="https://calendly.com/mnikolaou-toc/lets-talk-15min" class="cta-button" target="_blank">
+                                <span class="cta-icon">💬</span>
+                                <span>Book Your Free Strategy Call</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1641,6 +1983,8 @@
                     body: JSON.stringify(data)
                 });
                 
+                const responseData = await res.json();
+                
                 if (res.ok) {
                     // Persist data for thank-you page
                     try {
@@ -1652,11 +1996,15 @@
                     // Redirect to thank you page
                     window.location.href = '/ecom-checklist/thank-you';
                 } else {
-                    alert('Submission failed. Please try again.');
+                    // Show the actual error message from the server
+                    const errorMsg = responseData.error || 'Submission failed. Please try again.';
+                    const debugInfo = responseData.debug ? `\n\nDebug: ${JSON.stringify(responseData.debug)}` : '';
+                    alert(errorMsg + debugInfo);
+                    console.error('Server error:', responseData);
                 }
             } catch (err) {
                 console.error('Form submission error:', err);
-                alert('Submission failed. Please try again.');
+                alert('Network error: ' + err.message + '\n\nPlease check your internet connection and try again.');
             }
         });
 
@@ -1676,4 +2024,3 @@
     </script>
 </body>
 </html>
-<- More generic approach while keeping all Updated Fri Oct 10 16:07:14 UTC 2025 -->
