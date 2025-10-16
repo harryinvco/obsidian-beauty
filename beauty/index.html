@@ -3065,11 +3065,12 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    
+
+                    const result = await res.json();
+
                     if (res.ok) {
-                        const result = await res.json();
                         success = result.success || res.ok;
-                        
+
                         if (success) {
                             // Track conversion before redirect
                             this.trackConversion(email, firstName);
@@ -3086,20 +3087,22 @@
                             return;
                         }
                     }
-                    
-                    // If we get here, submission failed
-                    throw new Error('Submission failed');
-                    
+
+                    // If we get here, submission failed - use error from server
+                    const errorMessage = result.error || result.message || 'Submission failed';
+                    console.error('Server error:', errorMessage);
+                    throw new Error(errorMessage);
+
                 } catch (err) {
                     console.error('Form submission error:', err);
-                    
+
                     // Reset button state
                     btnText.style.display = 'block';
                     loader.style.display = 'none';
                     button.disabled = false;
-                    
-                    // Show error message
-                    alert('Submission failed. Please try again.');
+
+                    // Show error message with details
+                    alert(err.message || 'Submission failed. Please try again.');
                 }
             }
             
