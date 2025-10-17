@@ -58,250 +58,145 @@
     <title>Check Your Email - Fashion Ad Frameworks Ready!</title>
     
     <style>
-        /* Clean, Working CSS - No Framework Conflicts */
+        /* Matching Main Page Styles */
         :root {
-            /* New Brand Color Scheme */
             --color-black: #020202;
-            --color-blue-primary: #3380AB;
-            --color-green-accent: #6CAA33;
-            --color-gray-light: #E4E4E4;
-            --color-gray-lighter: #F2F2F2;
-            --color-white: #F9F9F9;
-            
-            /* Typography - Questrial with fallbacks */
-            --font-heading: 'Questrial', 'Arial Black', 'Helvetica Bold', sans-serif;
-            --font-subheading: 'Questrial', 'Arial', 'Helvetica', sans-serif;
-            --font-body-heading: 'Questrial', 'Arial', 'Helvetica', sans-serif;
-            --font-body: 'Questrial', 'Arial', 'Helvetica Neue', sans-serif;
+            --color-white: #ffffff;
+            --color-success: #28a745;
+            --color-warning: #ffc107;
+            --color-gray-dark: #333333;
+            --color-gray-medium: #6b7280;
+            --color-gray-light: #e5e7eb;
+            --color-gray-lighter: #f3f4f6;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
-            font-family: var(--font-body);
-            background: linear-gradient(135deg, var(--color-black) 0%, var(--color-blue-primary) 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
             min-height: 100vh;
             background-attachment: fixed;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 4rem 0;
         }
-        
-        /* Success Animation */
-        .bounce {
-            animation: bounce 1s infinite alternate;
+
+        /* Success Icon */
+        .success-icon {
             font-size: 5rem;
             margin-bottom: 2rem;
             display: block;
+            text-align: center;
         }
-        
-        @keyframes bounce {
-            from {
-                transform: translateY(0px);
-            }
-            to {
-                transform: translateY(-20px);
-            }
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
+
         /* Typography */
         h1 {
-            font-family: var(--font-heading);
             font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
+            font-weight: 800;
             text-align: center;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, #fff 0%, #f59e0b 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            margin-bottom: 1.5rem;
+            color: white;
             line-height: 1.2;
         }
-        
+
         h2 {
-            font-family: var(--font-subheading);
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
             font-weight: 600;
             text-align: center;
             margin-bottom: 2rem;
             line-height: 1.3;
+            color: rgba(255, 255, 255, 0.9);
         }
-        
-        h3 {
-            font-family: var(--font-body-heading);
-            font-size: clamp(1.125rem, 3vw, 1.5rem);
-            font-weight: 500;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        
+
         p {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
             line-height: 1.7;
             margin-bottom: 2rem;
             text-align: center;
-            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.85);
         }
-        
-        /* Button Styles */
+
+        /* Button Styles - Match Main Page */
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 12px;
+            padding: 1.25rem 2.5rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: #0f172a;
-            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.6);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-            transform: translateY(-3px);
-            border-color: rgba(251, 191, 36, 0.5);
-        }
-        
-        /* Card Styles */
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* List Styles */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 2rem 0;
-        }
-        
-        ul li {
-            background: rgba(255, 255, 255, 0.1);
-            margin-bottom: 1rem;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--color-green-accent);
-            font-size: 1.1rem;
             transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1.125rem;
         }
-        
-        ul li:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(10px);
+
+        .btn-primary {
+            background: var(--color-white);
+            color: var(--color-black);
+            border: 2px solid var(--color-black);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-black);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            html, body {
-                min-height: 100vh;
-                background: linear-gradient(135deg, var(--color-black) 0%, var(--color-blue-primary) 100%) !important;
-                background-attachment: fixed !important;
-            }
-
             .section {
-                padding: 3rem 0;
+                padding: 2rem 0;
             }
 
             .container {
-                padding: 0 20px;
-                max-width: 100%;
+                padding: 1rem;
             }
-            
-            .bounce {
-                font-size: 4rem !important;
-                margin-bottom: 1.5rem !important;
+
+            .success-icon {
+                font-size: 4rem;
             }
-            
+
             h1 {
-                font-size: 2.2rem !important;
-                line-height: 1.2 !important;
-                margin-bottom: 1.5rem !important;
+                font-size: 2rem;
+                margin-bottom: 1rem;
             }
-            
+
             h2 {
-                font-size: 1.8rem !important;
-                line-height: 1.3 !important;
-                margin-bottom: 1.5rem !important;
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
             }
-            
+
             p {
-                font-size: 1rem !important;
-                line-height: 1.6 !important;
-                margin-bottom: 1.5rem !important;
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
             }
-            
-            ul li {
-                font-size: 1rem !important;
-                padding: 1rem !important;
-                margin-bottom: 1rem !important;
-                border-radius: 12px !important;
-            }
-            
+
             .btn {
-                padding: 1rem 1.5rem !important;
-                font-size: 1rem !important;
-                width: 100% !important;
-                margin-bottom: 1rem !important;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                width: 100%;
             }
         }
     </style>
@@ -314,74 +209,35 @@
 
     <div class="section">
         <div class="container">
-            <!-- Success Animation -->
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <span class="bounce">✅</span>
-                <h1>Check Your Email!</h1>
-                <h2>Your 3 Fashion Ad Frameworks Are On The Way</h2>
-                <p>
-                    We just sent you an email with <strong>instant access</strong> to the frameworks that increased ROAS by 74% in 90 days.
+            <!-- Success Message -->
+            <div style="text-align: center;">
+                <span class="success-icon">✅</span>
+                <h1>Check Your Email</h1>
+                <h2>Your Fashion Ad Frameworks Are On The Way</h2>
+                <p style="max-width: 600px; margin: 0 auto 3rem;">
+                    We just sent you the 3 frameworks that helped brands increase ROAS by 74% in 90 days. Check your inbox (and spam folder) in the next few minutes.
                 </p>
-                <p style="font-size: 1rem; opacity: 0.9;">
-                    (Check your spam folder if you don't see it in a few minutes)
-                </p>
-            </div>
 
-            <!-- What You'll Get -->
-            <div class="card" data-aos="fade-up">
-                <h3 style="text-align: center; margin-bottom: 2rem;">📥 Inside Your Download:</h3>
-                <ul>
-                    <li><strong>🧩 The Story-Based Framework</strong> - How Kipling achieved 16.9× ROAS with brand storytelling</li>
-                    <li><strong>🪞 The Style-Proof System</strong> - How a footwear brand scaled 74% ROAS by rotating creative angles</li>
-                    <li><strong>📈 The Social Anchor</strong> - Build influencer-level performance without paying influencers</li>
-                </ul>
-                <p style="text-align: center; margin-top: 2rem; font-size: 1rem;">
-                    <strong>No sales pitch. No follow-up ask.</strong> Just the same structures we use to scale eCommerce brands profitably.
-                </p>
-            </div>
-
-            <!-- Next Steps - Primary CTA -->
-            <div class="card" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.15) 0%, rgba(255, 193, 7, 0.15) 100%); border-color: rgba(40, 167, 69, 0.4);" data-aos="fade-up">
-                <h3 style="text-align: center; margin-bottom: 1.5rem;">💡 Want Us to Apply These Frameworks to Your Account?</h3>
-                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
-                    Book a <strong>free 30-minute strategy session</strong> with our team. We'll map which framework fits your ad setup and show you exactly how to implement it.
-                </p>
-                <div style="text-align: center;">
-                    <a href="https://calendly.com/mnikolaou-toc/digital-marketing-branding-fashion-industry" class="btn btn-primary" style="display: inline-block; min-width: 280px;">
-                        📅 Book My Free Scale Session →
+                <!-- Primary CTA -->
+                <div style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); border-radius: 16px; padding: 3rem 2rem; margin: 3rem auto; max-width: 600px; border: 1px solid rgba(255, 255, 255, 0.15);">
+                    <h2 style="margin-bottom: 1.5rem; font-size: clamp(1.5rem, 3.5vw, 2rem);">Want Us to Apply These to Your Account?</h2>
+                    <p style="margin-bottom: 2.5rem; font-size: 1.125rem; opacity: 0.9;">
+                        Book a free 30-minute session. We'll map which framework fits your setup and show you exactly how to implement it.
+                    </p>
+                    <a href="https://calendly.com/mnikolaou-toc/digital-marketing-branding-fashion-industry" class="btn btn-primary">
+                        📅 Book My Free Scale Session
                     </a>
+                    <p style="margin-top: 1.5rem; font-size: 0.875rem; opacity: 0.75; margin-bottom: 0;">
+                        Zero obligation • Actionable insights • Custom recommendations
+                    </p>
                 </div>
-                <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">
-                    ✓ Zero obligation &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Actionable insights &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Custom recommendations
-                </p>
-            </div>
 
-            <!-- Email Not Received -->
-            <div class="card" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2);" data-aos="fade-up">
-                <h3 style="text-align: center;">📧 Don't See the Email?</h3>
-                <p style="text-align: center;">
-                    Sometimes emails take a few minutes. If you don't see it within 5-10 minutes:
-                </p>
-                <ul style="max-width: 600px; margin: 0 auto;">
-                    <li>✓ Check your spam/junk folder</li>
-                    <li>✓ Add hello@theobsidianco.com to your contacts</li>
-                    <li>✓ Check the promotions tab (Gmail)</li>
-                </ul>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="mailto:hello@theobsidianco.com?subject=Fashion Frameworks - Email Not Received" class="btn btn-secondary">
-                        📩 Contact Support
-                    </a>
+                <!-- Footer -->
+                <div style="margin-top: 4rem; opacity: 0.7;">
+                    <p style="font-size: 0.875rem; margin-bottom: 0;">
+                        <strong>The Obsidian Co</strong> | Performance Marketing Agency
+                    </p>
                 </div>
-            </div>
-
-            <!-- Footer -->
-            <div style="text-align: center; margin-top: 4rem; opacity: 0.8;">
-                <p style="font-size: 0.875rem; margin-bottom: 0.5rem;">
-                    <strong>The Obsidian Co</strong> | Performance Marketing Agency
-                </p>
-                <p style="font-size: 0.75rem; margin: 0;">
-                    Trusted by Kipling, Crocodile Shoes, and 3,000+ fashion brands worldwide
-                </p>
             </div>
         </div>
     </div>
