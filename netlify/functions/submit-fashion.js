@@ -215,7 +215,7 @@ exports.handler = async function(event, context) {
                   <p style="color: #333333; font-size: 15px; margin: 0 0 15px 0;">
                     <strong>Want us to apply these frameworks to your account?</strong>
                   </p>
-                  <a href="https://theobsidianco.com/contact" style="display: inline-block; background: #1a1a1a; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px;">
+                  <a href="https://calendly.com/mnikolaou-toc/digital-marketing-branding-fashion-industry" style="display: inline-block; background: #1a1a1a; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px;">
                     📅 Book a Free Scale Session
                   </a>
                 </div>
