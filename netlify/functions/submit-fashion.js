@@ -94,35 +94,9 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // TEMPORARILY DISABLED - Return success without saving to database
-  console.log('Fashion form submission (temporarily disabled):', {
-    email: email.toLowerCase().trim(),
-    firstName: firstName.trim(),
-    website: website.trim(),
-    adSpend,
-    monthlyRevenue,
-    growthChallenge,
-    utm_source,
-    utm_medium,
-    utm_campaign,
-    landing_path
-  });
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
-    body: JSON.stringify({
-      success: true,
-      message: 'Thank you for your interest! This page is currently under development.'
-    })
-  };
-
-  // TODO: Uncomment when ready to go live
-  /*
   // Insert into Supabase fashion_leads table
+  console.log('Attempting to save fashion lead to Supabase...');
+
   const { error } = await supabase
     .from('fashion_leads')
     .insert([
@@ -138,8 +112,7 @@ exports.handler = async function(event, context) {
         utm_campaign: utm_campaign || null,
         utm_term: utm_term || null,
         utm_content: utm_content || null,
-        landing_path: landing_path || null,
-        created_at: new Date().toISOString()
+        landing_path: landing_path || null
       }
     ]);
 
@@ -155,7 +128,7 @@ exports.handler = async function(event, context) {
           'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify({
-          error: 'This email is already registered. Please check your inbox.'
+          error: 'This email is already registered. Please check your inbox for the download link.'
         })
       };
     }
@@ -170,6 +143,8 @@ exports.handler = async function(event, context) {
     };
   }
 
+  console.log('Fashion lead saved successfully:', email);
+
   // Send welcome email with fashion frameworks
   if (resend) {
     try {
@@ -180,17 +155,17 @@ exports.handler = async function(event, context) {
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <h1 style="color: #020202; margin-bottom: 20px;">Your Fashion Scaling Frameworks Are Here! 🎁</h1>
-            
+
             <p>Hi ${firstName},</p>
-            
+
             <p>Thank you for downloading our Fashion & Footwear Scaling Frameworks! You now have access to the same systems that helped:</p>
-            
+
             <ul>
               <li><strong>Kipling achieve 16.9× ROAS</strong> in 3 months</li>
-              <li><strong>A top footwear brand increase ROAS by 74%</strong> in 90 days</li>
+              <li><strong>Crocodile Shoes increase ROAS by 74%</strong> in 90 days</li>
               <li><strong>Scale $27M in fashion revenue</strong> across our client portfolio</li>
             </ul>
-            
+
             <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
               <h3 style="color: #020202; margin-top: 0;">📥 Your Download Includes:</h3>
               <ul>
@@ -199,22 +174,22 @@ exports.handler = async function(event, context) {
                 <li>📈 <strong>The Social Anchor</strong> - Influencer-level performance without the cost</li>
               </ul>
             </div>
-            
-            <p><strong>Download Link:</strong> <a href="https://theobsidianco.com/fashion-frameworks" style="color: #3380AB; text-decoration: none;">Get Your Frameworks Here →</a></p>
-            
+
+            <p><strong>Download Link:</strong> <a href="https://theobsidianco.com/fashion-frameworks" style="color: #28a745; text-decoration: none; font-weight: 600;">Get Your Frameworks Here →</a></p>
+
             <hr style="border: 1px solid #e9ecef; margin: 30px 0;">
-            
+
             <h3 style="color: #020202;">💡 Want Us to Apply These to Your Store?</h3>
-            <p>Based on your info (${monthlyRevenue} monthly revenue, ${adSpend} ad spend), we think the <strong>${growthChallenge}</strong> challenge you mentioned could be solved with our frameworks.</p>
-            
-            <p><a href="https://theobsidianco.com/contact" style="background: #6CAA33; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">📅 Book a Free Strategy Session</a></p>
-            
+            <p>Based on your info (${monthlyRevenue} monthly revenue, ${adSpend} ad spend), we think the <strong>"${growthChallenge}"</strong> challenge you mentioned could be solved with our frameworks.</p>
+
+            <p><a href="https://theobsidianco.com/contact" style="background: #28a745; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: 600;">📅 Book a Free Strategy Session</a></p>
+
             <p>Questions? Reply to this email - we read every response.</p>
-            
+
             <p>Talk soon,<br>
             <strong>The Obsidian Co Team</strong><br>
             <em>Performance frameworks for fashion & eCommerce brands</em></p>
-            
+
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef; font-size: 12px; color: #6c757d;">
               <p>The Obsidian Co | Performance Marketing Agency</p>
               <p>You're receiving this because you downloaded our Fashion Scaling Frameworks from ${website || 'our website'}.</p>
@@ -222,7 +197,7 @@ exports.handler = async function(event, context) {
           </div>
         `
       });
-      
+
       console.log('Fashion welcome email sent successfully to:', email);
     } catch (emailError) {
       console.error('Email send error:', emailError);
@@ -240,6 +215,5 @@ exports.handler = async function(event, context) {
       success: true,
       message: 'Thank you! Check your email for the frameworks.'
     })
-  };
-  */
+  }
 };
