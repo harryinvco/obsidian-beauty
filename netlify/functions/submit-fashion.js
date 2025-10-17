@@ -151,7 +151,7 @@ exports.handler = async function(event, context) {
       await resend.emails.send({
         from: 'Mike at The Obsidian Co <hello@theobsidianco.com>',
         to: [email],
-        subject: `Here's your download — 3 Fashion Ad Frameworks That Increased ROAS by 74%`,
+        subject: `Here's your download — A Ready-to-Implement Fashion Campaign That Increased ROAS by 74%`,
         html: `
           <!DOCTYPE html>
           <html>
@@ -163,8 +163,8 @@ exports.handler = async function(event, context) {
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
               <!-- Header -->
               <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 40px 30px; text-align: center;">
-                <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 0 0 10px 0; line-height: 1.3;">Your Fashion Ad Frameworks</h1>
-                <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 0;">3 Systems That Increased ROAS by 74% in 90 Days</p>
+                <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 0 0 10px 0; line-height: 1.3;">Your Fashion Campaign Framework</h1>
+                <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 0;">A Ready-to-Implement System That Increased ROAS by 74% in 90 Days</p>
               </div>
 
               <!-- Main Content -->
@@ -172,12 +172,12 @@ exports.handler = async function(event, context) {
                 <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">Hey!</p>
 
                 <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 0 0 25px 0;">
-                  Here's the download you requested — <strong>3 Fashion & Footwear Ad Frameworks That Increased ROAS by 74% in 90 Days</strong>.
+                  Here's the download you requested — <strong>A Ready-to-Implement Fashion Campaign That Can Increase Your ROAS by 74% in 90 Days with Near-zero Production Costs</strong>.
                 </p>
 
                 <!-- Download CTA Box -->
                 <div style="background: linear-gradient(135deg, #28a745 0%, #20883a 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 30px 0;">
-                  <p style="color: #ffffff; font-size: 18px; font-weight: 600; margin: 0 0 20px 0;">📥 Download Your Frameworks</p>
+                  <p style="color: #ffffff; font-size: 18px; font-weight: 600; margin: 0 0 20px 0;">📥 Download Your Campaign Framework</p>
                   <a href="https://theobsidianco.com/fashion-frameworks" style="display: inline-block; background: #ffffff; color: #28a745; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
                     Get Instant Access →
                   </a>
@@ -194,11 +194,11 @@ exports.handler = async function(event, context) {
                 </div>
 
                 <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 25px 0;">
-                  No sales pitch. No follow-up ask. Just the same structures we use internally to scale eCommerce brands profitably.
+                  No sales pitch. No follow-up ask. Just the same campaign framework we use internally to scale fashion brands profitably with minimal production costs.
                 </p>
 
                 <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 25px 0; font-weight: 600;">
-                  Read it. Apply it. Watch how structure outperforms "new creative" every time.
+                  Read it. Apply it. Watch how a proven system outperforms expensive creative every time.
                 </p>
 
                 <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 30px 0 10px 0;">
@@ -213,7 +213,7 @@ exports.handler = async function(event, context) {
                 <!-- Optional CTA -->
                 <div style="background: #f8f9fa; border-radius: 8px; padding: 25px; margin: 35px 0 0 0; text-align: center;">
                   <p style="color: #333333; font-size: 15px; margin: 0 0 15px 0;">
-                    <strong>Want us to apply these frameworks to your account?</strong>
+                    <strong>Want us to apply this campaign to your account?</strong>
                   </p>
                   <a href="https://calendly.com/mnikolaou-toc/digital-marketing-branding-fashion-industry" style="display: inline-block; background: #1a1a1a; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px;">
                     📅 Book a Free Scale Session
@@ -227,7 +227,7 @@ exports.handler = async function(event, context) {
                   <strong>The Obsidian Co</strong> | Performance Marketing Agency
                 </p>
                 <p style="color: #999999; font-size: 12px; margin: 0; line-height: 1.5;">
-                  You're receiving this because you downloaded our Fashion Scaling Frameworks.
+                  You're receiving this because you downloaded our Fashion Campaign Framework.
                 </p>
               </div>
             </div>
@@ -251,7 +251,7 @@ exports.handler = async function(event, context) {
     },
     body: JSON.stringify({
       success: true,
-      message: 'Thank you! Check your email for the frameworks.'
+      message: 'Thank you! Check your email for the campaign framework.'
     })
   }
 };
