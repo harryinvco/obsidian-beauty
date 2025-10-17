@@ -149,52 +149,90 @@ exports.handler = async function(event, context) {
   if (resend) {
     try {
       await resend.emails.send({
-        from: 'Fashion Frameworks <hello@theobsidianco.com>',
+        from: 'Mike at The Obsidian Co <hello@theobsidianco.com>',
         to: [email],
-        subject: `${firstName}, Your Fashion & Footwear Scaling Frameworks Are Ready 🎁`,
+        subject: `Here's your download — 3 Fashion Ad Frameworks That Increased ROAS by 74%`,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <h1 style="color: #020202; margin-bottom: 20px;">Your Fashion Scaling Frameworks Are Here! 🎁</h1>
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          </head>
+          <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
+            <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+              <!-- Header -->
+              <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 40px 30px; text-align: center;">
+                <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 0 0 10px 0; line-height: 1.3;">Your Fashion Ad Frameworks</h1>
+                <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 0;">3 Systems That Increased ROAS by 74% in 90 Days</p>
+              </div>
 
-            <p>Hi ${firstName},</p>
+              <!-- Main Content -->
+              <div style="padding: 40px 30px;">
+                <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">Hey!</p>
 
-            <p>Thank you for downloading our Fashion & Footwear Scaling Frameworks! You now have access to the same systems that helped:</p>
+                <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 0 0 25px 0;">
+                  Here's the download you requested — <strong>3 Fashion & Footwear Ad Frameworks That Increased ROAS by 74% in 90 Days</strong>.
+                </p>
 
-            <ul>
-              <li><strong>Kipling achieve 16.9× ROAS</strong> in 3 months</li>
-              <li><strong>Crocodile Shoes increase ROAS by 74%</strong> in 90 days</li>
-              <li><strong>Scale $27M in fashion revenue</strong> across our client portfolio</li>
-            </ul>
+                <!-- Download CTA Box -->
+                <div style="background: linear-gradient(135deg, #28a745 0%, #20883a 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 30px 0;">
+                  <p style="color: #ffffff; font-size: 18px; font-weight: 600; margin: 0 0 20px 0;">📥 Download Your Frameworks</p>
+                  <a href="https://theobsidianco.com/fashion-frameworks" style="display: inline-block; background: #ffffff; color: #28a745; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    Get Instant Access →
+                  </a>
+                </div>
 
-            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <h3 style="color: #020202; margin-top: 0;">📥 Your Download Includes:</h3>
-              <ul>
-                <li>🧩 <strong>The Story-Based Framework</strong> - Brand storytelling to ROAS</li>
-                <li>🪞 <strong>The Style-Proof System</strong> - Creative angle rotation strategy</li>
-                <li>📈 <strong>The Social Anchor</strong> - Influencer-level performance without the cost</li>
-              </ul>
+                <!-- What's Inside -->
+                <div style="background: #f8f9fa; border-left: 4px solid #28a745; padding: 25px; margin: 30px 0; border-radius: 8px;">
+                  <p style="color: #1a1a1a; font-size: 15px; font-weight: 600; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px;">Inside, you'll find:</p>
+                  <ul style="color: #333333; font-size: 16px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 10px;">How a footwear brand scaled <strong>74% ROAS</strong> without increasing spend</li>
+                    <li style="margin-bottom: 10px;">How <strong>Kipling achieved 16.9× ROAS</strong> with a creative rotation system</li>
+                    <li style="margin-bottom: 0;">Why most fashion campaigns plateau after Month 2 — <strong>and how to fix it</strong></li>
+                  </ul>
+                </div>
+
+                <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 25px 0;">
+                  No sales pitch. No follow-up ask. Just the same structures we use internally to scale eCommerce brands profitably.
+                </p>
+
+                <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 25px 0; font-weight: 600;">
+                  Read it. Apply it. Watch how structure outperforms "new creative" every time.
+                </p>
+
+                <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 30px 0 10px 0;">
+                  Talk soon,
+                </p>
+
+                <div style="margin: 20px 0;">
+                  <p style="color: #1a1a1a; font-size: 16px; margin: 0; font-weight: 600;">— Mike, COO</p>
+                  <p style="color: #666666; font-size: 15px; margin: 5px 0 0 0; font-style: italic;">The Obsidian Co.</p>
+                </div>
+
+                <!-- Optional CTA -->
+                <div style="background: #f8f9fa; border-radius: 8px; padding: 25px; margin: 35px 0 0 0; text-align: center;">
+                  <p style="color: #333333; font-size: 15px; margin: 0 0 15px 0;">
+                    <strong>Want us to apply these frameworks to your account?</strong>
+                  </p>
+                  <a href="https://theobsidianco.com/contact" style="display: inline-block; background: #1a1a1a; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px;">
+                    📅 Book a Free Scale Session
+                  </a>
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div style="background: #f8f9fa; padding: 30px; text-align: center; border-top: 1px solid #e9ecef;">
+                <p style="color: #666666; font-size: 13px; margin: 0 0 8px 0; line-height: 1.5;">
+                  <strong>The Obsidian Co</strong> | Performance Marketing Agency
+                </p>
+                <p style="color: #999999; font-size: 12px; margin: 0; line-height: 1.5;">
+                  You're receiving this because you downloaded our Fashion Scaling Frameworks.
+                </p>
+              </div>
             </div>
-
-            <p><strong>Download Link:</strong> <a href="https://theobsidianco.com/fashion-frameworks" style="color: #28a745; text-decoration: none; font-weight: 600;">Get Your Frameworks Here →</a></p>
-
-            <hr style="border: 1px solid #e9ecef; margin: 30px 0;">
-
-            <h3 style="color: #020202;">💡 Want Us to Apply These to Your Store?</h3>
-            <p>Based on your info (${monthlyRevenue} monthly revenue, ${adSpend} ad spend), we think the <strong>"${growthChallenge}"</strong> challenge you mentioned could be solved with our frameworks.</p>
-
-            <p><a href="https://theobsidianco.com/contact" style="background: #28a745; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: 600;">📅 Book a Free Strategy Session</a></p>
-
-            <p>Questions? Reply to this email - we read every response.</p>
-
-            <p>Talk soon,<br>
-            <strong>The Obsidian Co Team</strong><br>
-            <em>Performance frameworks for fashion & eCommerce brands</em></p>
-
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef; font-size: 12px; color: #6c757d;">
-              <p>The Obsidian Co | Performance Marketing Agency</p>
-              <p>You're receiving this because you downloaded our Fashion Scaling Frameworks from ${website || 'our website'}.</p>
-            </div>
-          </div>
+          </body>
+          </html>
         `
       });
 

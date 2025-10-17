@@ -187,6 +187,16 @@
             0%, 100% { transform: rotate(-1deg) scale(1); }
             50% { transform: rotate(-1deg) scale(1.02); }
         }
+
+        @keyframes pulse-cta {
+            0%, 100% { transform: scale(1); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); }
+            50% { transform: scale(1.03); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.2); }
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
         
         .metric-highlight {
             font-weight: 800;
@@ -275,7 +285,69 @@
             box-shadow: var(--shadow-large);
             position: relative;
         }
-        
+
+        /* Hero form dark styling */
+        .hero-section .form-modern {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section .form-modern::before {
+            display: none;
+        }
+
+        .hero-section .form-group label {
+            color: var(--color-white);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-section .form-group input,
+        .hero-section .form-group select {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .hero-section .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-section .form-group input:focus,
+        .hero-section .form-group select:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-section .form-group select option {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .hero-section .radio-option {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-section .radio-option:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-section .radio-option.selected {
+            background: rgba(40, 167, 69, 0.2);
+            border-color: var(--color-success);
+        }
+
+        .hero-section .radio-option label {
+            color: var(--color-white);
+        }
+
         .form-modern::before {
             content: '';
             position: absolute;
@@ -426,42 +498,43 @@
             transform: translateY(0);
         }
         
-        /* Clean Minimalist Buttons */
+        /* Clean Minimalist Buttons - White Background */
         .btn-modern {
-            background: var(--color-black) !important;
-            color: var(--color-white) !important;
-            border: none;
+            background: var(--color-white) !important;
+            color: var(--color-black) !important;
+            border: 2px solid var(--color-black);
             padding: 1rem 2rem;
             border-radius: var(--border-radius);
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none !important;
             display: inline-block;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             visibility: visible !important;
             opacity: 1 !important;
             line-height: 1.4;
             min-height: 44px;
         }
-        
+
         .btn-modern:hover {
-            background: var(--color-gray-dark) !important;
+            background: var(--color-black) !important;
             color: var(--color-white) !important;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-black);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
-        
+
         .btn-modern:active {
             transform: translateY(0);
-            background: var(--color-black) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-modern:visited {
-            color: var(--color-white) !important;
-            background: var(--color-black) !important;
+            color: var(--color-black) !important;
+            background: var(--color-white) !important;
         }
         
         .btn-large {
@@ -649,6 +722,38 @@
                 min-height: 50px !important;
             }
 
+            /* Mobile stats - hide dividers and stack */
+            .hero-section div[style*="width: 2px; height: 60px"] {
+                display: none !important;
+            }
+
+            .hero-section div[style*="gap: 3rem"] {
+                gap: 2rem !important;
+            }
+
+            /* Mobile logo optimizations */
+            section:nth-of-type(2) div[style*="gap: 4rem"] {
+                gap: 2rem !important;
+                flex-direction: column !important;
+            }
+
+            section:nth-of-type(2) div[style*="gap: 4rem"] > div[style*="width: 1px"] {
+                display: none !important;
+            }
+
+            section:nth-of-type(2) div[style*="min-width: 140px"] {
+                min-width: 100% !important;
+            }
+
+            section:nth-of-type(2) img[alt="Kipling"] {
+                height: 55px !important;
+                max-width: 200px !important;
+            }
+
+            section:nth-of-type(2) img[alt="Crocodile Shoes"] {
+                height: 65px !important;
+            }
+
             /* Mobile scarcity indicators */
             div[style*="ONLY 23 SPOTS LEFT"] {
                 font-size: 1rem !important;
@@ -712,228 +817,332 @@
                 </div>
                 
                 <h1 class="hero-title">
-                    How Leading Fashion & Footwear Brands Increased <strong>ROAS by 74%</strong> in 90 Days — Without Increasing Spend.
+                    How Leading Fashion & Footwear Brands Increased ROAS by <strong>74%</strong> in 90 Days — Without Increasing Spend.
                 </h1>
-                
+
                 <p class="hero-subtitle large-text">
-                    Download the exact ad frameworks used by brands like <strong class="trust-highlight">Kipling (16.9× ROAS)</strong> and a top footwear label that lifted <strong class="metric-highlight">ROAS by 74%</strong> in 3 months.
-                </p>
-                
-                <p style="font-size: 1.125rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9); font-weight: 500;">
-                    Learn how structure, not luck, scales profitably in 2025's toughest ad market.
+                    Download the exact ad frameworks used by brands like Kipling (<strong class="trust-highlight">16.9× ROAS</strong>) and a top footwear label that lifted ROAS by <strong class="metric-highlight">74% in 3 months</strong>.
                 </p>
 
-                <!-- Social Proof Stats -->
-                <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 1rem; background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: var(--border-radius); margin: 2rem auto; max-width: 500px; backdrop-filter: blur(10px);">
+                <p style="font-size: 1.125rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9); font-weight: 500;">
+                    Learn how <strong style="color: white; text-decoration: underline;">structure, not luck</strong>, scales profitably in 2025's toughest ad market.
+                </p>
+
+                <!-- Social Proof Stats - Sleek Minimal Design -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; margin: 2.5rem auto; max-width: 800px; flex-wrap: wrap;">
                     <div style="text-align: center;">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: white;">$27M+</div>
-                        <div style="font-size: 0.875rem; color: rgba(255,255,255,0.8);">Revenue Scaled</div>
+                        <div style="font-size: 3.5rem; font-weight: 900; color: var(--color-success); text-shadow: 0 4px 12px rgba(40, 167, 69, 0.4); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em;">$27M+</div>
+                        <div style="font-size: 0.875rem; color: rgba(255,255,255,0.85); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Fashion Revenue</div>
                     </div>
+                    <div style="width: 2px; height: 60px; background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);"></div>
                     <div style="text-align: center;">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: white;">74%</div>
-                        <div style="font-size: 0.875rem; color: rgba(255,255,255,0.8);">ROAS Increase</div>
+                        <div style="font-size: 3.5rem; font-weight: 900; color: var(--color-warning); text-shadow: 0 4px 12px rgba(255, 193, 7, 0.4); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em;">+74%</div>
+                        <div style="font-size: 0.875rem; color: rgba(255,255,255,0.85); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">ROAS Lift</div>
                     </div>
+                    <div style="width: 2px; height: 60px; background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);"></div>
                     <div style="text-align: center;">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: white;">16.9×</div>
-                        <div style="font-size: 0.875rem; color: rgba(255,255,255,0.8);">Kipling ROAS</div>
+                        <div style="font-size: 3.5rem; font-weight: 900; color: var(--color-white); text-shadow: 0 4px 12px rgba(255, 255, 255, 0.3); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em;">16.9×</div>
+                        <div style="font-size: 0.875rem; color: rgba(255,255,255,0.85); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Kipling ROAS</div>
                     </div>
                 </div>
                 
-                <!-- Primary CTA -->
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <a href="#download-form" class="btn-modern btn-large" style="text-decoration: none; display: inline-block; margin-bottom: 1rem;">
+                <!-- Primary CTA - Enhanced with White Button -->
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <a href="#download-form" class="btn-modern btn-large" style="text-decoration: none; display: inline-block; margin-bottom: 1rem; font-size: 1.25rem !important; padding: 1.5rem 3rem !important; animation: pulse-cta 2s ease-in-out infinite; background: var(--color-white) !important; color: var(--color-black) !important; border: 3px solid var(--color-black) !important; font-weight: 800 !important;">
                         🎁 Get The 3 Fashion Ad Frameworks Free
                     </a>
-                    <div style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.9);">
-                        Instant download • No credit card required • Limited to 100 downloads/month
+                    <div style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.95); font-weight: 500; line-height: 1.6;">
+                        <span style="display: inline-block; margin: 0 8px;">✅ Instant download</span>
+                        <span style="display: inline-block; margin: 0 8px;">✅ No credit card</span>
+                        <span style="display: inline-block; margin: 0 8px;">⚡ Limited to 100 downloads/month</span>
                     </div>
                 </div>
                 
-                <!-- eCommerce Growth Statistics -->
-                <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0,0,0,0.1); padding: 1.5rem; margin: 2rem auto; max-width: 500px; text-align: center; border-radius: var(--border-radius); backdrop-filter: blur(10px);">
-                    <h4 style="color: var(--color-black); margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">US eCommerce Market Growth</h4>
-                    
-                    <div style="background: var(--color-gray-lighter); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
-                        <img src="./images/number of users.png" 
-                             alt="eCommerce Users Growth 2017-2029 - Statista" 
-                             style="max-width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;"
+                <!-- eCommerce Growth Statistics - Sleek & Clean -->
+                <div style="text-align: center; margin: 2.5rem auto; max-width: 700px;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: inline-block; background: var(--color-success); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.75rem; box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);">📊 STATISTA 2025</div>
+                        <h4 style="color: var(--color-white); margin-bottom: 0.5rem; font-size: 1.5rem; font-weight: 800; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">333M eCommerce Users by 2029</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; font-weight: 500; margin: 0;">The market is exploding — don't get left behind</p>
+                    </div>
+
+                    <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+                        <img src="./images/number of users.png"
+                             alt="eCommerce Users Growth 2017-2029 - Statista"
+                             style="width: 100%; height: auto; display: block;"
                              loading="lazy"
-                             onerror="console.log('Image failed to load:', this.src); this.style.display='none'; this.nextElementSibling.style.display='block';"
+                             onerror="console.log('Image failed to load:', this.src); this.style.display='none'; this.nextElementSibling.style.display='flex';"
                              onload="console.log('eCommerce users image loaded successfully')">
-                        <div style="display: none; background: white; padding: 1rem; border-radius: 4px; font-size: 0.875rem; color: var(--color-black); border: 2px dashed var(--color-gray-medium);">
-                            <strong>333M eCommerce users by 2029</strong><br>
-                            <small style="color: var(--color-gray-medium);">Growing market = growing opportunity</small>
+                        <div style="display: none; background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%); padding: 3rem 2rem; border-radius: 12px; justify-content: center; align-items: center; flex-direction: column; min-height: 200px;">
+                            <div style="font-size: 2.5rem; font-weight: 900; color: var(--color-success); margin-bottom: 1rem; text-shadow: 0 2px 8px rgba(40, 167, 69, 0.4);">333M</div>
+                            <div style="font-size: 1.125rem; font-weight: 600; color: rgba(255,255,255,0.9); text-align: center;">eCommerce Users by 2029</div>
                         </div>
                     </div>
-                    
-                    <p style="font-size: 0.75rem; color: var(--color-gray-medium); margin: 0;">Source: Statista</p>
+
+                    <p style="font-size: 0.7rem; color: rgba(255,255,255,0.6); margin-top: 0.75rem; font-style: italic;">Source: Statista Market Research</p>
                 </div>
 
-                <!-- Trust Indicators -->
-                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; opacity: 0.8;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.9);">
-                        <span>⭐⭐⭐⭐⭐</span>
-                        <span>Trusted by 3,000+ brands</span>
+                <!-- Trust Indicators - Enhanced -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; background: rgba(0, 0, 0, 0.3); padding: 1rem 2rem; border-radius: 8px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.95); font-weight: 600;">
+                        <span style="font-size: 1.125rem;">⭐⭐⭐⭐⭐</span>
+                        <span>3,000+ Brands Trust Us</span>
                     </div>
-                    <div style="font-size: 0.875rem; color: rgba(255,255,255,0.9);">
-                        🔒 Your email is safe with us
+                    <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.3);"></div>
+                    <div style="font-size: 0.9rem; color: rgba(255,255,255,0.95); font-weight: 600;">
+                        🔒 100% Private & Secure
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 2. Proof & Trust Section -->
-    <section style="padding: 3rem 0; background: var(--color-gray-lighter);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="color: var(--color-black); margin-bottom: 1rem;">Used by brands that scale — not just spend.</h2>
-                
-                <!-- Brand Logos with Social Proof -->
-                <div style="background: rgba(255, 255, 255, 0.8); border-radius: var(--border-radius-lg); padding: 1.5rem; margin: 2rem 0; box-shadow: var(--shadow-soft);">
-                    <p style="font-size: 0.875rem; color: var(--color-gray-medium); margin-bottom: 1rem; font-weight: 600;">TRUSTED BY LEADING FASHION BRANDS:</p>
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
-                        <div style="font-weight: 800; font-size: 1.5rem; color: var(--color-trust);">Kipling</div>
-                        <div style="font-weight: 800; font-size: 1.5rem; color: var(--color-trust);">[Premium Footwear]</div>
-                        <div style="font-weight: 800; font-size: 1.5rem; color: var(--color-trust);">[Fashion House]</div>
-                    </div>
-                    <p style="font-size: 0.75rem; color: var(--color-gray-medium); margin-top: 1rem; margin-bottom: 0;">*Brand names used with permission</p>
-                </div>
-                
-                <!-- Results Table -->
-                <div style="background: white; border-radius: var(--border-radius); padding: 2rem; margin: 2rem auto; max-width: 600px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr style="border-bottom: 2px solid var(--color-gray-light);">
-                                <th style="padding: 1rem; text-align: left; color: var(--color-black); font-weight: 600;">Case</th>
-                                <th style="padding: 1rem; text-align: left; color: var(--color-black); font-weight: 600;">Result</th>
-                                <th style="padding: 1rem; text-align: left; color: var(--color-black); font-weight: 600;">Timeframe</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--color-gray-light);">
-                                <td style="padding: 1rem; color: var(--color-black);">Footwear Brand</td>
-                                <td style="padding: 1rem; color: var(--color-success); font-weight: 600;">+74% ROAS</td>
-                                <td style="padding: 1rem; color: var(--color-black);">90 days</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 1rem; color: var(--color-black);">Kipling</td>
-                                <td style="padding: 1rem; color: var(--color-success); font-weight: 600;">16.9× ROAS</td>
-                                <td style="padding: 1rem; color: var(--color-black);">3 months</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <a href="#download-form" class="btn-modern" style="text-decoration: none;">
-                    📈 Download the Frameworks That Produced These Results →
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Market Reality 2025 -->
-    <section style="padding: 4rem 0; background: var(--color-white);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="color: var(--color-black);">Fashion Is Booming — But Profitability Is Shrinking.</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <p style="font-size: 1.125rem; color: #666; margin-bottom: 1rem;">
-                        Fashion and footwear remain the two most purchased eCommerce categories in the U.S. — yet ad competition has never been higher.
-                    </p>
-                    <p style="font-size: 1.125rem; color: #666; margin-bottom: 2rem;">
-                        If your performance has stalled, it's not because your creatives stopped working — it's because the market shifted faster than your structure.
-                    </p>
-                </div>
-                
-                <!-- Market Stats -->
-                <div style="background: white; border: 1px solid var(--color-gray-light); border-radius: var(--border-radius); padding: 2rem; margin: 2rem auto; max-width: 650px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--color-black); margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600;">Most Popular eCommerce Categories — U.S. 2025</h3>
-                    
-                    <div style="background: var(--color-gray-lighter); padding: 1.5rem; border-radius: var(--border-radius); margin-bottom: 1.5rem;">
-                        <img src="./images/most popualr categories.png" 
-                             alt="Most Popular Categories for Online Purchases in the US 2025 - Statista" 
-                             style="max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 0 auto;"
-                             loading="lazy"
-                             onerror="console.log('Image failed to load:', this.src); this.style.display='none'; this.nextElementSibling.style.display='block';"
-                             onload="console.log('Popular categories image loaded successfully')">
-                        <div style="display: none; background: white; padding: 1.5rem; border-radius: 6px; border: 2px dashed var(--color-gray-medium);">
-                            <div style="display: flex; justify-content: space-around; align-items: center; margin: 1rem 0;">
-                                <div style="text-align: center;">
-                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--color-black); margin-bottom: 0.25rem;">43%</div>
-                                    <div style="color: var(--color-gray-dark); font-weight: 500;">Fashion & Apparel</div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--color-black); margin-bottom: 0.25rem;">33%</div>
-                                    <div style="color: var(--color-gray-dark); font-weight: 500;">Footwear</div>
-                                </div>
-                            </div>
+                <!-- Lead Form in Hero - Optimized Headline -->
+                <div style="max-width: 700px; margin: 4rem auto 0;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <div style="display: inline-block; background: var(--color-warning); color: var(--color-black); padding: 0.6rem 1.25rem; border-radius: 6px; margin-bottom: 1rem; animation: pulse-badge 2s ease-in-out infinite; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);">
+                            <span style="font-size: 0.875rem; font-weight: 700; letter-spacing: 0.5px;">⚡ LIMITED TO 100 DOWNLOADS THIS MONTH</span>
                         </div>
-                    </div>
-                    
-                    <div style="background: var(--color-gray-lighter); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
-                        <p style="font-size: 1rem; color: var(--color-black); margin: 0; font-weight: 500;">
-                            Fashion dominates online shopping with <strong>43% market share</strong>
+                        <h2 style="color: var(--color-white); margin-bottom: 1rem; font-size: clamp(1.75rem, 4.5vw, 2.25rem); font-weight: 800; line-height: 1.2;">Get The Frameworks Free<br><span style="font-size: 0.85em; font-weight: 600; opacity: 0.9;">(Limited to 100 Downloads/Month)</span></h2>
+                        <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 0; font-size: 1rem; font-weight: 500;">
+                            We'll send the frameworks instantly. <strong style="color: white;">No spam</strong> — just the systems that actually drive results.
                         </p>
                     </div>
-                    
-                    <p style="font-size: 0.875rem; color: var(--color-gray-medium);">
-                        Source: Statista Market Research 2025
-                    </p>
+
+                    <!-- Lead Form -->
+                    <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit-fashion">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name" autocomplete="given-name">
+                                <span class="validation-icon success">✓</span>
+                                <span class="validation-icon error">✗</span>
+                                <div class="error-message">Please enter your first name</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Work Email * <span style="font-size: 0.75rem; color: var(--color-gray-medium);">(No Gmail/Yahoo)</span></label>
+                                <input type="email" id="email" name="email" required placeholder="you@company.com" pattern="^[^@]+@(?!gmail|yahoo|hotmail|outlook|aol)[^@]+\.[^@]+$" title="Please use your work email (no Gmail, Yahoo, etc.)" autocomplete="email">
+                                <span class="validation-icon success">✓</span>
+                                <span class="validation-icon error">✗</span>
+                                <div class="error-message">Please use your work email (no Gmail, Yahoo, etc.)</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="website">Website / Store URL *</label>
+                                <input type="url" id="website" name="website" required placeholder="https://yourstore.com" autocomplete="url">
+                                <span class="validation-icon success">✓</span>
+                                <span class="validation-icon error">✗</span>
+                                <div class="error-message">Please enter a valid website URL</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adSpend">Monthly Ad Spend *</label>
+                                <select id="adSpend" name="adSpend" required>
+                                    <option value="">💰 Select your ad spend range</option>
+                                    <option value="$0 – $5K">$0 – $5K (Getting started)</option>
+                                    <option value="$5K – $15K">$5K – $15K (Growing)</option>
+                                    <option value="$15K – $30K">$15K – $30K (Scaling)</option>
+                                    <option value="$30K+">$30K+ (Enterprise)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="monthlyRevenue">Average Monthly Revenue *</label>
+                                <select id="monthlyRevenue" name="monthlyRevenue" required>
+                                    <option value="">📊 Select your revenue range</option>
+                                    <option value="Under $100K">Under $100K (Startup)</option>
+                                    <option value="$100K – $500K">$100K – $500K (Growing)</option>
+                                    <option value="$500K – $1M">$500K – $1M (Scaling)</option>
+                                    <option value="$1M – $5M">$1M – $5M (Established)</option>
+                                    <option value="$5M+">$5M+ (Enterprise)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="growthChallenge">Biggest Growth Challenge *</label>
+                                <select id="growthChallenge" name="growthChallenge" required>
+                                    <option value="">🎯 Select your biggest challenge</option>
+                                    <option value="Scaling profitably">📈 Scaling profitably</option>
+                                    <option value="Ad fatigue">😴 Ad fatigue</option>
+                                    <option value="Low ROAS">📉 Low ROAS</option>
+                                    <option value="Conversion rate issues">🎯 Conversion rate issues</option>
+                                    <option value="Other">❓ Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button with Loading State -->
+                        <button type="submit" id="submitBtn" class="btn-modern btn-large btn-primary-hero" style="width: 100%; margin-top: 2rem; position: relative; font-size: 1.125rem !important; padding: 1.25rem 2rem !important; font-weight: 700 !important;">
+                            <span class="btn-text">Get Instant Access →</span>
+                            <span class="btn-loading" style="display: none; align-items: center; justify-content: center;">
+                                <svg style="animation: spin 1s linear infinite; width: 20px; height: 20px; margin-right: 8px;" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.3"/>
+                                    <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"/>
+                                </svg>
+                                Processing...
+                            </span>
+                        </button>
+
+                        <!-- Microtext under CTA -->
+                        <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.75); font-size: 0.8rem; text-align: center;">
+                            🔒 Instant download • No credit card required • 100% free
+                        </p>
+                    </form>
                 </div>
-                
-                <a href="#download-form" class="btn-modern" style="text-decoration: none;">
-                    🧠 Get The Frameworks That Outperform In Rising CPM Markets
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Proof & Trust Section - Sleek Redesign -->
+    <section style="padding: 5rem 0 4rem; background: var(--color-white);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <div style="display: inline-block; background: var(--color-success); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);">PROVEN RESULTS</div>
+                <h2 style="color: var(--color-black); margin-bottom: 1rem; font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800;">Used By Brands That Scale — Not Just Spend</h2>
+                <p style="color: #6b7280; font-size: 1.125rem; margin-bottom: 0; max-width: 700px; margin-left: auto; margin-right: auto;">These frameworks have driven <strong style="color: var(--color-black);">$27M+ in revenue</strong> for fashion brands worldwide.</p>
+            </div>
+
+            <!-- Trusted Brands - Optimized Logo Display -->
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <p style="font-size: 0.75rem; color: #9ca3af; margin-bottom: 1.5rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Trusted By Leading Fashion Brands</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap; padding: 0 2rem;">
+                    <!-- Kipling - Rectangular Logo -->
+                    <div style="display: flex; align-items: center; justify-content: center; min-width: 140px;">
+                        <img src="./images/Kipling-logo-vector-01.svg" alt="Kipling" style="height: 45px; width: auto; max-width: 180px; opacity: 0.85; transition: all 0.3s ease; filter: grayscale(20%);" onmouseover="this.style.opacity='1'; this.style.filter='grayscale(0%)'" onmouseout="this.style.opacity='0.85'; this.style.filter='grayscale(20%)'">
+                    </div>
+                    <div style="width: 1px; height: 50px; background: linear-gradient(180deg, transparent 0%, var(--color-gray-light) 20%, var(--color-gray-light) 80%, transparent 100%);"></div>
+                    <!-- Crocodile - Square Logo -->
+                    <div style="display: flex; align-items: center; justify-content: center; min-width: 140px;">
+                        <img src="./images/crocodile-logo.svg" alt="Crocodile Shoes" style="height: 55px; width: auto; max-width: 160px; opacity: 0.85; transition: all 0.3s ease; filter: grayscale(20%);" onmouseover="this.style.opacity='1'; this.style.filter='grayscale(0%)'" onmouseout="this.style.opacity='0.85'; this.style.filter='grayscale(20%)'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results - Card Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <div style="text-align: center; padding: 2.5rem 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid var(--color-gray-light);">
+                    <div style="font-size: 0.75rem; color: #9ca3af; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">Crocodile Shoes</div>
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--color-success); margin-bottom: 0.5rem; line-height: 1;">+74%</div>
+                    <div style="font-size: 0.875rem; color: #6b7280; font-weight: 600; margin-bottom: 0.5rem;">ROAS Increase</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af;">in 90 days</div>
+                </div>
+
+                <div style="text-align: center; padding: 2.5rem 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid var(--color-gray-light);">
+                    <div style="font-size: 0.75rem; color: #9ca3af; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">Kipling</div>
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--color-success); margin-bottom: 0.5rem; line-height: 1;">16.9×</div>
+                    <div style="font-size: 0.875rem; color: #6b7280; font-weight: 600; margin-bottom: 0.5rem;">ROAS</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af;">in 3 months</div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="#download-form" class="btn-modern btn-large" style="text-decoration: none;">
+                    Download The Frameworks That Produced These Results →
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 4. What's Inside Your Download -->
-    <section style="padding: 4rem 0; background: var(--color-gray-lighter);">
+    <!-- 3. Market Reality 2025 - Sleek Redesign -->
+    <section style="padding: 5rem 0; background: var(--color-gray-lighter);">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="color: var(--color-black); margin-bottom: 1rem;">Get the Proven Frameworks That Scaled $27M in Fashion Revenue</h2>
-                <p style="color: var(--color-gray-medium);">Instant access • No credit card required</p>
+            <div style="text-align: center; margin-bottom: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div style="display: inline-block; background: var(--color-gray-dark); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);">THE REALITY</div>
+                <h2 style="color: var(--color-black); margin-bottom: 1.5rem; font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.2;">Fashion Is Booming — But Profitability Is Shrinking</h2>
+                <p style="font-size: 1.25rem; color: var(--color-black); margin-bottom: 1.5rem; font-weight: 600; line-height: 1.5;">
+                    Fashion and footwear remain the <span style="color: var(--color-success);">two most purchased</span> eCommerce categories in the U.S. — yet <span style="color: #dc2626;">ad competition has never been higher</span>.
+                </p>
+                <p style="font-size: 1.125rem; color: #6b7280; margin-bottom: 0; line-height: 1.6;">
+                    If your performance has stalled, it's not because your creatives stopped working — <strong style="color: var(--color-black);">it's because the market shifted faster than your structure</strong>.
+                </p>
+            </div>
+
+            <!-- Market Stats - Sleek Image Display -->
+            <div style="text-align: center; margin: 3rem auto; max-width: 700px;">
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="color: var(--color-black); margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 700;">Most Popular eCommerce Categories — U.S. 2025</h3>
+                    <p style="color: #6b7280; font-size: 0.95rem; margin: 0;">Fashion dominates online shopping with <strong style="color: var(--color-black);">43% market share</strong></p>
+                </div>
+
+                <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); background: white; padding: 1rem;">
+                    <img src="./images/most popualr categories.png"
+                         alt="Most Popular Categories for Online Purchases in the US 2025 - Statista"
+                         style="width: 100%; height: auto; display: block; border-radius: 8px;"
+                         loading="lazy"
+                         onerror="console.log('Image failed to load:', this.src); this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="console.log('Popular categories image loaded successfully')">
+                    <div style="display: none; padding: 3rem 2rem; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 900; color: var(--color-success); margin-bottom: 0.5rem;">43%</div>
+                            <div style="color: var(--color-gray-dark); font-weight: 600;">Fashion & Apparel</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 900; color: var(--color-black); margin-bottom: 0.5rem;">33%</div>
+                            <div style="color: var(--color-gray-dark); font-weight: 600;">Footwear</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.7rem; color: #9ca3af; margin-top: 0.75rem; font-style: italic;">Source: Statista Market Research 2025</p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="#download-form" class="btn-modern btn-large" style="text-decoration: none;">
+                    Get The Frameworks That Outperform In Rising CPM Markets →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. What's Inside Your Download - Sleek Redesign -->
+    <section style="padding: 5rem 0; background: white;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div style="display: inline-block; background: var(--color-success); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);">WHAT YOU GET</div>
+                <h2 style="color: var(--color-black); margin-bottom: 1rem; font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.2;">Get the Proven Frameworks That Scaled <span style="color: var(--color-success);">$27M</span> in Fashion Revenue</h2>
+                <p style="color: #6b7280; font-size: 1.125rem; margin-bottom: 1.5rem;">3 battle-tested frameworks • Instant PDF download • No credit card required</p>
+                <div style="display: inline-flex; align-items: center; gap: 1rem; background: var(--color-gray-lighter); padding: 0.75rem 1.5rem; border-radius: 50px; margin-top: 0.5rem;">
+                    <span style="color: #9ca3af; font-size: 0.875rem; text-decoration: line-through;">$2,991 Value</span>
+                    <span style="color: var(--color-success); font-size: 1.75rem; font-weight: 900; line-height: 1;">FREE</span>
+                </div>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                <div class="framework-card" style="text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid var(--color-gray-light);">
-                    <!-- Value Badge -->
-                    <div style="position: absolute; top: -10px; right: -10px; background: var(--color-success); color: white; padding: 0.5rem; border-radius: 50%; font-size: 0.75rem; font-weight: 700;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-bottom: 3rem; max-width: 1100px; margin-left: auto; margin-right: auto;">
+                <div class="framework-card" style="text-align: center; padding: 3rem 2rem 2.5rem; background: var(--color-gray-lighter); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: none; position: relative; overflow: visible;">
+                    <!-- Simplified Value Badge -->
+                    <div style="position: absolute; top: 1.5rem; right: 1.5rem; background: var(--color-success); color: white; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);">
                         $997
                     </div>
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🧩</div>
-                    <h3 style="color: var(--color-black); margin-bottom: 1rem;">The Story-Based Framework</h3>
-                    <p style="color: #666; margin-bottom: 1rem;">How we helped Kipling turn brand storytelling into 16.9× ROAS.</p>
-                    <div style="background: rgba(22, 163, 74, 0.1); padding: 0.75rem; border-radius: 8px; font-size: 0.875rem; color: var(--color-success); font-weight: 600;">
-                        ✅ Step-by-step implementation guide included
+                    <div style="font-size: 3.5rem; margin-bottom: 1.25rem; line-height: 1;">🧩</div>
+                    <h3 style="color: var(--color-black); margin-bottom: 1rem; font-size: 1.375rem; font-weight: 800; line-height: 1.3;">The Story-Based Framework</h3>
+                    <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6;">How we helped <strong style="color: var(--color-black);">Kipling</strong> turn brand storytelling into <strong style="color: var(--color-success);">16.9× ROAS</strong>.</p>
+                    <div style="color: var(--color-success); font-weight: 600; font-size: 0.875rem;">
+                        ✓ Step-by-step implementation guide
                     </div>
                 </div>
-                
-                <div class="framework-card" style="text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid var(--color-gray-light);">
-                    <!-- Value Badge -->
-                    <div style="position: absolute; top: -10px; right: -10px; background: var(--color-trust); color: white; padding: 0.5rem; border-radius: 50%; font-size: 0.75rem; font-weight: 700;">
+
+                <div class="framework-card" style="text-align: center; padding: 3rem 2rem 2.5rem; background: var(--color-gray-lighter); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: none; position: relative; overflow: visible;">
+                    <!-- Simplified Value Badge -->
+                    <div style="position: absolute; top: 1.5rem; right: 1.5rem; background: #2563eb; color: white; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);">
                         $997
                     </div>
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🪞</div>
-                    <h3 style="color: var(--color-black); margin-bottom: 1rem;">The Style-Proof System</h3>
-                    <p style="color: #666; margin-bottom: 1rem;">How a footwear brand grew 74% ROAS by rotating creative angles, not assets.</p>
-                    <div style="background: rgba(37, 99, 235, 0.1); padding: 0.75rem; border-radius: 8px; font-size: 0.875rem; color: var(--color-trust); font-weight: 600;">
-                        ✅ Ready-to-use creative templates included
+                    <div style="font-size: 3.5rem; margin-bottom: 1.25rem; line-height: 1;">🪞</div>
+                    <h3 style="color: var(--color-black); margin-bottom: 1rem; font-size: 1.375rem; font-weight: 800; line-height: 1.3;">The Style-Proof System</h3>
+                    <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6;">How a footwear brand grew <strong style="color: var(--color-success);">74% ROAS</strong> by rotating creative <strong style="color: var(--color-black);">angles, not assets</strong>.</p>
+                    <div style="color: #2563eb; font-weight: 600; font-size: 0.875rem;">
+                        ✓ Ready-to-use creative templates
                     </div>
                 </div>
-                
-                <div class="framework-card" style="text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid var(--color-gray-light);">
-                    <!-- Value Badge -->
-                    <div style="position: absolute; top: -10px; right: -10px; background: var(--color-scarcity); color: white; padding: 0.5rem; border-radius: 50%; font-size: 0.75rem; font-weight: 700;">
+
+                <div class="framework-card" style="text-align: center; padding: 3rem 2rem 2.5rem; background: var(--color-gray-lighter); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: none; position: relative; overflow: visible;">
+                    <!-- Simplified Value Badge -->
+                    <div style="position: absolute; top: 1.5rem; right: 1.5rem; background: #ea580c; color: white; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);">
                         $997
                     </div>
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
-                    <h3 style="color: var(--color-black); margin-bottom: 1rem;">The Social Anchor</h3>
-                    <p style="color: #666; margin-bottom: 1rem;">Build influencer-level performance without paying influencers.</p>
-                    <div style="background: rgba(234, 88, 12, 0.1); padding: 0.75rem; border-radius: 8px; font-size: 0.875rem; color: var(--color-scarcity); font-weight: 600;">
-                        ✅ Proven scripts and sequences included
+                    <div style="font-size: 3.5rem; margin-bottom: 1.25rem; line-height: 1;">📈</div>
+                    <h3 style="color: var(--color-black); margin-bottom: 1rem; font-size: 1.375rem; font-weight: 800; line-height: 1.3;">The Social Anchor</h3>
+                    <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6;">Build <strong style="color: var(--color-black);">influencer-level performance</strong> without paying influencers.</p>
+                    <div style="color: #ea580c; font-weight: 600; font-size: 0.875rem;">
+                        ✓ Proven scripts and sequences
                     </div>
                 </div>
             </div>
@@ -946,201 +1155,61 @@
         </div>
     </section>
 
-    <!-- 5. Strategic Proof Block - Data Authority -->
-    <section style="padding: 4rem 0; background: var(--color-white);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="color: var(--color-black);">Data Doesn't Lie — Frameworks Beat Guesswork.</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <p style="font-size: 1.125rem; color: #666; margin-bottom: 1rem;">
-                        U.S. eCommerce revenue hit $1.18 trillion in 2024 — but profit margins are flattening as ad costs rise.
-                    </p>
-                    <p style="font-size: 1.125rem; color: #666; margin-bottom: 2rem;">
-                        If your brand hasn't restructured its funnel since 2023, you're leaving efficiency on the table.
-                    </p>
-                </div>
-                
-                <!-- Revenue Growth Chart Representation -->
-                <div style="background: var(--color-gray-lighter); border-radius: 16px; padding: 2rem; margin: 2rem auto; max-width: 600px;">
-                    <h3 style="color: var(--color-black); margin-bottom: 1rem;">E-commerce Growth vs. Profit Margins</h3>
-                    <div style="display: flex; justify-content: space-between; align-items: end; height: 100px; margin: 2rem 0;">
-                        <div style="background: var(--color-blue-primary); width: 60px; height: 80%; border-radius: 4px; display: flex; align-items: end; justify-content: center; color: white; font-size: 0.875rem; padding: 0.5rem;">Revenue Growth</div>
-                        <div style="background: var(--color-red); width: 60px; height: 50%; border-radius: 4px; display: flex; align-items: end; justify-content: center; color: white; font-size: 0.875rem; padding: 0.5rem;">Profit Margins</div>
-                    </div>
-                    <p style="font-size: 0.875rem; opacity: 0.8; color: var(--color-black);">
-                        E-commerce Growth Outpacing Profitability – Statista 2025
-                    </p>
-                </div>
-                
-                <a href="#download-form" class="btn-modern" style="text-decoration: none;">
-                    📊 Get the Frameworks to Stay Profitable in 2025 →
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- 5. Form Section Anchor (Form now in hero) -->
+    <div id="download-form"></div>
 
-    <!-- 6. Form Section - Lead Capture (Conversion Optimized) -->
-    <section id="download-form" style="padding: 4rem 0; background: var(--color-gray-lighter);">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 style="color: var(--color-black); margin-bottom: 1rem; font-size: clamp(2rem, 5vw, 2.75rem);">Get The Frameworks Free (Limited to 100 Downloads/Month)</h2>
-                <p style="color: var(--color-gray-medium); margin-bottom: 3rem; font-size: 1.125rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    We'll send the frameworks instantly. No spam — just the systems that actually drive results.
-                </p>
-                
-                <!-- Progress Indicator -->
-                <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="background: var(--color-success); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 700;">1</div>
-                        <span style="color: var(--color-gray-medium); font-size: 0.875rem;">Fill form</span>
-                        <div style="width: 30px; height: 2px; background: var(--color-gray-light);"></div>
-                        <div style="background: var(--color-gray-light); color: var(--color-gray-medium); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 700;">2</div>
-                        <span style="color: var(--color-gray-medium); font-size: 0.875rem;">Get instant download</span>
-                        <div style="width: 30px; height: 2px; background: var(--color-gray-light);"></div>
-                        <div style="background: var(--color-gray-light); color: var(--color-gray-medium); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 700;">3</div>
-                        <span style="color: var(--color-gray-medium); font-size: 0.875rem;">Scale your ROAS</span>
-                    </div>
-                </div>
-                
-                <!-- Lead Form -->
-                <form id="leadForm" class="form-modern" name="Lead Capture" method="POST" action="/.netlify/functions/submit-fashion">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name" autocomplete="given-name">
-                            <span class="validation-icon success">✓</span>
-                            <span class="validation-icon error">✗</span>
-                            <div class="error-message">Please enter your first name</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Work Email * <span style="font-size: 0.75rem; color: var(--color-gray-medium);">(No Gmail/Yahoo)</span></label>
-                            <input type="email" id="email" name="email" required placeholder="you@company.com" pattern="^[^@]+@(?!gmail|yahoo|hotmail|outlook|aol)[^@]+\.[^@]+$" title="Please use your work email (no Gmail, Yahoo, etc.)" autocomplete="email">
-                            <span class="validation-icon success">✓</span>
-                            <span class="validation-icon error">✗</span>
-                            <div class="error-message">Please use your work email (no Gmail, Yahoo, etc.)</div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="website">Website / Store URL *</label>
-                            <input type="url" id="website" name="website" required placeholder="https://yourstore.com" autocomplete="url">
-                            <span class="validation-icon success">✓</span>
-                            <span class="validation-icon error">✗</span>
-                            <div class="error-message">Please enter a valid website URL</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="adSpend">Monthly Ad Spend *</label>
-                            <select id="adSpend" name="adSpend" required>
-                                <option value="">💰 Select your ad spend range</option>
-                                <option value="$0 – $5K">$0 – $5K (Getting started)</option>
-                                <option value="$5K – $15K">$5K – $15K (Growing)</option>
-                                <option value="$15K – $30K">$15K – $30K (Scaling)</option>
-                                <option value="$30K+">$30K+ (Enterprise)</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="monthlyRevenue">Average Monthly Revenue *</label>
-                            <select id="monthlyRevenue" name="monthlyRevenue" required>
-                                <option value="">📊 Select your revenue range</option>
-                                <option value="Under $100K">Under $100K (Startup)</option>
-                                <option value="$100K – $500K">$100K – $500K (Growing)</option>
-                                <option value="$500K – $1M">$500K – $1M (Scaling)</option>
-                                <option value="$1M – $5M">$1M – $5M (Established)</option>
-                                <option value="$5M+">$5M+ (Enterprise)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Biggest Growth Challenge *</label>
-                            <div class="radio-group">
-                                <div class="radio-option">
-                                    <input type="radio" name="growthChallenge" value="Scaling profitably" required id="challenge1">
-                                    <label for="challenge1">📈 Scaling profitably</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" name="growthChallenge" value="Ad fatigue" required id="challenge2">
-                                    <label for="challenge2">😴 Ad fatigue</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" name="growthChallenge" value="Low ROAS" required id="challenge3">
-                                    <label for="challenge3">📉 Low ROAS</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" name="growthChallenge" value="Conversion rate issues" required id="challenge4">
-                                    <label for="challenge4">🎯 Conversion rate issues</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" name="growthChallenge" value="Other" required id="challenge5">
-                                    <label for="challenge5">❓ Other</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Submit Button with Loading State -->
-                    <button type="submit" id="submitBtn" class="btn-modern btn-large btn-primary-hero" style="width: 100%; margin-top: 2rem; position: relative;">
-                        <span class="btn-text">🎁 Download My Free Frameworks</span>
-                        <span class="btn-loading" style="display: none;">
-                            <svg style="animation: spin 1s linear infinite; width: 20px; height: 20px; margin-right: 8px;" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.3"/>
-                                <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"/>
-                            </svg>
-                            Processing...
-                        </span>
-                    </button>
-                    
-                    <!-- Microtext under CTA -->
-                    <p style="margin-top: 1rem; color: var(--color-gray-medium); font-size: 0.875rem;">
-                        📈 Instant download. No credit card. Optional free strategy session after download.
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Post-Download Offer Preview -->
-    <section style="padding: 3rem 0; background: var(--color-gray-lighter);">
+    <!-- 7. Post-Download Offer - Sleek Redesign -->
+    <section style="padding: 5rem 0; background: white;">
         <div class="container">
             <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h2 style="color: var(--color-black); margin-bottom: 1rem;">Want Us to Apply These Frameworks to Your Account?</h2>
-                <p style="font-size: 1.125rem; color: #666; margin-bottom: 2rem;">
-                    Book a Free 30-Minute Fashion Scale Session with our performance team — we'll map which framework fits your current ad setup.
+                <div style="display: inline-block; background: linear-gradient(135deg, var(--color-success) 0%, #16a34a 100%); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 1.5rem; box-shadow: 0 4px 16px rgba(40, 167, 69, 0.3);">FREE STRATEGY SESSION</div>
+                <h2 style="color: var(--color-black); margin-bottom: 1.25rem; font-size: clamp(1.875rem, 4.5vw, 2.5rem); font-weight: 800; line-height: 1.2;">Want Us to Apply These Frameworks to Your Account?</h2>
+                <p style="font-size: 1.125rem; color: #6b7280; margin-bottom: 2.5rem; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Book a <strong style="color: var(--color-black);">Free 30-Minute Fashion Scale Session</strong> with our performance team — we'll map which framework fits your current ad setup and show you exactly how to implement it.
                 </p>
-                <a href="https://theobsidianco.com/contact" class="btn-modern" style="text-decoration: none;">
-                    📅 Book My Free Scale Session
+                <a href="https://theobsidianco.com/contact" class="btn-modern btn-large" style="text-decoration: none; font-size: 1.125rem !important;">
+                    📅 Book My Free Scale Session →
                 </a>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; color: #9ca3af; font-size: 0.875rem;">
+                    <span>✓ Zero obligation</span>
+                    <span>✓ Actionable insights</span>
+                    <span>✓ Custom recommendations</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 8. Final CTA -->
-    <section style="padding: 4rem 0; background: var(--color-gray-lighter);">
+    <!-- 8. Final CTA - Sleek Dark Section -->
+    <section style="padding: 5rem 0; background: linear-gradient(135deg, #111827 0%, var(--color-black) 100%);">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <div style="background: var(--color-gray-dark); color: white; padding: 0.75rem 1.5rem; border-radius: var(--border-radius); display: inline-block; margin-bottom: 1rem; font-weight: 500;">
-                    Limited time offer
+            <div style="text-align: center; max-width: 750px; margin: 0 auto;">
+                <div style="background: var(--color-warning); color: var(--color-black); padding: 0.6rem 1.5rem; border-radius: 30px; display: inline-block; margin-bottom: 2rem; font-weight: 800; font-size: 0.875rem; letter-spacing: 0.5px; box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4); animation: pulse-badge 2s ease-in-out infinite;">
+                    ⚠️ ONLY 100 DOWNLOADS THIS MONTH
                 </div>
-            </div>
-            
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: var(--color-black); margin-bottom: 1.5rem; font-size: 2rem;">
-                    Only 100 Downloads This Month — Secure Yours Now.
+
+                <h2 style="color: var(--color-white); margin-bottom: 1.5rem; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em;">
+                    Secure Your Free Copy Before It's Behind a $197 Paywall
                 </h2>
-                
-                <div style="background: white; border: 1px solid var(--color-gray-light); border-radius: var(--border-radius); padding: 2rem; margin: 2rem 0;">
-                    <p style="color: var(--color-gray-medium); margin-bottom: 1rem;">
-                        Once this free offer closes, the framework pack moves behind a €197 paywall.
-                    </p>
-                    <p style="color: var(--color-gray-medium); margin-bottom: 1.5rem;">
-                        Don't miss the same systems used to produce 74%+ ROAS lifts across fashion brands.
-                    </p>
-                    
-                    <a href="#download-form" class="btn-modern btn-large" style="text-decoration: none;">
-                        🔥 Get The Free Fashion Ad Frameworks
-                    </a>
+
+                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.25rem; font-size: 1.125rem; font-weight: 500; line-height: 1.6;">
+                    Once this free offer closes, the framework pack moves behind a <span style="color: var(--color-warning); font-weight: 700;">$197 paywall</span>.
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.85); margin-bottom: 2.5rem; font-size: 1.125rem; line-height: 1.6;">
+                    Don't miss the same systems used to produce <span style="color: var(--color-success); font-weight: 700;">74%+ ROAS lifts</span> across fashion brands.
+                </p>
+
+                <a href="#download-form" class="btn-modern btn-large" style="text-decoration: none; background: var(--color-success) !important; border-color: var(--color-success) !important; color: white !important; font-size: 1.25rem !important; padding: 1.5rem 3rem !important; box-shadow: 0 8px 24px rgba(40, 167, 69, 0.4) !important;">
+                    Get Your Free Copy Now →
+                </a>
+
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.875rem;">
+                        💎 Total Value: <span style="text-decoration: line-through; opacity: 0.6;">$2,991</span> <span style="color: var(--color-success); font-size: 1.25rem; font-weight: 900; margin-left: 0.5rem;">FREE</span>
+                    </div>
+                    <div style="width: 1px; height: 20px; background: rgba(255, 255, 255, 0.2);"></div>
+                    <div style="color: rgba(255, 255, 255, 0.75); font-size: 0.875rem;">
+                        ✓ Instant download • No credit card
+                    </div>
                 </div>
             </div>
         </div>
@@ -1180,18 +1249,20 @@
                 input.addEventListener('blur', validateField);
             });
             
-            // Radio button styling
+            // Radio button styling (keeping for backwards compatibility if any other forms use it)
             const radioOptions = document.querySelectorAll('.radio-option');
             radioOptions.forEach(option => {
                 option.addEventListener('click', function() {
                     const radio = this.querySelector('input[type="radio"]');
-                    radio.checked = true;
-                    
-                    // Update styling
-                    radioOptions.forEach(opt => opt.classList.remove('selected'));
-                    this.classList.add('selected');
-                    
-                    validateField.call(radio);
+                    if (radio) {
+                        radio.checked = true;
+
+                        // Update styling
+                        radioOptions.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+
+                        validateField.call(radio);
+                    }
                 });
             });
             
@@ -1336,7 +1407,7 @@
                     
                     // Reset button after delay
                     setTimeout(() => {
-                        btnText.textContent = '🎁 Download My Free Frameworks';
+                        btnText.textContent = 'Get Instant Access →';
                         submitBtn.style.background = '';
                         submitBtn.disabled = false;
                         submitBtn.style.pointerEvents = 'auto';
