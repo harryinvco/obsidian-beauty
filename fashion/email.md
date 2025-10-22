@@ -1,6 +1,6 @@
 Hey!
 
-Here’s the download you requested — 3 Fashion & Footwear Ad Frameworks That Increased ROAS by 74% in 90 Days.
+Here’s the download you requested (https://drive.google.com/drive/folders/1fwImxLIDpMFVFhUwtAh5q4ycLAmUI6hK?usp=sharing) — 3 Fashion & Footwear Ad Frameworks That Increased ROAS by 74% in 90 Days.
 
 Inside, you’ll find:
 How a footwear brand scaled 74% ROAS without increasing spend
