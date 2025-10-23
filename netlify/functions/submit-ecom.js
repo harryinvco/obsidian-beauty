@@ -142,11 +142,7 @@ exports.handler = async function(event, context) {
   // Send welcome email with checklist
   if (resend) {
     try {
-      const fs = require('fs');
-      const path = require('path');
-      
-      // Read the HTML email template
-      let emailTemplate = `<!DOCTYPE html>
+      const emailTemplate = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -156,17 +152,18 @@ exports.handler = async function(event, context) {
         /* Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        /* Light mode - default colors */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             background-color: #f8fafc;
-            color: #334155;
+            color: #1e293b;
         }
         
         .email-container {
             max-width: 600px;
             margin: 0 auto;
-            background: white;
+            background: #ffffff;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -174,7 +171,7 @@ exports.handler = async function(event, context) {
         
         .header {
             background: linear-gradient(135deg, #3380AB 0%, #6CAA33 100%);
-            color: white;
+            color: #ffffff;
             padding: 40px 30px;
             text-align: center;
         }
@@ -183,15 +180,22 @@ exports.handler = async function(event, context) {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            opacity: 1;
         }
         
         .header p {
             font-size: 16px;
-            opacity: 0.9;
+            opacity: 1;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
         
         .content {
             padding: 40px 30px;
+            background: #ffffff;
+            color: #1e293b;
         }
         
         .greeting {
@@ -205,12 +209,13 @@ exports.handler = async function(event, context) {
             font-size: 16px;
             line-height: 1.7;
             margin-bottom: 30px;
+            color: #374151;
         }
         
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #3380AB 0%, #6CAA33 100%);
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             padding: 16px 32px;
             border-radius: 8px;
@@ -219,6 +224,14 @@ exports.handler = async function(event, context) {
             text-align: center;
             margin: 20px 0;
             box-shadow: 0 4px 15px rgba(51, 128, 171, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(51, 128, 171, 0.4);
+            color: #ffffff;
         }
         
         .pro-tip {
@@ -234,6 +247,12 @@ exports.handler = async function(event, context) {
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 8px;
+        }
+        
+        .pro-tip-text {
+            font-size: 16px;
+            color: #374151;
+            margin: 0;
         }
         
         .options-section {
@@ -255,6 +274,7 @@ exports.handler = async function(event, context) {
             margin-bottom: 15px;
             padding-left: 20px;
             position: relative;
+            color: #374151;
         }
         
         .option::before {
@@ -276,6 +296,12 @@ exports.handler = async function(event, context) {
             font-weight: 600;
             font-size: 14px;
             margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-cta:hover {
+            background: #3380AB;
+            color: #ffffff;
         }
         
         .signature {
@@ -312,6 +338,84 @@ exports.handler = async function(event, context) {
             text-align: center;
             font-size: 12px;
             color: #64748b;
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1e293b;
+                color: #f1f5f9;
+            }
+            
+            .email-container {
+                background: #1f2937;
+            }
+            
+            .content {
+                background: #1f2937;
+                color: #e5e7eb;
+            }
+            
+            .greeting {
+                color: #f1f5f9;
+            }
+            
+            .main-text {
+                color: #d1d5db;
+            }
+            
+            .pro-tip {
+                background: linear-gradient(135deg, rgba(108, 170, 51, 0.15) 0%, rgba(51, 128, 171, 0.15) 100%);
+                border-left-color: #6CAA33;
+            }
+            
+            .pro-tip-title {
+                color: #f1f5f9;
+            }
+            
+            .pro-tip-text {
+                color: #d1d5db;
+            }
+            
+            .options-section {
+                background: #1f2937;
+                border-color: #374151;
+            }
+            
+            .options-title {
+                color: #f1f5f9;
+            }
+            
+            .option {
+                color: #d1d5db;
+            }
+            
+            .signature-name {
+                color: #f1f5f9;
+            }
+            
+            .signature-title {
+                color: #9ca3af;
+            }
+            
+            .signature-contact {
+                color: #9ca3af;
+            }
+            
+            .footer {
+                background: #111827;
+                color: #9ca3af;
+            }
+            
+            /* Email client compatibility for dark mode */
+            [data-ogsc] .header, [data-ogsc] .header h1, [data-ogsc] .header p {
+                color: #ffffff;
+            }
+            
+            [data-ogsc] .cta-button {
+                color: #ffffff;
+                background: #3380AB;
+            }
         }
         
         @media (max-width: 600px) {
@@ -361,7 +465,7 @@ exports.handler = async function(event, context) {
             
             <div class="pro-tip">
                 <div class="pro-tip-title">🧠 Pro Tip:</div>
-                Most stores are bleeding money in 2–3 key areas — usually in the first 10 questions. Run through the checklist now (takes 10–15 mins) and score yourself honestly.
+                <p class="pro-tip-text">Most stores are bleeding money in 2–3 key areas — usually in the first 10 questions. Run through the checklist now (takes 10–15 mins) and score yourself honestly.</p>
             </div>
             
             <div class="options-section">
@@ -405,6 +509,7 @@ exports.handler = async function(event, context) {
     </div>
 </body>
 </html>`;
+      
       
       // Replace placeholder with actual first name
       const personalizedEmail = emailTemplate.replace('{{firstName}}', firstName.trim() || 'there');

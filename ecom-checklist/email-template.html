@@ -8,37 +8,18 @@
         /* Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* Email client compatibility */
-        [data-ogsc] .header, [data-ogsc] .header h1, [data-ogsc] .header p {
-            color: #ffffff !important;
-        }
-        
-        [data-ogsc] .cta-button {
-            color: #ffffff !important;
-            background: #3380AB !important;
-        }
-        
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            .header, .header h1, .header p {
-                color: #ffffff !important;
-            }
-            .cta-button {
-                color: #ffffff !important;
-            }
-        }
-        
+        /* Light mode - default colors */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             background-color: #f8fafc;
-            color: #334155;
+            color: #1e293b;
         }
         
         .email-container {
             max-width: 600px;
             margin: 0 auto;
-            background: white;
+            background: #ffffff;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -46,7 +27,7 @@
         
         .header {
             background: linear-gradient(135deg, #3380AB 0%, #6CAA33 100%);
-            color: #ffffff !important;
+            color: #ffffff;
             padding: 40px 30px;
             text-align: center;
         }
@@ -55,17 +36,22 @@
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #ffffff !important;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            opacity: 1;
         }
         
         .header p {
             font-size: 16px;
-            opacity: 0.9;
-            color: #ffffff !important;
+            opacity: 1;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
         
         .content {
             padding: 40px 30px;
+            background: #ffffff;
+            color: #1e293b;
         }
         
         .greeting {
@@ -79,12 +65,13 @@
             font-size: 16px;
             line-height: 1.7;
             margin-bottom: 30px;
+            color: #374151;
         }
         
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #3380AB 0%, #6CAA33 100%);
-            color: #ffffff !important;
+            color: #ffffff;
             text-decoration: none;
             padding: 16px 32px;
             border-radius: 8px;
@@ -94,12 +81,13 @@
             margin: 20px 0;
             box-shadow: 0 4px 15px rgba(51, 128, 171, 0.3);
             transition: all 0.3s ease;
+            border: none;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(51, 128, 171, 0.4);
-            color: #ffffff !important;
+            color: #ffffff;
         }
         
         .pro-tip {
@@ -115,6 +103,12 @@
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 8px;
+        }
+        
+        .pro-tip-text {
+            font-size: 16px;
+            color: #374151;
+            margin: 0;
         }
         
         .options-section {
@@ -136,6 +130,7 @@
             margin-bottom: 15px;
             padding-left: 20px;
             position: relative;
+            color: #374151;
         }
         
         .option::before {
@@ -162,7 +157,7 @@
         
         .secondary-cta:hover {
             background: #3380AB;
-            color: white;
+            color: #ffffff;
         }
         
         .signature {
@@ -199,6 +194,84 @@
             text-align: center;
             font-size: 12px;
             color: #64748b;
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1e293b;
+                color: #f1f5f9;
+            }
+            
+            .email-container {
+                background: #1f2937;
+            }
+            
+            .content {
+                background: #1f2937;
+                color: #e5e7eb;
+            }
+            
+            .greeting {
+                color: #f1f5f9;
+            }
+            
+            .main-text {
+                color: #d1d5db;
+            }
+            
+            .pro-tip {
+                background: linear-gradient(135deg, rgba(108, 170, 51, 0.15) 0%, rgba(51, 128, 171, 0.15) 100%);
+                border-left-color: #6CAA33;
+            }
+            
+            .pro-tip-title {
+                color: #f1f5f9;
+            }
+            
+            .pro-tip-text {
+                color: #d1d5db;
+            }
+            
+            .options-section {
+                background: #1f2937;
+                border-color: #374151;
+            }
+            
+            .options-title {
+                color: #f1f5f9;
+            }
+            
+            .option {
+                color: #d1d5db;
+            }
+            
+            .signature-name {
+                color: #f1f5f9;
+            }
+            
+            .signature-title {
+                color: #9ca3af;
+            }
+            
+            .signature-contact {
+                color: #9ca3af;
+            }
+            
+            .footer {
+                background: #111827;
+                color: #9ca3af;
+            }
+            
+            /* Email client compatibility for dark mode */
+            [data-ogsc] .header, [data-ogsc] .header h1, [data-ogsc] .header p {
+                color: #ffffff;
+            }
+            
+            [data-ogsc] .cta-button {
+                color: #ffffff;
+                background: #3380AB;
+            }
         }
         
         @media (max-width: 600px) {
