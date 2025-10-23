@@ -177,30 +177,31 @@ exports.handler = async function(event, context) {
                 background-color: #ffffff;
               }
               
-              .header {
-                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-                padding: 40px 30px;
-                text-align: center;
-              }
-              
-              .header h1 {
-                color: #ffffff;
-                font-size: 28px;
-                font-weight: 700;
-                margin: 0 0 10px 0;
-                line-height: 1.3;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-                opacity: 1;
-              }
-              
-              .header p {
-                color: rgba(255, 255, 255, 1);
-                font-size: 16px;
-                margin: 0;
-                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-              }
-              
-              .content {
+            .header {
+              background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+              padding: 40px 30px;
+              text-align: center;
+            }
+            
+            .header h1 {
+              color: #ffffff;
+              font-size: 28px;
+              font-weight: 700;
+              margin: 0 0 10px 0;
+              line-height: 1.3;
+              text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+              opacity: 1;
+              letter-spacing: -0.5px;
+            }
+            
+            .header p {
+              color: #ffffff;
+              font-size: 16px;
+              margin: 0;
+              text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+              opacity: 1;
+              font-weight: 500;
+            }              .content {
                 padding: 40px 30px;
                 background-color: #ffffff;
                 color: #1e293b;
@@ -452,15 +453,13 @@ exports.handler = async function(event, context) {
                   Here's the download you requested — <strong>A Ready-to-Implement Fashion Campaign That Can Increase Your ROAS by 74% in 90 Days with Near-zero Production Costs</strong>.
                 </p>
 
-                <!-- Download CTA Box -->
-                <div class="download-cta-box">
-                  <p>📥 Download Your Campaign Framework</p>
-                  <a href="https://offers.theobsidianco.com/fashion-frameworks" style="display: inline-block; text-decoration: none;">
-                    Get Instant Access →
-                  </a>
-                </div>
-
-                <!-- What's Inside -->
+              <!-- Download CTA Box -->
+              <div class="download-cta-box">
+                <p>📥 Download Your Campaign Framework</p>
+                <a href="https://drive.google.com/drive/folders/1fwImxLIDpMFVFhUwtAh5q4ycLAmUI6hK?usp=drive_link" style="display: inline-block; text-decoration: none;">
+                  Get Instant Access →
+                </a>
+              </div>                <!-- What's Inside -->
                 <div class="features-box">
                   <p>Inside, you'll find:</p>
                   <ul>
