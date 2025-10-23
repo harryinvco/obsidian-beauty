@@ -184,7 +184,7 @@ exports.handler = async function(event, context) {
             }
             
             .header h1 {
-              color: #ffffff;
+              color: #fbbf24;
               font-size: 28px;
               font-weight: 700;
               margin: 0 0 10px 0;
@@ -195,7 +195,7 @@ exports.handler = async function(event, context) {
             }
             
             .header p {
-              color: #ffffff;
+              color: #fcd34d;
               font-size: 16px;
               margin: 0;
               text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -228,7 +228,7 @@ exports.handler = async function(event, context) {
               }
               
             .download-cta-box p {
-              color: #ffffff;
+              color: #fbbf24;
               font-size: 18px;
               font-weight: 600;
               margin: 0 0 20px 0;
@@ -297,7 +297,7 @@ exports.handler = async function(event, context) {
               .secondary-cta a {
                 display: inline-block;
                 background: #1a1a1a;
-                color: #ffffff;
+                color: #fbbf24;
                 padding: 14px 28px;
                 text-decoration: none;
                 border-radius: 6px;
@@ -308,6 +308,7 @@ exports.handler = async function(event, context) {
               
               .secondary-cta a:hover {
                 background: #2d2d2d;
+                color: #fcd34d;
               }
               
               .signature {
