@@ -51,6 +51,17 @@
   to = "/fashion/:splat"
   status = 200
 
+# Serve ecommerce page at /ecommerce path
+[[redirects]]
+  from = "/ecommerce"
+  to = "/ecommerce/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ecommerce/*"
+  to = "/ecommerce/:splat"
+  status = 200
+
 # Block digital-products from production (only accessible in dev/preview)
 [[redirects]]
   from = "/digital-products"
@@ -85,6 +96,11 @@
 [[redirects]]
   from = "/fashion/thank-you"
   to = "/fashion/thank-you.html"
+  status = 200
+
+[[redirects]]
+  from = "/ecommerce/thank-you"
+  to = "/ecommerce/thank-you.html"
   status = 200
 
 [[headers]]
