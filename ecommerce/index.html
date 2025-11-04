@@ -287,40 +287,6 @@
             color: var(--primary);
         }
 
-        /* Stats Bar */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-xl);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--secondary);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
-
         /* Trust Badges */
         .trust-badges {
             display: flex;
@@ -379,22 +345,43 @@
 
         .problem-card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
+            padding: 2.5rem;
+            border-radius: var(--radius-2xl);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.08);
             border-left: 4px solid var(--danger);
-            transition: all var(--transition-slow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.02), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .problem-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-2xl);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(220, 53, 69, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left-width: 5px;
+        }
+
+        .problem-card:hover::after {
+            opacity: 1;
         }
 
         .problem-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: block;
+            position: relative;
+            z-index: 1;
         }
 
         /* Solution Cards */
@@ -406,23 +393,50 @@
         }
 
         .solution-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--white) 0%, rgba(40, 167, 69, 0.02) 100%);
+            padding: 3rem;
+            border-radius: var(--radius-2xl);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.08);
             border-top: 4px solid var(--secondary);
-            transition: all var(--transition-slow);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(40, 167, 69, 0.08), transparent 70%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
         .solution-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-2xl);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(40, 167, 69, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .solution-card:hover::before {
+            opacity: 1;
         }
 
         .solution-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: block;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 2px 8px rgba(40, 167, 69, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover .solution-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         /* Awards Section */
@@ -435,18 +449,19 @@
 
         .award-card {
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: var(--radius-xl);
             text-align: center;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
             border: 2px solid var(--gray-200);
-            transition: all var(--transition-slow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .award-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-2xl);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
             border-color: var(--color-black);
+            border-width: 3px;
         }
 
         .award-image {
@@ -478,10 +493,30 @@
 
         .testimonial-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
             position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 6rem;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.05);
+            font-family: Georgia, serif;
+            font-weight: 700;
+            z-index: 0;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12), 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
         .testimonial-quote {
@@ -490,12 +525,16 @@
             margin-bottom: 1.5rem;
             font-style: italic;
             color: var(--gray-700);
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-avatar {
@@ -526,31 +565,96 @@
         .result-card {
             background: linear-gradient(135deg, var(--color-black) 0%, var(--color-charcoal) 100%);
             color: var(--white);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: var(--radius-xl);
             text-align: center;
-            box-shadow: var(--shadow-xl);
-            transition: all var(--transition-slow);
-            border: 1px solid var(--color-charcoal-light);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .result-card:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: var(--shadow-2xl);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(40, 167, 69, 0.3);
+        }
+
+        .result-card:hover::before {
+            opacity: 1;
         }
 
         .result-number {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 900;
             line-height: 1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: var(--secondary);
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 4px 12px rgba(40, 167, 69, 0.2));
         }
 
         .result-label {
-            font-size: 1rem;
+            font-size: 1.125rem;
+            color: var(--white);
             opacity: 0.95;
             font-weight: 600;
+            position: relative;
+            z-index: 1;
+            line-height: 1.5;
+        }
+
+        /* Team Image */
+        .team-section {
+            text-align: center;
+            margin: 5rem auto 4rem;
+            max-width: 800px;
+        }
+
+        .team-image-container {
+            text-align: center;
+            position: relative;
+            margin: 2rem auto;
+        }
+
+        .team-image {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 3px solid rgba(40, 167, 69, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 56px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.12);
+            border-color: var(--secondary);
+        }
+
+        .team-caption {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            line-height: 1.6;
         }
 
         /* Value Stack */
@@ -653,10 +757,18 @@
 
         .faq-item {
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: var(--radius-lg);
             margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid transparent;
+        }
+
+        .faq-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+            border-left-color: var(--secondary);
         }
 
         .faq-question {
@@ -683,11 +795,6 @@
         @media (max-width: 768px) {
             .section {
                 padding: 3rem 0;
-            }
-
-            .stats-bar {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
             .btn {
@@ -749,7 +856,7 @@
                 </h1>
 
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    The proven blueprint that helped <strong>50+ eCommerce brands</strong> break through their revenue plateau using our award-winning frameworks — <strong>without burning more ad budget</strong>.
+                    The proven blueprint that <strong>50+ eCommerce brands</strong> used to break through their revenue plateau and scale profitably — <strong>without wasting ad spend or guessing what works</strong>.
                 </p>
 
                 <div data-aos="fade-up" data-aos-delay="200">
@@ -758,26 +865,7 @@
                     </a>
                 </div>
 
-                <div class="stats-bar" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-item">
-                        <span class="stat-number">€47M+</span>
-                        <span class="stat-label">Revenue Generated</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Brands Scaled</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">238+</span>
-                        <span class="stat-label">Campaigns Launched</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">#1</span>
-                        <span class="stat-label">On Clutch 2025</span>
-                    </div>
-                </div>
-
-                <div class="trust-badges" data-aos="fade-up" data-aos-delay="400">
+                <div class="trust-badges" data-aos="fade-up" data-aos-delay="300">
                     <div class="trust-badge-item">
                         <span>⭐⭐⭐⭐⭐</span>
                         <span>50+ 5-Star Reviews</span>
@@ -846,10 +934,10 @@
 
             <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
                 <p style="font-size: 1.5rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem;">
-                    Sound familiar? You're not alone.
+                    If this sounds familiar, you're in the right place.
                 </p>
                 <p style="font-size: 1.125rem; color: var(--gray-600);">
-                    We've helped 50+ brands break through this exact plateau.
+                    We've helped 50+ eCommerce brands break through this exact plateau and scale to 7 figures.
                 </p>
             </div>
         </div>
@@ -917,9 +1005,9 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-label">CREDIBILITY</span>
-                <h2>Award-Winning Agency Trusted by Leading Brands</h2>
+                <h2>Recognized by Industry Leaders. Trusted by Growing Brands.</h2>
                 <p style="font-size: 1.125rem; color: var(--gray-600);">
-                    We're not just another agency. We're a <strong style="color: var(--primary);">recognized leader</strong> in performance marketing.
+                    We're the <strong style="color: var(--primary);">#1 rated marketing agency on Clutch</strong> with a proven track record of driving €47M+ in revenue for eCommerce brands.
                 </p>
             </div>
 
@@ -948,6 +1036,25 @@
                     <div style="background: var(--gray-100); padding: 0.75rem; border-radius: var(--radius-md); margin-top: 1rem;">
                         <p style="color: var(--gray-900); font-weight: 700; margin: 0;">Industry Recognition</p>
                     </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="team-section" data-aos="fade-up">
+                <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem;">
+                    Meet the Team Behind Your Success
+                </h3>
+                <p style="font-size: 1.125rem; color: var(--gray-600); margin-bottom: 2rem;">
+                    We're not just strategists — we're growth partners invested in your success.
+                </p>
+                <div class="team-image-container">
+                    <img src="../images/obsidian-team.webp"
+                         alt="The Obsidian Co Team"
+                         class="team-image"
+                         loading="lazy">
+                    <p class="team-caption">
+                        A dedicated team of strategists, designers, and performance marketers who've scaled 50+ eCommerce brands to 7 figures
+                    </p>
                 </div>
             </div>
 
@@ -1215,36 +1322,6 @@
                 }
             });
         });
-
-        // Add GSAP animations for stats on scroll
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.utils.toArray('.stat-number').forEach(stat => {
-                const text = stat.textContent;
-                const number = parseFloat(text.replace(/[^0-9.]/g, ''));
-                const suffix = text.replace(/[0-9.]/g, '');
-
-                stat.textContent = '0';
-
-                ScrollTrigger.create({
-                    trigger: stat,
-                    start: 'top 80%',
-                    once: true,
-                    onEnter: () => {
-                        gsap.to(stat, {
-                            textContent: number,
-                            duration: 2,
-                            ease: 'power1.out',
-                            snap: { textContent: 1 },
-                            onUpdate: function() {
-                                stat.textContent = Math.round(this.targets()[0].textContent) + suffix;
-                            }
-                        });
-                    }
-                });
-            });
-        }
     </script>
 </body>
 </html>
