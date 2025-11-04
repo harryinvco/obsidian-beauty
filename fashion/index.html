@@ -28,17 +28,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap" rel="stylesheet">
     <link rel="preload" href="images/obsidian-team.webp" as="image" fetchpriority="high">
 
-    <!-- PostHog Analytics -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Ce js Ls Te Fs Ds capture Ye calculateEventProperties zs register register_once register_for_session unregister unregister_for_session Ws getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Bs Us createPersonProfile Hs Ms Gs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Ns debug L qs getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_O6mcOhJzwoSQzkHU2DGpEMYTiygqfcIT6NEwmEztOSw', {
-            api_host: 'https://eu.i.posthog.com',
-            defaults: '2025-05-24',
-            person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-        })
-    </script>
-    <!-- End PostHog Analytics -->
-    
     <!-- Animation Libraries -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -1339,17 +1328,7 @@
                     data.utm_term = urlParams.get('utm_term') || '';
                     data.utm_content = urlParams.get('utm_content') || '';
                     data.landing_path = window.location.pathname;
-                    
-                    // Track form start
-                    if (typeof posthog !== 'undefined') {
-                        posthog.capture('fashion_form_submit_attempt', {
-                            email_domain: data.email.split('@')[1],
-                            ad_spend: data.adSpend,
-                            monthly_revenue: data.monthlyRevenue,
-                            growth_challenge: data.growthChallenge
-                        });
-                    }
-                    
+
                     const res = await fetch('/.netlify/functions/submit-fashion', {
                         method: 'POST',
                         headers: {
@@ -1361,18 +1340,6 @@
                     const result = await res.json();
                     
                     if (res.ok) {
-                        // Success tracking
-                        if (typeof posthog !== 'undefined') {
-                            posthog.capture('fashion_lead_form_submit_success', {
-                                email: data.email,
-                                firstName: data.firstName,
-                                website: data.website,
-                                adSpend: data.adSpend,
-                                monthlyRevenue: data.monthlyRevenue,
-                                growthChallenge: data.growthChallenge
-                            });
-                        }
-                        
                         // Success feedback before redirect
                         btnText.textContent = '✅ Success! Redirecting...';
                         btnText.style.display = 'block';
@@ -1388,14 +1355,7 @@
                     }
                 } catch (error) {
                     console.error('Submission error:', error);
-                    
-                    // Error tracking
-                    if (typeof posthog !== 'undefined') {
-                        posthog.capture('fashion_form_submit_error', {
-                            error: error.message
-                        });
-                    }
-                    
+
                     // Show user-friendly error
                     btnText.textContent = '❌ Error - Please try again';
                     btnText.style.display = 'block';

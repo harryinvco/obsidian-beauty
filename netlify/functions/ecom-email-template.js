@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+// Function to get the HTML email template for ecom-checklist funnel
+function getEcomEmailTemplate(firstName) {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +9,7 @@
     <style>
         /* Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         /* Light mode - default colors */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -15,7 +17,7 @@
             background-color: #f8fafc;
             color: #1e293b;
         }
-        
+
         .email-container {
             max-width: 600px;
             margin: 0 auto;
@@ -24,14 +26,14 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-        
+
         .header {
             background: linear-gradient(135deg, #3380AB 0%, #6CAA33 100%);
             color: #ffffff;
             padding: 40px 30px;
             text-align: center;
         }
-        
+
         .header h1 {
             font-size: 28px;
             font-weight: 700;
@@ -40,34 +42,34 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             opacity: 1;
         }
-        
+
         .header p {
             font-size: 16px;
             opacity: 1;
             color: #ffffff;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-        
+
         .content {
             padding: 40px 30px;
             background: #ffffff;
             color: #1e293b;
         }
-        
+
         .greeting {
             font-size: 18px;
             font-weight: 600;
             color: #1e293b;
             margin-bottom: 20px;
         }
-        
+
         .main-text {
             font-size: 16px;
             line-height: 1.7;
             margin-bottom: 30px;
             color: #374151;
         }
-        
+
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #3380AB 0%, #6CAA33 100%);
@@ -83,13 +85,13 @@
             transition: all 0.3s ease;
             border: none;
         }
-        
+
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(51, 128, 171, 0.4);
             color: #ffffff;
         }
-        
+
         .pro-tip {
             background: linear-gradient(135deg, rgba(108, 170, 51, 0.08) 0%, rgba(51, 128, 171, 0.08) 100%);
             border-left: 4px solid #6CAA33;
@@ -97,20 +99,20 @@
             margin: 25px 0;
             border-radius: 8px;
         }
-        
+
         .pro-tip-title {
             font-size: 16px;
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 8px;
         }
-        
+
         .pro-tip-text {
             font-size: 16px;
             color: #374151;
             margin: 0;
         }
-        
+
         .options-section {
             background: #f8fafc;
             padding: 25px;
@@ -118,21 +120,21 @@
             border-radius: 8px;
             border: 1px solid #e2e8f0;
         }
-        
+
         .options-title {
             font-size: 18px;
             font-weight: 600;
             color: #1e293b;
             margin-bottom: 15px;
         }
-        
+
         .option {
             margin-bottom: 15px;
             padding-left: 20px;
             position: relative;
             color: #374151;
         }
-        
+
         .option::before {
             content: "→";
             position: absolute;
@@ -140,7 +142,7 @@
             color: #6CAA33;
             font-weight: bold;
         }
-        
+
         .secondary-cta {
             display: inline-block;
             background: transparent;
@@ -154,40 +156,40 @@
             margin-top: 10px;
             transition: all 0.3s ease;
         }
-        
+
         .secondary-cta:hover {
             background: #3380AB;
             color: #ffffff;
         }
-        
+
         .signature {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #e2e8f0;
         }
-        
+
         .signature-name {
             font-weight: 600;
             color: #1e293b;
             font-size: 16px;
         }
-        
+
         .signature-title {
             color: #64748b;
             font-size: 14px;
             margin-bottom: 8px;
         }
-        
+
         .signature-contact {
             font-size: 14px;
             color: #64748b;
         }
-        
+
         .signature-contact a {
             color: #3380AB;
             text-decoration: none;
         }
-        
+
         .footer {
             background: #f1f5f9;
             padding: 20px 30px;
@@ -195,99 +197,99 @@
             font-size: 12px;
             color: #64748b;
         }
-        
+
         /* Dark mode support */
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #1e293b;
                 color: #f1f5f9;
             }
-            
+
             .email-container {
                 background: #1f2937;
             }
-            
+
             .content {
                 background: #1f2937;
                 color: #e5e7eb;
             }
-            
+
             .greeting {
                 color: #f1f5f9;
             }
-            
+
             .main-text {
                 color: #d1d5db;
             }
-            
+
             .pro-tip {
                 background: linear-gradient(135deg, rgba(108, 170, 51, 0.15) 0%, rgba(51, 128, 171, 0.15) 100%);
                 border-left-color: #6CAA33;
             }
-            
+
             .pro-tip-title {
                 color: #f1f5f9;
             }
-            
+
             .pro-tip-text {
                 color: #d1d5db;
             }
-            
+
             .options-section {
                 background: #1f2937;
                 border-color: #374151;
             }
-            
+
             .options-title {
                 color: #f1f5f9;
             }
-            
+
             .option {
                 color: #d1d5db;
             }
-            
+
             .signature-name {
                 color: #f1f5f9;
             }
-            
+
             .signature-title {
                 color: #9ca3af;
             }
-            
+
             .signature-contact {
                 color: #9ca3af;
             }
-            
+
             .footer {
                 background: #111827;
                 color: #9ca3af;
             }
-            
+
             /* Email client compatibility for dark mode */
             [data-ogsc] .header, [data-ogsc] .header h1, [data-ogsc] .header p {
                 color: #ffffff;
             }
-            
+
             [data-ogsc] .cta-button {
                 color: #ffffff;
                 background: #3380AB;
             }
         }
-        
+
         @media (max-width: 600px) {
             .email-container {
                 margin: 0;
                 border-radius: 0;
             }
-            
+
             .header, .content {
                 padding: 30px 20px;
             }
-            
+
             .header h1 {
                 font-size: 24px;
             }
-            
+
             .cta-button {
                 display: block;
                 text-align: center;
@@ -301,36 +303,36 @@
             <h1>🎯 Your Checklist is Ready!</h1>
             <p>The exact 23-point audit that's helped 56+ stores find €12K+ in revenue leaks</p>
         </div>
-        
+
         <div class="content">
-            <div class="greeting">Hey {{firstName}},</div>
-            
+            <div class="greeting">Hey ${firstName},</div>
+
             <div class="main-text">
                 Thanks for grabbing the <strong>eCom Growth Leak Checklist</strong> — here's your instant access:
             </div>
-            
+
             <div style="text-align: center;">
                 <a href="https://obsidianco.notion.site/The-Obsidian-eCom-Growth-Leak-Checklist-284035fa86b480e5b7a3c871bae7d249?source=copy_link" class="cta-button">
                     🚀 Access Your Checklist Now
                 </a>
             </div>
-            
+
             <div class="main-text">
                 This is the exact 23-point audit we use with our clients to fix revenue leaks in their paid ads, landing pages, and retention flows.
             </div>
-            
+
             <div class="pro-tip">
                 <div class="pro-tip-title">🧠 Pro Tip:</div>
-                Most stores are bleeding money in 2–3 key areas — usually in the first 10 questions. Run through the checklist now (takes 10–15 mins) and score yourself honestly.
+                <p class="pro-tip-text">Most stores are bleeding money in 2–3 key areas — usually in the first 10 questions. Run through the checklist now (takes 10–15 mins) and score yourself honestly.</p>
             </div>
-            
+
             <div class="options-section">
                 <div class="options-title">Once you've done that, you've got 2 solid options:</div>
-                
+
                 <div class="option">
                     <strong>Fix it yourself</strong> (the checklist shows you where to start)
                 </div>
-                
+
                 <div class="option">
                     <strong>Save time →</strong> book a free 15-min Leak Fix Call and I'll walk you through exactly what to fix first.
                     <br>
@@ -339,15 +341,15 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="main-text">
                 <strong>No pitch. Just clarity.</strong>
             </div>
-            
+
             <div class="main-text">
                 Let me know if you hit any snags — happy to help.
             </div>
-            
+
             <div class="signature">
                 <div class="signature-name">Talk soon,<br>—Mike</div>
                 <div class="signature-title">COO, The Obsidian Co.™</div>
@@ -357,11 +359,48 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="footer">
             <p>© 2025 The Obsidian Co. All rights reserved.</p>
             <p style="margin-top: 5px;">You received this email because you downloaded our eCom Growth Leak Checklist.</p>
         </div>
     </div>
 </body>
-</html>
+</html>`;
+}
+
+// Function to render the email template with dynamic data
+function renderEcomEmail(firstName) {
+  return getEcomEmailTemplate(firstName || 'there');
+}
+
+// Function to get plain text version of the email
+function getEcomEmailText(firstName) {
+  return `Hey ${firstName || 'there'},
+
+Thanks for grabbing the eCom Growth Leak Checklist — here is the link: https://obsidianco.notion.site/The-Obsidian-eCom-Growth-Leak-Checklist-284035fa86b480e5b7a3c871bae7d249?source=copy_link
+
+This is the exact 23-point audit we use with our clients to fix revenue leaks in their paid ads, landing pages, and retention flows.
+
+🧠 Pro Tip: Most stores are bleeding money in 2–3 key areas — usually in the first 10 questions. Run through the checklist now (takes 10–15 mins) and score yourself honestly.
+
+Once you've done that, you've got 2 solid options:
+
+→ Fix it yourself (the checklist shows you where to start)
+→ Or if you'd rather save time → book a free 15-min Leak Fix Call (https://calendly.com/mnikolaou-toc/lets-talk-15min) and I'll walk you through exactly what to fix first.
+
+No pitch. Just clarity.
+
+Let me know if you hit any snags — happy to help.
+
+Talk soon,
+—Mike
+COO, The Obsidian Co.™
+mnikolaou@theobsidianco.com
+www.theobsidianco.com`;
+}
+
+module.exports = {
+  renderEcomEmail,
+  getEcomEmailText
+};
