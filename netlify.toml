@@ -73,6 +73,22 @@
   to = "/ecommerce/:splat"
   status = 200
 
+# Serve offers at /offers path
+[[redirects]]
+  from = "/offers"
+  to = "/offers/free-campaign/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/offers/free-campaign"
+  to = "/offers/free-campaign/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/offers/*"
+  to = "/offers/:splat"
+  status = 200
+
 # Block digital-products from production (only accessible in dev/preview)
 [[redirects]]
   from = "/digital-products"
@@ -117,6 +133,11 @@
 [[redirects]]
   from = "/ecommerce/thank-you"
   to = "/ecommerce/thank-you.html"
+  status = 200
+
+[[redirects]]
+  from = "/offers/free-campaign/thank-you"
+  to = "/offers/free-campaign/thank-you.html"
   status = 200
 
 [[headers]]
